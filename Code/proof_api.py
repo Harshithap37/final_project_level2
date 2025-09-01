@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 import re, os, json, subprocess, sys, tempfile, textwrap, shlex, resource, signal, time
+import torch  # keep near top for clarity
 
 # Reuse the already-loaded LLaMA-3 model to avoid double VRAM/CPU
 # (Make sure proof_api.py sits in the same folder as llama3_api.py)
@@ -110,23 +111,27 @@ def _run_z3py(code: str, timeout_sec: int = 8) -> dict:
     """
     Run z3py code in a restricted subprocess.
     Requires 'z3-solver' to be installed in the environment.
+
+    Fix: ensure wrapper has no leading indentation and indent user code
+    under the try: block, avoiding top-level IndentationError.
     """
-    wrapper = textwrap.dedent(f"""
+    # Indent user code so it sits under "try:" cleanly
+    user_code = textwrap.indent(code.rstrip() + "\n", "    ")
+
+    wrapper = textwrap.dedent(f"""\
     import sys, json, traceback, signal, resource, os
     def _limit():
-        import resource
         # ~320MB & 5s CPU guard inside child
         resource.setrlimit(resource.RLIMIT_AS, (335544320, 335544320))
         resource.setrlimit(resource.RLIMIT_CPU, (5, 5))
     _limit()
     try:
-        # User code starts
-        {code}
-    except Exception as e:
+{user_code}except Exception as e:
         print("RUNTIME_ERROR:", e, file=sys.stderr)
         traceback.print_exc()
         sys.exit(2)
     """)
+
     with tempfile.NamedTemporaryFile("w", suffix=".py", delete=False) as f:
         f.write(wrapper)
         path = f.name
@@ -167,8 +172,6 @@ def _run_z3py(code: str, timeout_sec: int = 8) -> dict:
             pass
 
 # --------------------------- Routes ---------------------------
-import torch  # placed here to avoid mypy complaints earlier
-
 @app.post("/prove")
 def prove(inp: ProveIn):
     tool = (inp.tool or "").lower().strip()
