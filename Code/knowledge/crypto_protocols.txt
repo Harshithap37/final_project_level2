@@ -1,0 +1,9 @@
+Formal verification has been applied to security protocols.
+
+- TLS 1.3 has been verified using Tamarin prover.
+- Needham–Schroeder protocol was shown to be flawed (using model checking).
+- ProVerif automates many crypto protocol analyses.
+
+Benefits:
+- Detect flaws early
+- Increase trustworthiness of deployed systems

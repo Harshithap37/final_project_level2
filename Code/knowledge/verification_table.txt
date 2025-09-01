@@ -1,0 +1,6 @@
+Technique          | Strengths                         | Weaknesses
+------------------ | --------------------------------- | -----------------
+Model Checking     | Automatic, counterexamples        | State explosion
+Interactive Proving| Very expressive, trusted proofs   | Manual effort
+SMT Solving        | Fast, scalable for constraints    | Limited expressiveness
+Static Analysis    | Lightweight, early error finding  | False positives

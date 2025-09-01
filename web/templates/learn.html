@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Learn — AxiomAI{% endblock %}
+{% block content %}
+<h2 class="section-title">Learn</h2>
+<div class="grid">
+  <article class="card"><div class="card-inner">
+    <h3>What is Formal Verification?</h3>
+    <p>Formal verification uses mathematical proofs to establish properties about software/hardware systems.</p>
+    <ul>
+      <li>Model checking (state-space exploration)</li>
+      <li>Theorem proving (interactive &amp; automated)</li>
+      <li>Abstract interpretation &amp; static analysis</li>
+    </ul>
+  </div></article>
+
+  <article class="card"><div class="card-inner">
+    <h3>Logic Foundations</h3>
+    <p>HOL, dependent types, temporal logics (LTL/CTL), Hoare logic, refinement.</p>
+  </div></article>
+
+  <article class="card"><div class="card-inner">
+    <h3>Suggested Path</h3>
+    <ol>
+      <li>Pick a proof assistant (Isabelle/HOL, Coq, Lean)</li>
+      <li>Finish a small case study end-to-end</li>
+      <li>Add SMT/model checker integrations</li>
+    </ol>
+  </div></article>
+</div>
+{% endblock %}

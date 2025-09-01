@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}AxiomAI — Formal Verification & Proof Assistants{% endblock %}</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <script>
+    window.FLASK_ASK_ENDPOINT   = "{{ url_for('ask') }}";
+    window.STATUS_ENDPOINT      = "{{ url_for('health') }}";
+    window.METRICS_ENDPOINT     = "{{ url_for('metrics') }}"; 
+    window.DEFAULT_TEMPERATURE  = 0.20;
+  </script>
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="glow-dot"></span>
+      <div class="brand-text">
+        <div class="title">AxiomAI — Formal Verification & Proof Assistants</div>
+        <div class="subtitle">Backed by LLaMA-3 on Stanage (SSH tunnel)</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a class="nav-pill {% if request.endpoint=='index' %}active{% endif %}" href="{{ url_for('index') }}">Home</a>
+      <a class="nav-pill {% if request.endpoint=='learn' %}active{% endif %}" href="{{ url_for('learn') }}">Learn</a>
+      <a class="nav-pill {% if request.endpoint=='resources' %}active{% endif %}" href="{{ url_for('resources') }}">Resources</a>
+      <a class="nav-pill {% if request.endpoint=='tools' %}active{% endif %}" href="{{ url_for('tools') }}">Tools</a>
+      <a class="nav-pill {% if request.endpoint=='metrics_page' %}active{% endif %}" href="{{ url_for('metrics_page') }}">Metrics</a>
+      <a class="nav-pill {% if request.endpoint=='upload_page' %}active{% endif %}" href="{{ url_for('upload_page') }}">Upload</a>
+      <button id="settings-btn" class="nav-pill ghost" type="button">Settings</button>
+    </nav>
+  </header>
+
+  <!-- Page content -->
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div>© 2025 AxiomAI • Formal Methods & Proof Assistants</div>
+    <div class="backend">
+      <span id="status-dot" class="dot danger"></span>
+      <span id="latency" class="latency">—</span>
+      <span class="muted">Backend</span>
+    </div>
+  </footer>
+
+    <!-- Settings Modal -->
+    <dialog id="settings-modal" class="settings">
+      <div class="settings-head">
+        <h3>Settings</h3>
+        <button id="settings-close" class="btn ghost" aria-label="Close settings">✕</button>
+      </div>
+  
+      <div class="settings-body">
+        <!-- Temperature -->
+        <label class="field">
+          <span>Creativity (temperature): <strong id="temp-val">0.20</strong></span>
+          <input id="temp-range" type="range" min="0.0" max="1.0" step="0.05" value="0.20" />
+          <small class="hint">Lower = more factual, Higher = more creative</small>
+        </label>
+  
+        <!-- RAG toggle -->
+        <label class="field switch">
+          <input type="checkbox" id="use-rag-settings" checked />
+          <span>Use knowledge (RAG)</span>
+          <small class="hint">Augment answers with your Knowledge files when relevant.</small>
+        </label>
+  
+        <!-- Retrieval mode -->
+        <label class="field">
+          <span>Retrieval mode</span>
+          <select id="retrieval-mode">
+            <option value="hybrid" selected>Hybrid (Dense + BM25)</option>
+            <option value="dense">Dense (FAISS embeddings)</option>
+            <option value="bm25">BM25 (keyword)</option>
+          </select>
+          <small class="hint">Used when “Use knowledge (RAG)” is ON.</small>
+        </label>
+      </div>
+  
+      <div class="settings-actions">
+        <button id="settings-close-2" class="btn">Done</button>
+      </div>
+    </dialog>
+  
+    <!-- Three.js + extras -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+  
+    <!-- Modal syncing -->
+    <script>
+      (function wireSettingsModal(){
+        const btn  = document.getElementById("settings-btn");
+        const dlg  = document.getElementById("settings-modal");
+        const xBtn = document.getElementById("settings-close");
+        const done = document.getElementById("settings-close-2");
+  
+        const ragMain  = document.getElementById("use-rag");
+        const ragModal = document.getElementById("use-rag-settings");
+  
+        const modeSel  = document.getElementById("retrieval-mode");
+  
+        function copyToModal(){
+          if (ragMain && ragModal) ragModal.checked = !!ragMain.checked;
+          // nothing to sync for retrieval mode (lives only in modal)
+        }
+        function copyToMain(){
+          if (ragMain && ragModal) ragMain.checked  = !!ragModal.checked;
+        }
+        function publishRetrieval(){
+          window.RETRIEVAL_MODE = (modeSel?.value || "hybrid");
+        }
+  
+        btn?.addEventListener("click", ()=>{ copyToModal(); dlg?.showModal(); publishRetrieval(); });
+        xBtn?.addEventListener("click", ()=> dlg?.close());
+        done?.addEventListener("click", ()=> dlg?.close());
+        dlg?.addEventListener("close", ()=>{ copyToMain(); publishRetrieval(); });
+        ragModal?.addEventListener("change", copyToMain);
+        modeSel?.addEventListener("change", publishRetrieval);
+  
+        // initial default
+        publishRetrieval();
+      })();
+    </script>
+  
+    <!-- Main app JS -->
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>

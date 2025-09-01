@@ -1,0 +1,2 @@
+Model checking explores the state-space of a system model to verify properties like safety and liveness.
+Tools include SPIN (Promela), TLC (for TLA+), and nuXmv for symbolic model checking.

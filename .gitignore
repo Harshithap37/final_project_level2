@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+hf-cache/
+Output/*
+!Output/.gitkeep
+.mypy_cache/
+.ipynb_checkpoints/
+node_modules/
+*.log
+.DS_Store
+blockmgr-*/
+spark-*/

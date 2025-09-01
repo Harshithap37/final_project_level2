@@ -1,0 +1,31 @@
+{"id": 1, "question": "What is Isabelle/HOL used for?"}
+{"id": 2, "question": "Explain the difference between proof automation and interactive proving."}
+{"id": 3, "question": "Summarize the main ideas of Proof Assistants: History, Ideas and Future by Geuvers."}
+{"id": 4, "question": "What are SMT solvers and where are they used?"}
+{"id": 5, "question": "How do model checking and theorem proving differ?"}
+{"id": 6, "question": "How does Lean differ from Coq in proof development?"}
+{"id": 7, "question": "What are the challenges in formal verification of safety-critical systems?"}
+{"id": 8, "question": "How can model checking be applied in verifying security properties?"}
+{"id": 9, "question": "What role do proof assistants play in mathematical proofs?"}
+{"id": 10, "question": "What future improvements does Geuvers suggest for proof assistants?"}
+{"id": 11, "question": "Compare the advantages of Isabelle/HOL and Coq in handling dependent types. Which is more expressive, and why?"}
+{"id": 12, "question": "Which proof assistant was used to verify the seL4 microkernel, and where is it mentioned in the knowledge base?"}
+{"id": 13, "question": "From the uploaded CSV or DOCX files, which assistant scored highest for proof automation?"}
+{"id": 14, "question": "Did HOL Light prove the Riemann Hypothesis? Justify your answer."}
+{"id": 15, "question": "Which assistant is most suitable for category theory proofs, according to the knowledge documents?"}
+{"id": 16, "question": "What theorem was proven in the Four Color Theorem project, and which assistant was used?"}
+{"id": 17, "question": "Has Coq been used to formally verify the Linux kernel 6.0? Explain clearly."}
+{"id": 18, "question": "Which assistant is commonly used for verifying cryptographic protocols?"}
+{"id": 19, "question": "Show a short Coq script that demonstrates proof by induction."}
+{"id": 20, "question": "What retrieval mode are you using right now (dense, BM25, or hybrid), and how does it affect your answer?"}
+{"id": 21, "question": "According to the PDF overview, what are the three main historical milestones in the evolution of proof assistants?"}
+{"id": 22, "question": "The PDF mentions the 'de Bruijn criterion.' What does it mean, and why is it important for proof assistants?"}
+{"id": 23, "question": "From the PDF, summarize how proof assistants contribute to both mathematics and computer science communities."}
+{"id": 24, "question": "According to the overview PDF, what challenges do proof assistants face in achieving wider adoption?"}
+{"id": 25, "question": "What role does the Curry–Howard correspondence play in the design of proof assistants, as described in the PDF?"}
+{"id": 26, "question": "Which proof assistant does the PDF cite as central to the Four Color Theorem formalization?"}
+{"id": 27, "question": "In the PDF, how are SMT solvers described as complementary to interactive theorem provers?"}
+{"id": 28, "question": "According to the PDF, what are some examples of verified real-world software systems?"}
+{"id": 29, "question": "The PDF overview suggests improvements for usability in proof assistants. List two of them."}
+{"id": 30, "question": "Does the PDF claim that proof assistants can fully replace mathematicians in proving theorems? Explain."}
+{"id": 31, "question": "In the overview PDF, what are the trade-offs of hammer-style tactics?"}

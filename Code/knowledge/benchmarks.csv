@@ -1,0 +1,7 @@
+Tool,Technique,Domain,Avg_Latency_ms,Notes
+Coq,Interactive Theorem Proving,Mathematics,2300,Strong dependent type support
+Isabelle,HOL Automation,Formal Verification,1800,Sledgehammer automation
+Lean,Dependent Types,Mathematics,2500,Mathlib is extensive
+Z3,SMT Solving,Constraints,900,Good for bounded proofs
+SPIN,Model Checking,Concurrent Systems,1200,Excellent with LTL
+NuSMV,Model Checking,Hardware Verification,1400,Supports CTL and LTL

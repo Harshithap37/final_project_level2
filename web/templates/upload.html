@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Upload Knowledge — AxiomAI{% endblock %}
+{% block content %}
+<section class="card" style="padding:20px">
+  <h2>Upload Knowledge</h2>
+  <p>
+    Files are sent to the backend’s <code>knowledge/</code> folder and indexed automatically.<br>
+    Supported: <strong>.pdf, .txt, .md, .docx, .csv</strong>
+  </p>
+
+  <form id="upform">
+    <input type="file" id="file" accept=".pdf,.txt,.md,.docx,.csv" required />
+    <button class="btn primary" type="submit" id="upbtn">Upload & Reindex</button>
+  </form>
+
+  <button class="btn ghost" id="reindex-btn" style="margin-top:10px">Reindex Only</button>
+
+  <pre id="upout" style="margin-top:12px; white-space:pre-wrap"></pre>
+</section>
+
+<script>
+document.getElementById('upform').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const fileInput = document.getElementById('file');
+  const out = document.getElementById('upout');
+  const btn = document.getElementById('upbtn');
+
+  if (!fileInput.files.length) return;
+
+  const fd = new FormData();
+  fd.append("file", fileInput.files[0]);
+
+  out.textContent = "Uploading...";
+  btn.disabled = true;
+
+  try {
+    const r = await fetch("{{ url_for('upload') }}", { method: "POST", body: fd });
+    const js = await r.json();
+    out.textContent = JSON.stringify(js, null, 2);
+  } catch (err) {
+    out.textContent = "Error: " + err;
+  } finally {
+    btn.disabled = false;
+    fileInput.value = "";
+  }
+});
+
+document.getElementById('reindex-btn').addEventListener('click', async () => {
+  const out = document.getElementById('upout');
+  out.textContent = "Reindexing...";
+  try {
+    const r = await fetch("{{ url_for('reindex') }}", { method: "POST" });
+    const js = await r.json();
+    out.textContent = JSON.stringify(js, null, 2);
+  } catch (err) {
+    out.textContent = "Error: " + err;
+  }
+});
+</script>
+{% endblock %}

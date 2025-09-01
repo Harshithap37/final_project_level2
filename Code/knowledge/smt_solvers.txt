@@ -1,0 +1,2 @@
+SMT solvers like Z3 and CVC5 decide satisfiability of formulas over background theories (e.g., bitvectors, arrays).
+They are often called by proof assistants to discharge proof obligations automatically.

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Resources — AxiomAI{% endblock %}
+{% block content %}
+<h2 class="section-title">Resources</h2>
+<div class="grid">
+  <article class="card"><div class="card-inner">
+    <h3>Proof Assistants Survey</h3>
+    <p>H. Geuvers — “Proof assistants: History, ideas and future”. Useful background and references.</p>
+  </div></article>
+
+  <article class="card"><div class="card-inner">
+    <h3>LLMs & Autoformalization</h3>
+    <p>Recent arXiv work on translating informal math/specs into formal proofs.</p>
+  </div></article>
+
+  <article class="card"><div class="card-inner">
+    <h3>Docs & Manuals</h3>
+    <ul>
+      <li>Isabelle/HOL, Coq, Lean</li>
+      <li>Z3, CVC5 (SMT)</li>
+      <li>TLA+, SPIN, nuXmv (model checking)</li>
+    </ul>
+  </div></article>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+Safety cases are structured arguments that a system is acceptably safe.
+
+Elements:
+1. Goal (Claim about safety)
+2. Strategy (Reasoning approach)
+3. Evidence (Tests, proofs, analysis)
+
+Formal methods support safety cases by:
+- Providing mathematical evidence
+- Reducing human error
+- Enabling certification (DO-178C, ISO 26262)
+
+Limitations:
+- Steep learning curve
+- High upfront cost

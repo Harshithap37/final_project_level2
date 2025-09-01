@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Metrics — AxiomAI{% endblock %}
+{% block content %}
+<section class="card" style="padding:20px">
+  <h2>System Metrics</h2>
+  <div id="mwrap" class="grid" style="gap:16px">
+    <div class="card" style="padding:12px">
+      <strong>Uptime</strong>
+      <div id="uptime">—</div>
+    </div>
+    <div class="card" style="padding:12px">
+      <strong>Total Requests</strong>
+      <div id="reqs">—</div>
+    </div>
+    <div class="card" style="padding:12px">
+      <strong>Avg Latency</strong>
+      <div id="avg">—</div>
+    </div>
+    <div class="card" style="padding:12px">
+      <strong>Device</strong>
+      <div id="dev">—</div>
+    </div>
+    <div class="card" style="padding:12px">
+      <strong>GPU</strong>
+      <div id="gpu">—</div>
+    </div>
+  </div>
+</section>
+
+<script>
+async function loadMetrics(){
+  try{
+    const r = await fetch("{{ url_for('metrics') }}");
+    const m = await r.json();
+    document.getElementById('uptime').textContent = m.uptime_sec + " s";
+    document.getElementById('reqs').textContent = m.requests;
+    document.getElementById('avg').textContent = m.avg_latency_sec + " s";
+    document.getElementById('dev').textContent = m.device;
+    const gpu = m.gpu || {};
+    document.getElementById('gpu').textContent =
+      gpu.name ? `${gpu.name} • alloc ${gpu.memory_allocated_MB} MB / reserved ${gpu.memory_reserved_MB} MB` : "—";
+  }catch(e){
+    document.getElementById('uptime').textContent = "error";
+  }
+}
+loadMetrics();
+setInterval(loadMetrics, 3000);
+</script>
+{% endblock %}

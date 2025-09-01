@@ -1,0 +1,13 @@
+Proof assistants are tools for constructing formal proofs by computer. 
+Examples include Coq, Isabelle/HOL, Lean, and HOL4. 
+
+- Coq: Uses Gallina (functional language with dependent types). 
+  Allows extraction of verified code to OCaml, Haskell.
+- Isabelle/HOL: Based on Higher-Order Logic, with strong automation via Sledgehammer.
+- Lean: Supports dependent type theory, widely used for math (mathlib).
+- HOL4: Classical higher-order logic system.
+
+Applications:
+• Formal verification of software & hardware
+• Mathematics (Four Color Theorem, Odd Order Theorem)
+• Security protocols

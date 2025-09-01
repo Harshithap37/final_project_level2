@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Home — AxiomAI{% endblock %}
+{% block content %}
+
+<section class="card hero">
+  <div class="content">
+    <h1 class="display">AxiomAI</h1>
+    <p class="muted">
+      Ask about proof assistants (Coq, Isabelle/HOL, Lean), model checking, SMT solvers,
+      safety &amp; security properties, and formal verification workflows.
+    </p>
+
+    <div class="controls">
+      <label>Mode:
+        <select id="mode">
+          <option value="simple">Simple</option>
+          <option value="academic">Academic</option>
+          <option value="compare">Compare tools</option>
+          <option value="references">References</option>
+          <option value="steps">Step-by-step</option>
+        </select>
+      </label>
+      <label class="rag">
+        <input type="checkbox" id="use-rag" checked />
+        Use knowledge (RAG) <small>(retrieval mode in Settings)</small>
+      </label>
+    </div>
+
+    <div id="chips" class="chips">
+      <button class="chip">What is Isabelle/HOL used for?</button>
+      <button class="chip">Model checking vs theorem proving — differences?</button>
+      <button class="chip">How do SMT solvers work and where are they used?</button>
+      <button class="chip">How to specify and verify a safety property?</button>
+      <button class="chip">Proof automation vs interactive proving — trade-offs?</button>
+    </div>
+  </div>
+
+  <div class="visual">
+    <canvas id="scene" class="scene" aria-label="3D polyhedron with proof assistant labels"></canvas>
+  </div>
+
+  <!-- Click info panel -->
+  <aside id="info-panel" class="info-panel card" hidden>
+    <div class="info-head">
+      <strong id="info-title">…</strong>
+      <button id="info-close" class="btn ghost">✕</button>
+    </div>
+    <div id="info-body" class="info-body"></div>
+  </aside>
+</section>
+
+<section class="chatbox card">
+  <div id="chat-log" class="chat-log" aria-live="polite"></div>
+
+  <form id="chat-form" class="chat-input" autocomplete="off">
+    <input id="chat-input" type="text" placeholder="Ask AxiomAI about formal verification…" aria-label="Message" />
+    <div class="actions">
+      <button id="send-btn" type="submit" class="btn primary"><span class="icon">▶</span> Send</button>
+      <button id="clear-btn" type="button" class="btn ghost">Clear</button>
+      <button id="copy-last-btn" type="button" class="btn ghost">Copy Reply</button>
+    </div>
+  </form>
+
+  <p class="disclaimer">AxiomAI focuses on formal verification &amp; mathematical proofs.</p>
+</section>
+
+{% endblock %}

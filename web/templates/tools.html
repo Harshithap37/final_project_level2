@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Tools — AxiomAI{% endblock %}
+{% block content %}
+<h2 class="section-title">Tools</h2>
+<div class="grid">
+  <article class="card"><div class="card-inner">
+    <h3>Proof Assistants</h3>
+    <ul>
+      <li>Isabelle/HOL — generic HOL prover; locales; Sledgehammer.</li>
+      <li>Coq — dependent types; extraction; SSReflect.</li>
+      <li>Lean — mathlib; tactic framework.</li>
+      <li>HOL4 — classic HOL prover.</li>
+    </ul>
+  </div></article>
+
+  <article class="card"><div class="card-inner">
+    <h3>SMT & Specs</h3>
+    <ul>
+      <li>Z3, CVC5 — SMT solvers & theories</li>
+      <li>TLA+ / TLC — specification + model checking</li>
+      <li>SPIN / Promela — concurrency</li>
+      <li>nuXmv — symbolic model checking</li>
+    </ul>
+  </div></article>
+
+  <article class="card"><div class="card-inner">
+    <h3>Editors / Integrations</h3>
+    <ul>
+      <li>VS Code + extensions</li>
+      <li>Isabelle/jEdit</li>
+      <li>Lean VSCode plugin</li>
+    </ul>
+  </div></article>
+</div>
+{% endblock %}
