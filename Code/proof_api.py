@@ -110,34 +110,34 @@ def _limit_resources(mem_mb=320, cpu_sec=5):
 def _run_z3py(code: str, timeout_sec: int = 8) -> dict:
     """
     Run z3py code in a restricted subprocess.
-    Requires 'z3-solver' to be installed in the environment.
 
-    Fix: ensure wrapper has no leading indentation and indent user code
-    under the try: block, avoiding top-level IndentationError.
+    IMPORTANT: Build the wrapper as a concatenated string with **no leading
+    indentation** and indent the user code under 'try:' to avoid
+    IndentationError on line 1.
     """
-    # Indent user code so it sits under "try:" cleanly
+    # Indent user code under the try: block
     user_code = textwrap.indent(code.rstrip() + "\n", "    ")
 
-    wrapper = textwrap.dedent(f"""\
-    import sys, json, traceback, signal, resource, os
-    def _limit():
-        # ~320MB & 5s CPU guard inside child
-        resource.setrlimit(resource.RLIMIT_AS, (335544320, 335544320))
-        resource.setrlimit(resource.RLIMIT_CPU, (5, 5))
-    _limit()
-    try:
-{user_code}except Exception as e:
-        print("RUNTIME_ERROR:", e, file=sys.stderr)
-        traceback.print_exc()
-        sys.exit(2)
-    """)
+    # Column-0 wrapper (no leading spaces at all)
+    wrapper = (
+        "import sys, json, traceback, signal, resource, os\n"
+        "def _limit():\n"
+        "    resource.setrlimit(resource.RLIMIT_AS, (335544320, 335544320))\n"
+        "    resource.setrlimit(resource.RLIMIT_CPU, (5, 5))\n"
+        "_limit()\n"
+        "try:\n"
+        f"{user_code}"
+        "except Exception as e:\n"
+        "    print('RUNTIME_ERROR:', e, file=sys.stderr)\n"
+        "    traceback.print_exc()\n"
+        "    sys.exit(2)\n"
+    )
 
     with tempfile.NamedTemporaryFile("w", suffix=".py", delete=False) as f:
         f.write(wrapper)
         path = f.name
 
     env = os.environ.copy()
-    # Ensure no site import surprises
     cmd = [sys.executable, "-I", path]
     t0 = time.time()
     try:
@@ -147,7 +147,7 @@ def _run_z3py(code: str, timeout_sec: int = 8) -> dict:
             stderr=subprocess.PIPE,
             universal_newlines=True,
             timeout=timeout_sec,
-            env=env
+            env=env,
         )
         elapsed = round(time.time() - t0, 3)
         return {
@@ -195,21 +195,10 @@ def prove(inp: ProveIn):
     code = _strip_code_fence(code_raw)
 
     if tool == "z3py_run":
-        # Try to run it
         runres = _run_z3py(code, timeout_sec=int(inp.timeout_sec or 8))
-        return {
-            "ok": True,
-            "tool": "z3py",
-            "code": code,
-            "exec": runres
-        }
+        return {"ok": True, "tool": "z3py", "code": code, "exec": runres}
 
-    return {
-        "ok": True,
-        "tool": tool,
-        "code": code
-    }
-
+    return {"ok": True, "tool": tool, "code": code}
 
 @app.get("/health")
 def health():
