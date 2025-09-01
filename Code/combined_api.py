@@ -16,3 +16,5 @@ app.add_middleware(
 # Mount the two apps under clean prefixes
 app.mount("/chatapi",  chatmod.app)   # /chatapi/health, /chatapi/chat, /chatapi/upload, ...
 app.mount("/proofapi", proofmod.app)  # /proofapi/health, /proofapi/prove
+
+app.mount("/", chatmod.app) 
