@@ -1,4 +1,4 @@
-# ---- proof_api.py — Level 2: Proof Assistant Bridge (codegen + optional Z3 run) ----
+# ---- proof_api.py — Level 2: Proof Assistant Bridge (codegen + optional Z3 run + logging) ----
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,6 +19,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# --------------------------- Logging (NEW) ---------------------------
+LOG_BASE = os.path.join(os.path.dirname(__file__), "eval_proofs_runs", "weblog")
+os.makedirs(LOG_BASE, exist_ok=True)
+LOG_PATH = os.path.join(LOG_BASE, "proofs.jsonl")
+
+def _log_proof(rec: dict):
+    """Append one JSONL record of a proof request/response."""
+    rec = dict(rec)
+    rec["ts"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    with open(LOG_PATH, "a", encoding="utf-8") as f:
+        f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+
 # --------------------------- Schemas ---------------------------
 class ProveIn(BaseModel):
     tool: str                 # "coq" | "isabelle" | "z3py" | "z3py_run"
@@ -31,9 +43,7 @@ class ProveIn(BaseModel):
 
 # --------------------------- Helpers ---------------------------
 def _strip_code_fence(s: str) -> str:
-    """
-    Extract code from markdown fences if present.
-    """
+    """Extract code from markdown fences if present."""
     fence = re.search(r"```(?:[a-zA-Z0-9_+-]*)\s*(.*?)```", s, flags=re.S)
     if fence:
         return fence.group(1).strip()
@@ -99,26 +109,21 @@ def _build_codegen_prompt(tool: str, goal: str, context: str, assumptions: list[
 
 # --------------------------- Optional Z3 sandbox ---------------------------
 def _limit_resources(mem_mb=320, cpu_sec=5):
-    """
-    Apply soft resource limits for the current process (Linux/Unix).
-    """
-    # Memory
+    """Apply soft resource limits for the current process (Linux/Unix)."""
     resource.setrlimit(resource.RLIMIT_AS, (mem_mb * 1024 * 1024, mem_mb * 1024 * 1024))
-    # CPU time
     resource.setrlimit(resource.RLIMIT_CPU, (cpu_sec, cpu_sec))
 
 def _run_z3py(code: str, timeout_sec: int = 8) -> dict:
     """
     Run z3py code in a restricted subprocess.
 
-    IMPORTANT: Build the wrapper as a concatenated string with **no leading
-    indentation** and indent the user code under 'try:' to avoid
-    IndentationError on line 1.
+    IMPORTANT: Build the wrapper with NO leading indentation and indent the
+    user code under 'try:' to avoid IndentationError on line 1.
     """
     # Indent user code under the try: block
     user_code = textwrap.indent(code.rstrip() + "\n", "    ")
 
-    # Column-0 wrapper (no leading spaces at all)
+    # Column-0 wrapper (no leading spaces)
     wrapper = (
         "import sys, json, traceback, signal, resource, os\n"
         "def _limit():\n"
@@ -174,6 +179,8 @@ def _run_z3py(code: str, timeout_sec: int = 8) -> dict:
 # --------------------------- Routes ---------------------------
 @app.post("/prove")
 def prove(inp: ProveIn):
+    t0 = time.time()
+
     tool = (inp.tool or "").lower().strip()
     if tool not in ("coq", "isabelle", "z3py", "z3py_run"):
         return {"ok": False, "error": "tool must be one of: coq | isabelle | z3py | z3py_run"}
@@ -191,14 +198,59 @@ def prove(inp: ProveIn):
         max_new_tokens=int(inp.max_new_tokens or 300),
         temperature=float(inp.temperature if inp.temperature is not None else 0.2)
     )
-
     code = _strip_code_fence(code_raw)
 
-    if tool == "z3py_run":
-        runres = _run_z3py(code, timeout_sec=int(inp.timeout_sec or 8))
-        return {"ok": True, "tool": "z3py", "code": code, "exec": runres}
+    # Defaults for logging
+    exec_res = None
+    proof_success = None
+    error_type = "not_executed" if tool in ("coq", "isabelle", "z3py") else None
 
-    return {"ok": True, "tool": tool, "code": code}
+    # Optionally run Z3
+    if tool == "z3py_run":
+        exec_res = _run_z3py(code, timeout_sec=int(inp.timeout_sec or 8))
+        proof_success = bool(exec_res.get("ok"))
+        if not proof_success:
+            if exec_res.get("stderr") == "TIMEOUT" or exec_res.get("exit_code") == -1:
+                error_type = "timeout"
+            else:
+                error_type = "runtime_error"
+        else:
+            error_type = "ok"
+
+    latency = round(time.time() - t0, 3)
+
+    # ---- LOG the request/response
+    _log_proof({
+        "tool": tool,                       # "coq" | "isabelle" | "z3py" | "z3py_run"
+        "goal": inp.goal,
+        "context": inp.context or "",
+        "assumptions": inp.assumptions or [],
+        "temperature": float(inp.temperature if inp.temperature is not None else 0.2),
+        "max_new_tokens": int(inp.max_new_tokens or 300),
+        "timeout_sec": int(inp.timeout_sec or 8),
+        "latency_sec": latency,
+        "code": code,
+        "exec": exec_res,                   # None for non-run tools
+        "proof_success": proof_success,     # True/False for z3py_run, else None
+        "error_type": error_type            # "ok" | "timeout" | "runtime_error" | "not_executed"
+    })
+
+    # ---- Response back to caller
+    if tool == "z3py_run":
+        return {
+            "ok": True,
+            "tool": "z3py",
+            "code": code,
+            "exec": exec_res,
+            "latency_sec": latency
+        }
+
+    return {
+        "ok": True,
+        "tool": tool,
+        "code": code,
+        "latency_sec": latency
+    }
 
 @app.get("/health")
 def health():
