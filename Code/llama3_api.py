@@ -1,10 +1,10 @@
-# ---- llama3_api.py — LLaMA-3 + RAG (FAISS + BM25 Hybrid) + OCR + logging + metrics + upload ----
+# ---- llama3_api.py — LLaMA-3 + RAG (FAISS + BM25 Hybrid) + OCR + logging + metrics + upload + Proof Gen/Run ----
 from fastapi import FastAPI, UploadFile, File
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-import os, json, time, pickle, shutil, re
+import os, json, time, pickle, shutil, re, io, contextlib, threading
 from datetime import datetime
 
 import torch
@@ -38,6 +38,12 @@ try:
 except Exception:
     pytesseract = None
     Image = None
+
+# Optional Z3 (only needed for /proof/z3/run)
+try:
+    import z3  # type: ignore
+except Exception:
+    z3 = None
 
 # Optional: allow overriding tesseract binary path via env
 if pytesseract is not None:
@@ -407,11 +413,63 @@ def build_prompt(user_query: str, hits, mode: str = "simple"):
     )
     return system, user
 
+# ---------------- Proof generation helpers ----------------
+def _llm_generate(prompt: str, max_new_tokens: int = 300, temperature: float = 0.2) -> str:
+    msgs = [
+        {"role": "system", "content": "You generate **valid code** for formal verification tools. Return only code blocks with minimal comments."},
+        {"role": "user", "content": prompt},
+    ]
+    input_ids = tokenizer.apply_chat_template(
+        msgs, add_generation_prompt=True, return_tensors="pt"
+    ).to(model.device)
+
+    with torch.inference_mode():
+        out = model.generate(
+            input_ids=input_ids,
+            max_new_tokens=max_new_tokens,
+            do_sample=True,
+            temperature=temperature,
+            pad_token_id=tokenizer.eos_token_id,
+            eos_token_id=tokenizer.eos_token_id,
+        )
+    gen_ids = out[0][input_ids.shape[-1]:]
+    return tokenizer.decode(gen_ids, skip_special_tokens=True).strip()
+
+def _strip_fences(text: str) -> str:
+    # remove ```lang ... ``` fences if present
+    fence = re.compile(r"^```[\w+-]*\s*|\s*```$", re.MULTILINE)
+    return fence.sub("", text).strip()
+
+def _prompt_for_tool(tool: str, goal: str, hints: str | None) -> str:
+    hints_part = f"\nHints: {hints}" if hints else ""
+    if tool.lower() == "coq":
+        return (
+            "Generate a minimal, compilable Coq proof script for the following goal.\n"
+            "Use standard tactics; keep it short and correct.\n"
+            f"Goal: {goal}{hints_part}\n"
+            "Return only a code block."
+        )
+    if tool.lower() == "isabelle":
+        return (
+            "Generate an Isabelle/HOL theory snippet that proves the goal. Use 'theory ... imports Main begin' "
+            "and end with 'end'. Keep it minimal and valid for Isabelle/jEdit.\n"
+            f"Goal: {goal}{hints_part}\n"
+            "Return only a code block."
+        )
+    # default: z3py
+    return (
+        "Generate a Python (z3py) script that models the constraints and prints solver result. "
+        "Use from z3 import *; create a Solver(); assert constraints; then print(s.check()) "
+        "and if sat print(model()).\n"
+        f"Goal: {goal}{hints_part}\n"
+        "Return only a code block."
+    )
+
 # ---------- FastAPI app ----------
-app = FastAPI(title="LLaMA-3 API (Stanage) + RAG + OCR + Logging + Upload")
+app = FastAPI(title="LLaMA-3 API (Stanage) + RAG + OCR + Logging + Upload + Proof API")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],    # tighten if desired (e.g., http://127.0.0.1:5050)
+    allow_origins=["*"],    # tighten if desired
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -452,6 +510,7 @@ def health():
             "pdfium": bool(pdfium is not None),
             "pytesseract": bool(pytesseract is not None),
         },
+        "z3_available": bool(z3 is not None),
     }
 
 @app.get("/metrics")
@@ -579,4 +638,91 @@ def reindex():
         "indexed_docs": n,
         "files_indexed": files_indexed,
         "files_skipped": files_skipped
+    }
+
+# ============================
+#        PROOF ENDPOINTS
+# ============================
+class ProofIn(BaseModel):
+    goal: str
+    tool: str | None = "coq"     # "coq" | "isabelle" | "z3py"
+    hints: str | None = None
+    max_new_tokens: int | None = 300
+    temperature: float | None = 0.2
+
+@app.post("/proof/generate")
+def proof_generate(inp: ProofIn):
+    tool = (inp.tool or "coq").lower()
+    if tool not in ("coq", "isabelle", "z3py"):
+        tool = "coq"
+    prompt = _prompt_for_tool(tool, inp.goal, inp.hints)
+    code = _llm_generate(prompt, max_new_tokens=inp.max_new_tokens or 300,
+                         temperature=inp.temperature if inp.temperature is not None else 0.2)
+    code = _strip_fences(code)
+    return {"tool": tool, "code": code}
+
+class Z3RunIn(BaseModel):
+    goal: str
+    hints: str | None = None
+    timeout_sec: int | None = 5
+    max_new_tokens: int | None = 250
+    temperature: float | None = 0.2
+
+def _exec_with_timeout(py_code: str, timeout_sec: int = 5):
+    """
+    Execute z3py code in a restricted env with a timeout.
+    Returns (ran: bool, stdout: str, stderr: str, status: str)
+    """
+    if z3 is None:
+        return False, "", "z3-solver not installed", "z3-missing"
+
+    # Restricted globals: allow only z3 and builtins we need for print/len/range
+    safe_builtins = {
+        "print": print, "len": len, "range": range, "min": min, "max": max, "abs": abs, "str": str, "int": int, "float": float, "bool": bool
+    }
+    glob = {"__builtins__": safe_builtins, "z3": z3, "__name__": "__main__"}
+    loc = {}
+
+    stdout_buf, stderr_buf = io.StringIO(), io.StringIO()
+
+    status = "ok"
+    exc: Exception | None = None
+
+    def run():
+        nonlocal exc
+        try:
+            with contextlib.redirect_stdout(stdout_buf):
+                with contextlib.redirect_stderr(stderr_buf):
+                    exec(py_code, glob, loc)
+        except Exception as e:
+            exc = e
+
+    th = threading.Thread(target=run, daemon=True)
+    th.start()
+    th.join(timeout=timeout_sec)
+    if th.is_alive():
+        status = "timeout"
+        return False, stdout_buf.getvalue(), "execution timed out", status
+
+    if exc is not None:
+        status = "error"
+        return False, stdout_buf.getvalue(), f"{type(exc).__name__}: {exc}", status
+
+    return True, stdout_buf.getvalue(), stderr_buf.getvalue(), status
+
+@app.post("/proof/z3/run")
+def proof_z3_run(inp: Z3RunIn):
+    prompt = _prompt_for_tool("z3py", inp.goal, inp.hints)
+    code = _llm_generate(prompt, max_new_tokens=inp.max_new_tokens or 250,
+                         temperature=inp.temperature if inp.temperature is not None else 0.2)
+    code = _strip_fences(code)
+
+    ran, out, err, status = _exec_with_timeout(code, timeout_sec=inp.timeout_sec or 5)
+    return {
+        "tool": "z3py",
+        "code": code,
+        "ran": ran,
+        "status": status,
+        "stdout": out,
+        "stderr": err,
     }

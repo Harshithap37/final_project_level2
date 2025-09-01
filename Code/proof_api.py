@@ -1,0 +1,218 @@
+# ---- proof_api.py — Level 2: Proof Assistant Bridge (codegen + optional Z3 run) ----
+from fastapi import FastAPI
+from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+
+import re, os, json, subprocess, sys, tempfile, textwrap, shlex, resource, signal, time
+
+# Reuse the already-loaded LLaMA-3 model to avoid double VRAM/CPU
+# (Make sure proof_api.py sits in the same folder as llama3_api.py)
+from llama3_api import tokenizer, model, device  # noqa: E402
+
+# --------------------------- FastAPI app ---------------------------
+app = FastAPI(title="Proof Bridge API (Level 2)")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# --------------------------- Schemas ---------------------------
+class ProveIn(BaseModel):
+    tool: str                 # "coq" | "isabelle" | "z3py" | "z3py_run"
+    goal: str                 # natural language objective / property
+    context: str | None = ""  # optional domain context or spec text
+    assumptions: list[str] | None = None
+    max_new_tokens: int | None = 300
+    temperature: float | None = 0.2
+    timeout_sec: int | None = 8  # for z3py_run
+
+# --------------------------- Helpers ---------------------------
+def _strip_code_fence(s: str) -> str:
+    """
+    Extract code from markdown fences if present.
+    """
+    fence = re.search(r"```(?:[a-zA-Z0-9_+-]*)\s*(.*?)```", s, flags=re.S)
+    if fence:
+        return fence.group(1).strip()
+    return s.strip()
+
+def _gen_with_llama(sys_prompt: str, user_prompt: str, max_new_tokens: int, temperature: float) -> str:
+    msgs = [{"role": "system", "content": sys_prompt},
+            {"role": "user",   "content": user_prompt}]
+    input_ids = tokenizer.apply_chat_template(
+        msgs, add_generation_prompt=True, return_tensors="pt"
+    ).to(model.device)
+
+    with torch.inference_mode():
+        out = model.generate(
+            input_ids=input_ids,
+            max_new_tokens=max_new_tokens,
+            do_sample=True,
+            temperature=temperature,
+            pad_token_id=tokenizer.eos_token_id,
+            eos_token_id=tokenizer.eos_token_id,
+        )
+
+    gen_ids = out[0][input_ids.shape[-1]:]
+    return tokenizer.decode(gen_ids, skip_special_tokens=True).strip()
+
+def _tool_block_header(tool: str) -> str:
+    if tool == "coq":
+        return "```coq"
+    if tool == "isabelle":
+        return "```isabelle"
+    # default z3py (python)
+    return "```python"
+
+def _build_codegen_prompt(tool: str, goal: str, context: str, assumptions: list[str] | None) -> tuple[str, str]:
+    sys_prompt = (
+        "You translate natural-language verification goals into minimal, correct snippets for proof tools.\n"
+        "Tools supported: Coq (Gallina), Isabelle/Isar theory snippet, Z3 (python/z3-solver).\n"
+        "Rules:\n"
+        "• Emit ONLY a single fenced code block for the requested tool; no prose.\n"
+        "• Keep it minimal and self-contained. Add small comments where clarifying.\n"
+        "• If the user tool is 'z3py', use Python with z3-solver and print satisfiability and a model when SAT.\n"
+        "• If assumptions are given, encode them as constraints/axioms.\n"
+    )
+
+    header = _tool_block_header(tool)
+    footer = "```"
+
+    user = []
+    user.append(f"TOOL: {tool}")
+    user.append(f"GOAL:\n{goal.strip()}")
+    if context and context.strip():
+        user.append(f"CONTEXT:\n{context.strip()}")
+    if assumptions:
+        user.append("ASSUMPTIONS:")
+        for a in assumptions:
+            user.append(f"- {a}")
+    user.append("\nOutput format:\n"
+                f"{header}\n"
+                f"...code here...\n"
+                f"{footer}")
+
+    return sys_prompt, "\n".join(user)
+
+# --------------------------- Optional Z3 sandbox ---------------------------
+def _limit_resources(mem_mb=320, cpu_sec=5):
+    """
+    Apply soft resource limits for the current process (Linux/Unix).
+    """
+    # Memory
+    resource.setrlimit(resource.RLIMIT_AS, (mem_mb * 1024 * 1024, mem_mb * 1024 * 1024))
+    # CPU time
+    resource.setrlimit(resource.RLIMIT_CPU, (cpu_sec, cpu_sec))
+
+def _run_z3py(code: str, timeout_sec: int = 8) -> dict:
+    """
+    Run z3py code in a restricted subprocess.
+    Requires 'z3-solver' to be installed in the environment.
+    """
+    wrapper = textwrap.dedent(f"""
+    import sys, json, traceback, signal, resource, os
+    def _limit():
+        import resource
+        # ~320MB & 5s CPU guard inside child
+        resource.setrlimit(resource.RLIMIT_AS, (335544320, 335544320))
+        resource.setrlimit(resource.RLIMIT_CPU, (5, 5))
+    _limit()
+    try:
+        # User code starts
+        {code}
+    except Exception as e:
+        print("RUNTIME_ERROR:", e, file=sys.stderr)
+        traceback.print_exc()
+        sys.exit(2)
+    """)
+    with tempfile.NamedTemporaryFile("w", suffix=".py", delete=False) as f:
+        f.write(wrapper)
+        path = f.name
+
+    env = os.environ.copy()
+    # Ensure no site import surprises
+    cmd = [sys.executable, "-I", path]
+    t0 = time.time()
+    try:
+        proc = subprocess.run(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            universal_newlines=True,
+            timeout=timeout_sec,
+            env=env
+        )
+        elapsed = round(time.time() - t0, 3)
+        return {
+            "ok": (proc.returncode == 0),
+            "exit_code": proc.returncode,
+            "stdout": proc.stdout.strip(),
+            "stderr": proc.stderr.strip(),
+            "time_sec": elapsed,
+        }
+    except subprocess.TimeoutExpired as e:
+        return {
+            "ok": False,
+            "exit_code": -1,
+            "stdout": (e.stdout or "").strip() if isinstance(e.stdout, str) else "",
+            "stderr": "TIMEOUT",
+            "time_sec": timeout_sec,
+        }
+    finally:
+        try:
+            os.unlink(path)
+        except Exception:
+            pass
+
+# --------------------------- Routes ---------------------------
+import torch  # placed here to avoid mypy complaints earlier
+
+@app.post("/prove")
+def prove(inp: ProveIn):
+    tool = (inp.tool or "").lower().strip()
+    if tool not in ("coq", "isabelle", "z3py", "z3py_run"):
+        return {"ok": False, "error": "tool must be one of: coq | isabelle | z3py | z3py_run"}
+
+    sys_prompt, user_prompt = _build_codegen_prompt(
+        tool=("z3py" if tool == "z3py_run" else tool),
+        goal=inp.goal,
+        context=inp.context or "",
+        assumptions=inp.assumptions or [],
+    )
+
+    code_raw = _gen_with_llama(
+        sys_prompt=sys_prompt,
+        user_prompt=user_prompt,
+        max_new_tokens=int(inp.max_new_tokens or 300),
+        temperature=float(inp.temperature if inp.temperature is not None else 0.2)
+    )
+
+    code = _strip_code_fence(code_raw)
+
+    if tool == "z3py_run":
+        # Try to run it
+        runres = _run_z3py(code, timeout_sec=int(inp.timeout_sec or 8))
+        return {
+            "ok": True,
+            "tool": "z3py",
+            "code": code,
+            "exec": runres
+        }
+
+    return {
+        "ok": True,
+        "tool": tool,
+        "code": code
+    }
+
+
+@app.get("/health")
+def health():
+    return {
+        "status": "ok",
+        "model_device": str(device),
+        "can_generate": True,
+        "z3_runtime": "python z3-solver via sandboxed subprocess",
+    }

@@ -116,13 +116,25 @@ async function healthPing(){
     const r = await fetch(window.STATUS_ENDPOINT, {cache:"no-store"});
     const js = await r.json();
     const t1 = performance.now();
+
+    // Combined health payload shape: { chat: {...}, proof: {...} }
+    const okChat  = !!(js?.chat && (js.chat.status === "ok" || js.chat.ok === true));
+    const okProof = !!(js?.proof && (js.proof.status === "ok" || js.proof.ok === true));
+    const allGood = okChat && okProof;
+
     const lat = document.getElementById("latency");
     if (lat) lat.textContent = `${Math.round(t1 - t0)} ms`;
-    statusDot?.classList.toggle("danger", !(js.status === "ok" || js.ok));
+
+    statusDot?.classList.toggle("danger", !allGood);
+    // Optional tooltip to see which side is failing
+    if (statusDot){
+      statusDot.title = `chat: ${okChat ? "ok" : "down"} • proof: ${okProof ? "ok" : "down"}`;
+    }
   }catch{
     statusDot?.classList.add("danger");
     const lat = document.getElementById("latency");
     if (lat) lat.textContent = "—";
+    if (statusDot) statusDot.title = "backend unreachable";
   }
 }
 healthPing();

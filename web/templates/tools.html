@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Tools — AxiomAI{% endblock %}
+
 {% block content %}
 <h2 class="section-title">Tools</h2>
+
 <div class="grid">
   <article class="card"><div class="card-inner">
     <h3>Proof Assistants</h3>
@@ -32,4 +34,74 @@
     </ul>
   </div></article>
 </div>
+
+<!-- ========================= -->
+<!--   Proof Assistant Panel   -->
+<!-- ========================= -->
+<article class="card" style="margin-top:16px;"><div class="card-inner">
+  <h3>Proof Assistant (Level 2)</h3>
+  <p class="muted">Generate Coq / Isabelle snippets or Z3 scripts, and optionally run Z3.</p>
+
+  <div class="row">
+    <div class="col">
+      <label for="pa-tool">Tool</label>
+      <select id="pa-tool">
+        <option value="coq">Coq</option>
+        <option value="isabelle">Isabelle/HOL</option>
+        <option value="z3py">Z3 (generate code)</option>
+        <option value="z3py_run">Z3 (generate & run)</option>
+      </select>
+    </div>
+    <div class="col">
+      <label for="pa-temp">Temperature</label>
+      <input id="pa-temp" type="number" step="0.05" min="0" max="1" value="0.2">
+    </div>
+    <div class="col">
+      <label for="pa-max">Max tokens</label>
+      <input id="pa-max" type="number" min="50" max="1000" value="300">
+    </div>
+  </div>
+
+  <label for="pa-goal" style="margin-top:8px;">Goal (required)</label>
+  <textarea id="pa-goal" rows="4" placeholder="e.g., Prove append is associative; or encode arithmetic safety constraints..."></textarea>
+
+  <label for="pa-context">Context (optional)</label>
+  <textarea id="pa-context" rows="3" placeholder="Spec text / definitions / invariants..."></textarea>
+
+  <label for="pa-assumptions">Assumptions (optional, one per line)</label>
+  <textarea id="pa-assumptions" rows="3" placeholder="x &gt;= 0&#10;y &gt; x&#10;list is sorted..."></textarea>
+
+  <div class="row" style="margin-top:10px;">
+    <button id="pa-run" class="primary">Generate</button>
+    <span id="pa-status" class="muted" style="margin-left:8px;"></span>
+  </div>
+
+  <div id="pa-result" style="margin-top:14px; display:none;">
+    <h4>Generated code</h4>
+    <pre><code id="pa-code" class="language-plaintext"></code></pre>
+  </div>
+
+  <div id="pa-exec" style="margin-top:14px; display:none;">
+    <h4>Z3 Execution</h4>
+    <div><b>Status:</b> <span id="pa-exec-status"></span></div>
+    <div style="margin-top:6px;">
+      <b>stdout</b>
+      <pre id="pa-exec-stdout"></pre>
+    </div>
+    <div style="margin-top:6px;">
+      <b>stderr</b>
+      <pre id="pa-exec-stderr"></pre>
+    </div>
+  </div>
+</div></article>
+{% endblock %}
+
+{% block extra_head %}
+  <!-- Optional: small styles for the panel -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='proof.css') }}">
+{% endblock %}
+
+{% block scripts %}
+  <!-- Page-specific JS to call /prove -->
+  <script src="{{ url_for('static', filename='proof.js') }}"></script>
 {% endblock %}
