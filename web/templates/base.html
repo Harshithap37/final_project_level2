@@ -12,14 +12,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-  {% block extra_head %}{% endblock %}
-
   <script>
     window.FLASK_ASK_ENDPOINT   = "{{ url_for('ask') }}";
     window.STATUS_ENDPOINT      = "{{ url_for('health') }}";
-    window.METRICS_ENDPOINT     = "{{ url_for('metrics') }}"; 
+    window.METRICS_ENDPOINT     = "{{ url_for('metrics') }}";
     window.DEFAULT_TEMPERATURE  = 0.20;
   </script>
+
+  {# <-- NEW: allow subpages (e.g., Tools) to add extra CSS #}
+  {% block extra_head %}{% endblock %}
 </head>
 <body>
   <!-- Topbar -->
@@ -133,7 +134,6 @@
       ragModal?.addEventListener("change", copyToMain);
       modeSel?.addEventListener("change", publishRetrieval);
 
-      // initial default
       publishRetrieval();
     })();
   </script>
@@ -141,6 +141,7 @@
   <!-- Main app JS -->
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 
+  {# <-- NEW: allow subpages (e.g., Tools) to add extra JS #}
   {% block scripts %}{% endblock %}
 </body>
 </html>
