@@ -7,10 +7,17 @@ textarea, input, select { width: 100%; padding: 8px; border: 1px solid #d1d5db; 
 button.primary { padding: 8px 14px; border: none; border-radius: 10px; cursor: pointer; }
 .muted { color: #6b7280; }
 pre { background: #f8fafc; padding: 10px; border-radius: 8px; overflow: auto; }
-#proof-output pre, 
-#proof-output code {
-  color: #000 !important;
-  background: #fff !important;
-  font-family: monospace;
+/* Make proof outputs readable on light background */
+#pa-result pre,
+#pa-result pre code,
+#pa-exec pre,
+#pa-exec pre code {
+  background: #f8fafc !important;   /* your light box */
+  color: #111827 !important;         /* dark text for contrast */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   font-size: 14px;
+  line-height: 1.45;
+  opacity: 1 !important;             /* defeat any inherited dimming */
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
 }
