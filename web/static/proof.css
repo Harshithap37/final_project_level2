@@ -7,3 +7,10 @@ textarea, input, select { width: 100%; padding: 8px; border: 1px solid #d1d5db; 
 button.primary { padding: 8px 14px; border: none; border-radius: 10px; cursor: pointer; }
 .muted { color: #6b7280; }
 pre { background: #f8fafc; padding: 10px; border-radius: 8px; overflow: auto; }
+#proof-output pre, 
+#proof-output code {
+  color: #000 !important;
+  background: #fff !important;
+  font-family: monospace;
+  font-size: 14px;
+}
