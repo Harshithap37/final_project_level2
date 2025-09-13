@@ -1,16 +1,12 @@
-# ---- proof_api.py — Level 2: Proof Assistant Bridge (codegen + optional Z3 run + logging) ----
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 import re, os, json, subprocess, sys, tempfile, textwrap, shlex, resource, signal, time
-import torch  # keep near top for clarity
+import torch  
+from llama3_api import tokenizer, model, device  
 
-# Reuse the already-loaded LLaMA-3 model to avoid double VRAM/CPU
-# (Make sure proof_api.py sits in the same folder as llama3_api.py)
-from llama3_api import tokenizer, model, device  # noqa: E402
-
-# --------------------------- FastAPI app ---------------------------
 app = FastAPI(title="Proof Bridge API (Level 2)")
 app.add_middleware(
     CORSMiddleware,
@@ -19,13 +15,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --------------------------- Logging (NEW) ---------------------------
 LOG_BASE = os.path.join(os.path.dirname(__file__), "eval_proofs_runs", "weblog")
 os.makedirs(LOG_BASE, exist_ok=True)
 LOG_PATH = os.path.join(LOG_BASE, "proofs.jsonl")
 
 def _log_proof(rec: dict):
-    """Append one JSONL record of a proof request/response."""
     rec = dict(rec)
     rec["ts"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     with open(LOG_PATH, "a", encoding="utf-8") as f:
@@ -43,7 +37,6 @@ class ProveIn(BaseModel):
 
 # --------------------------- Helpers ---------------------------
 def _strip_code_fence(s: str) -> str:
-    """Extract code from markdown fences if present."""
     fence = re.search(r"```(?:[a-zA-Z0-9_+-]*)\s*(.*?)```", s, flags=re.S)
     if fence:
         return fence.group(1).strip()
@@ -114,16 +107,9 @@ def _limit_resources(mem_mb=320, cpu_sec=5):
     resource.setrlimit(resource.RLIMIT_CPU, (cpu_sec, cpu_sec))
 
 def _run_z3py(code: str, timeout_sec: int = 8) -> dict:
-    """
-    Run z3py code in a restricted subprocess.
 
-    IMPORTANT: Build the wrapper with NO leading indentation and indent the
-    user code under 'try:' to avoid IndentationError on line 1.
-    """
-    # Indent user code under the try: block
     user_code = textwrap.indent(code.rstrip() + "\n", "    ")
 
-    # Column-0 wrapper (no leading spaces)
     wrapper = (
         "import sys, json, traceback, signal, resource, os\n"
         "def _limit():\n"
@@ -219,9 +205,9 @@ def prove(inp: ProveIn):
 
     latency = round(time.time() - t0, 3)
 
-    # ---- LOG the request/response
+    # LOG the request/response
     _log_proof({
-        "tool": tool,                       # "coq" | "isabelle" | "z3py" | "z3py_run"
+        "tool": tool,                       
         "goal": inp.goal,
         "context": inp.context or "",
         "assumptions": inp.assumptions or [],
@@ -230,12 +216,12 @@ def prove(inp: ProveIn):
         "timeout_sec": int(inp.timeout_sec or 8),
         "latency_sec": latency,
         "code": code,
-        "exec": exec_res,                   # None for non-run tools
-        "proof_success": proof_success,     # True/False for z3py_run, else None
-        "error_type": error_type            # "ok" | "timeout" | "runtime_error" | "not_executed"
+        "exec": exec_res,                  
+        "proof_success": proof_success,     
+        "error_type": error_type            
     })
 
-    # ---- Response back to caller
+    #Response back to caller
     if tool == "z3py_run":
         return {
             "ok": True,

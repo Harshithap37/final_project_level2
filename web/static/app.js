@@ -192,8 +192,8 @@ chatForm?.addEventListener("submit", async (e)=>{
         message: text,
         temperature,
         use_rag: useRagCb ? !!useRagCb.checked : true,
-        retrieval_mode: getRetrievalMode(), // setting from the modal
-        mode: getMode()                      // <-- NEW: pass mode to backend
+        retrieval_mode: getRetrievalMode(), 
+        mode: getMode()                      
       })
     });
     const js = await r.json();

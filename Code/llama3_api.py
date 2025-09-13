@@ -237,7 +237,6 @@ def _extract_text(path: str, for_snippet: bool = False) -> str:
 
 
 def _build_bm25():
-    """Build BM25 from knowledge docs using normalized tokens (lowercase, alnum)."""
     global bm25, bm25_corpus
     bm25_corpus = []
     for m in meta:
@@ -268,7 +267,7 @@ def _load_snippet(m):
 def retrieve(query: str, k: int = TOP_K, mode: str = "dense"):
     """
     Return list of (score, meta, snippet).
-    mode = "dense" | "bm25" | "hybrid"
+    mode = "dense" | "bm25" | "hybrid" 
     """
     results: list[tuple[float, dict, str]] = []
 
@@ -386,7 +385,7 @@ def build_prompt(user_query: str, hits, mode: str = "simple"):
         "• Always answer the latest user message from your own knowledge.\n"
         "• If the context below is useful, weave it in and cite like [1], [2].\n"
     )
-    # Mode tone only (no temperature changes)
+    #mode selection
     if mode == "simple":
         system += "Keep answers short, clear, and beginner-friendly.\n"
     elif mode == "academic":
@@ -542,14 +541,14 @@ def chat(inp: ChatIn):
     if not query:
         return {"reply": "Please type a question."}
 
-    # Retrieval
+    #retieval
     use_rag = True if inp.use_rag is None else bool(inp.use_rag)
     retrieval_mode = (inp.retrieval_mode or "hybrid").lower()
     if retrieval_mode not in ("dense", "bm25", "hybrid"):
         retrieval_mode = "hybrid"
     hits = retrieve(query, TOP_K, mode=retrieval_mode) if use_rag else []
 
-    # Mode & default max tokens (temperature is NOT auto-tuned)
+    #max tokens
     mode = (inp.mode or "simple").lower()
     MODE_DEFAULT_MAX = {
         "simple":     160,
@@ -561,7 +560,7 @@ def chat(inp: ChatIn):
     effective_max = int(inp.max_new_tokens) if inp.max_new_tokens else MODE_DEFAULT_MAX.get(mode, 400)
     effective_max = max(1, min(effective_max, 4000))  # cap
 
-    # Prompt
+    #prompt
     system_msg, user_msg = build_prompt(query, hits, mode=mode)
     msgs = [{"role": "system", "content": system_msg},
             {"role": "user",   "content": user_msg}]
@@ -583,7 +582,7 @@ def chat(inp: ChatIn):
     gen_ids = out[0][input_ids.shape[-1]:]
     reply = tokenizer.decode(gen_ids, skip_special_tokens=True).strip()
 
-    # Metrics
+    #metrics
     latency = time.time() - t0
     METRICS["requests"] += 1
     METRICS["total_latency_sec"] += latency
@@ -594,8 +593,8 @@ def chat(inp: ChatIn):
         "query": query,
         "reply": reply,
         "use_rag": use_rag,
-        "retrieval_mode": retrieval_mode,     # dense / bm25 / hybrid
-        "mode": (inp.mode or "simple"),       # simple / academic / compare / references / steps
+        "retrieval_mode": retrieval_mode,     
+        "mode": (inp.mode or "simple"),       
         "hits": [h[1].get("file") for h in hits],
         "latency_sec": round(latency, 3),
         "max_new_tokens": effective_max,

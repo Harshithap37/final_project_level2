@@ -33,7 +33,7 @@ def upload_page():
     return render_template("upload.html")
 
 
-# ---------- Chat/RAG API (llama3_api.py) ----------
+# llama3_api.py
 @app.route("/ask", methods=["POST"])
 def ask():
     data = request.get_json(force=True) or {}
@@ -112,8 +112,7 @@ def reindex():
         return jsonify({"error": f"Reindex backend error: {e}"}), 500
 
 
-# ---------- Proof Assistant proxy (proof_api.py) ----------
-# proof_api.py expects: tool, goal, optional context/assumptions, etc.
+# proof_api.py
 @app.route("/prove", methods=["POST"])
 def prove():
     data = request.get_json(force=True) or {}

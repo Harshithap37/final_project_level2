@@ -1,0 +1,6245 @@
+query_id,query_text,corpus_id,relevance,doc_title,doc_text
+qd2abb7e6,Assume that you are a public equities analyst. Answer the following question by primarily using information that is shown in the balance sheet: what is the year end FY2018 net PPNE for 3M? Answer in USD billions.,dd2abb8b8,1,3M_2018_10K,"Table of Contents 
+3M Company and Subsidiaries
+Consolidated Balance Shee t
+At December 31
+ 
+ 
+ 
+December 31,
+ 
+December 31,
+ 
+(Dollars in millions, except per share amount)
+ 
+2018
+ 
+2017
+ 
+Assets
+ 
+ 
+ 
+ 
+ 
+Current assets
+ 
+ 
+ 
+ 
+ 
+Cash and cash equivalents
+ 
+$
+2,853 
+$
+3,053 
+Marketable securities current
+ 
+ 
+380 
+ 
+1,076 
+Accounts receivable net of allowances of $95 and $103
+ 
+ 
+5,020 
+ 
+4,911 
+Inventories
+ 
+ 
+ 
+ 
+ 
+Finished goods
+ 
+ 
+2,120 
+ 
+1,915 
+Work in process
+ 
+ 
+1,292 
+ 
+1,218 
+Raw materials and supplies
+ 
+ 
+954 
+ 
+901 
+Total inventories
+ 
+ 
+4,366 
+ 
+4,034 
+Prepaids
+ 
+ 
+741 
+ 
+937 
+Other current assets
+ 
+ 
+349 
+ 
+266 
+Total current assets
+ 
+ 
+13,709 
+ 
+14,277 
+Property, plant and equipment
+ 
+ 
+24,873 
+ 
+24,914 
+Less: Accumulated depreciation
+ 
+ 
+(16,135) 
+ 
+(16,048) 
+Property, plant and equipment net
+ 
+ 
+8,738 
+ 
+8,866 
+Goodwill
+ 
+ 
+10,051 
+ 
+10,513 
+Intangible assets net
+ 
+ 
+2,657 
+ 
+2,936 
+Other assets
+ 
+ 
+1,345 
+ 
+1,395 
+Total assets
+ 
+$
+36,500 
+$
+37,987 
+Liabilities
+ 
+ 
+ 
+ 
+ 
+Current liabilities
+ 
+ 
+ 
+ 
+ 
+Short-term borrowings and current portion of long-term debt
+ 
+$
+1,211 
+$
+1,853 
+Accounts payable
+ 
+ 
+2,266 
+ 
+1,945 
+Accrued payroll
+ 
+ 
+749 
+ 
+870 
+Accrued income taxes
+ 
+ 
+243 
+ 
+310 
+Other current liabilities
+ 
+ 
+2,775 
+ 
+2,709 
+Total current liabilities
+ 
+ 
+7,244 
+ 
+7,687 
+ 
+ 
+ 
+ 
+ 
+ 
+Long-term debt
+ 
+ 
+13,411 
+ 
+12,096 
+Pension and postretirement benefits
+ 
+ 
+2,987 
+ 
+3,620 
+Other liabilities
+ 
+ 
+3,010 
+ 
+2,962 
+Total liabilities
+ 
+$
+26,652 
+$
+26,365 
+Commitments and contingencies (Note 16)
+ 
+ 
+ 
+ 
+ 
+Equity
+ 
+ 
+ 
+ 
+ 
+3M Company shareholders equity:
+ 
+ 
+ 
+ 
+ 
+Common stock par value, $.01 par value
+ 
+$
+ 9 
+$
+ 9 
+Shares outstanding - 2018: 576,575,168
+ 
+ 
+ 
+ 
+ 
+Shares outstanding - 2017: 594,884,237
+ 
+ 
+ 
+ 
+ 
+Additional paid-in capital
+ 
+ 
+5,643 
+ 
+5,352 
+Retained earnings
+ 
+ 
+40,636 
+ 
+39,115 
+Treasury stock
+ 
+ 
+(29,626) 
+ 
+(25,887) 
+Accumulated other comprehensive income (loss)
+ 
+ 
+(6,866) 
+ 
+(7,026) 
+Total 3M Company shareholders equity
+ 
+ 
+9,796 
+ 
+11,563 
+Noncontrolling interest
+ 
+ 
+52 
+ 
+59 
+Total equity
+ 
+$
+9,848 
+$
+11,622 
+Total liabilities and equity
+ 
+$
+36,500 
+$
+37,987 
+ 
+The accompanying Notes to Consolidated Financial Statements are an integral part of this statement.
+58"
+qd2abd0e6,What is the FY2019 fixed asset turnover ratio for Activision Blizzard? Fixed asset turnover ratio is defined as: FY2019 revenue / (average PP&E between FY2018 and FY2019). Round your answer to two decimal places. Base your judgments on the information provided primarily in the statement of income and the statement of financial position.,dd2abd17c,1,ACTIVISIONBLIZZARD_2019_10K,"Table of Contents
+ACTIVISION BLIZZARD, INC. AND SUBSIDIARIES
+CONSOLIDATED BALANCE SHEETS
+(Amounts in millions, except share data)
+ 
+At December 31, 2019
+ 
+At December 31, 2018
+Assets
+ 
+ 
+Current assets:
+ 
+ 
+Cash and cash equivalents
+$
+5,794
+ $
+4,225
+Accounts receivable, net of allowances of $132 and $190, at December 31, 2019 and December 31, 2018, respectively
+848
+ 
+1,035
+Inventories, net
+32
+ 
+43
+Software development
+322
+ 
+264
+Other current assets
+296
+ 
+539
+Total current assets
+7,292
+ 
+6,106
+Software development
+54
+ 
+65
+Property and equipment, net
+253
+ 
+282
+Deferred income taxes, net
+1,293
+ 
+458
+Other assets
+658
+ 
+482
+Intangible assets, net
+531
+ 
+735
+Goodwill
+9,764
+ 
+9,762
+Total assets
+$
+19,845
+ $
+17,890
+ 
+ 
+ 
+Liabilities and Shareholders Equity
+ 
+ 
+Current liabilities:
+ 
+ 
+Accounts payable
+$
+292
+ $
+253
+Deferred revenues
+1,375
+ 
+1,493
+Accrued expenses and other liabilities
+1,248
+ 
+896
+Total current liabilities
+2,915
+ 
+2,642
+Long-term debt, net
+2,675
+ 
+2,671
+Deferred income taxes, net
+505
+ 
+18
+Other liabilities
+945
+ 
+1,167
+Total liabilities
+7,040
+ 
+6,498
+Commitments and contingencies (Note 23)
+ 
+Shareholders equity:
+ 
+ 
+ 
+Common stock, $0.000001 par value, 2,400,000,000 shares authorized, 1,197,436,644 and 1,192,093,991 shares issued at
+December 31, 2019 and December 31, 2018, respectively
+
+ 
+
+Additional paid-in capital
+11,174
+ 
+10,963
+Less: Treasury stock, at cost, 428,676,471 shares at December 31, 2019 and December 31, 2018
+(5,563) 
+(5,563)
+Retained earnings
+7,813
+ 
+6,593
+Accumulated other comprehensive loss
+(619) 
+(601)
+Total shareholders equity
+12,805
+ 
+11,392
+Total liabilities and shareholders equity
+$
+19,845
+ $
+17,890
+The accompanying notes are an integral part of these Consolidated Financial Statements.
+F-4"
+qd2abd0e6,What is the FY2019 fixed asset turnover ratio for Activision Blizzard? Fixed asset turnover ratio is defined as: FY2019 revenue / (average PP&E between FY2018 and FY2019). Round your answer to two decimal places. Base your judgments on the information provided primarily in the statement of income and the statement of financial position.,dd2abd1e0,1,ACTIVISIONBLIZZARD_2019_10K,"Table of Contents
+ACTIVISION BLIZZARD, INC. AND SUBSIDIARIES
+CONSOLIDATED STATEMENTS OF OPERATIONS
+(Amounts in millions, except per share data)
+ 
+For the Years Ended December 31,
+ 
+2019
+ 
+2018
+ 
+2017
+Net revenues
+ 
+ 
+ 
+ 
+Product sales
+$
+1,975
+ $
+2,255 $
+2,110
+Subscription, licensing, and other revenues
+4,514
+ 
+5,245 
+4,907
+Total net revenues
+6,489
+ 
+7,500 
+7,017
+ 
+ 
+ 
+ 
+Costs and expenses
+ 
+ 
+ 
+ 
+Cost of revenuesproduct sales:
+ 
+ 
+ 
+Product costs
+656
+ 
+719 
+733
+Software royalties, amortization, and intellectual property licenses
+240
+ 
+371 
+300
+Cost of revenuessubscription, licensing, and other revenues:
+ 
+ 
+ 
+Game operations and distribution costs
+965
+ 
+1,028 
+984
+Software royalties, amortization, and intellectual property licenses
+233
+ 
+399 
+484
+Product development
+998
+ 
+1,101 
+1,069
+Sales and marketing
+926
+ 
+1,062 
+1,378
+General and administrative
+732
+ 
+822 
+745
+Restructuring and related costs
+132
+ 
+10 
+15
+Total costs and expenses
+4,882
+ 
+5,512 
+5,708
+ 
+ 
+ 
+ 
+Operating income
+1,607
+ 
+1,988 
+1,309
+Interest and other expense (income), net (Note 18)
+(26) 
+71 
+146
+Loss on extinguishment of debt
+
+ 
+40 
+12
+Income before income tax expense
+1,633
+ 
+1,877 
+1,151
+Income tax expense
+130
+ 
+29 
+878
+Net income
+$
+1,503
+ $
+1,848 $
+273
+ 
+ 
+ 
+ 
+Earnings per common share
+ 
+ 
+ 
+ 
+Basic
+$
+1.96
+ $
+2.43 $
+0.36
+Diluted
+$
+1.95
+ $
+2.40 $
+0.36
+ 
+ 
+ 
+ 
+Weighted-average number of shares outstanding
+ 
+ 
+ 
+ 
+Basic
+767
+ 
+762 
+754
+Diluted
+771
+ 
+771 
+766
+The accompanying notes are an integral part of these Consolidated Financial Statements.
+F-5"
+qd2abd6b8,What is the FY2017 - FY2019 3 year average of capex as a % of revenue for Activision Blizzard? Answer in units of percents and round to one decimal place. Calculate (or extract) the answer from the statement of income and the cash flow statement.,dd2abd1e0,1,ACTIVISIONBLIZZARD_2019_10K,"Table of Contents
+ACTIVISION BLIZZARD, INC. AND SUBSIDIARIES
+CONSOLIDATED STATEMENTS OF OPERATIONS
+(Amounts in millions, except per share data)
+ 
+For the Years Ended December 31,
+ 
+2019
+ 
+2018
+ 
+2017
+Net revenues
+ 
+ 
+ 
+ 
+Product sales
+$
+1,975
+ $
+2,255 $
+2,110
+Subscription, licensing, and other revenues
+4,514
+ 
+5,245 
+4,907
+Total net revenues
+6,489
+ 
+7,500 
+7,017
+ 
+ 
+ 
+ 
+Costs and expenses
+ 
+ 
+ 
+ 
+Cost of revenuesproduct sales:
+ 
+ 
+ 
+Product costs
+656
+ 
+719 
+733
+Software royalties, amortization, and intellectual property licenses
+240
+ 
+371 
+300
+Cost of revenuessubscription, licensing, and other revenues:
+ 
+ 
+ 
+Game operations and distribution costs
+965
+ 
+1,028 
+984
+Software royalties, amortization, and intellectual property licenses
+233
+ 
+399 
+484
+Product development
+998
+ 
+1,101 
+1,069
+Sales and marketing
+926
+ 
+1,062 
+1,378
+General and administrative
+732
+ 
+822 
+745
+Restructuring and related costs
+132
+ 
+10 
+15
+Total costs and expenses
+4,882
+ 
+5,512 
+5,708
+ 
+ 
+ 
+ 
+Operating income
+1,607
+ 
+1,988 
+1,309
+Interest and other expense (income), net (Note 18)
+(26) 
+71 
+146
+Loss on extinguishment of debt
+
+ 
+40 
+12
+Income before income tax expense
+1,633
+ 
+1,877 
+1,151
+Income tax expense
+130
+ 
+29 
+878
+Net income
+$
+1,503
+ $
+1,848 $
+273
+ 
+ 
+ 
+ 
+Earnings per common share
+ 
+ 
+ 
+ 
+Basic
+$
+1.96
+ $
+2.43 $
+0.36
+Diluted
+$
+1.95
+ $
+2.40 $
+0.36
+ 
+ 
+ 
+ 
+Weighted-average number of shares outstanding
+ 
+ 
+ 
+ 
+Basic
+767
+ 
+762 
+754
+Diluted
+771
+ 
+771 
+766
+The accompanying notes are an integral part of these Consolidated Financial Statements.
+F-5"
+qd2abd6b8,What is the FY2017 - FY2019 3 year average of capex as a % of revenue for Activision Blizzard? Answer in units of percents and round to one decimal place. Calculate (or extract) the answer from the statement of income and the cash flow statement.,dd2abd7b2,1,ACTIVISIONBLIZZARD_2019_10K,"Table of Contents
+ACTIVISION BLIZZARD, INC. AND SUBSIDIARIES
+CONSOLIDATED STATEMENTS OF CASH FLOWS
+(Amounts in millions)
+ 
+For the Years Ended December 31,
+ 
+2019
+ 
+2018
+ 
+2017
+Cash flows from operating activities:
+ 
+ 
+ 
+ 
+ 
+Net income
+$
+1,503
+ $
+1,848
+ $
+273
+Adjustments to reconcile net income to net cash provided by operating activities:
+ 
+ 
+ 
+ 
+ 
+Deferred income taxes
+(352) 
+(35) 
+(181)
+Provision for inventories
+6
+ 
+6
+ 
+33
+Non-cash operating lease cost
+64
+ 
+
+ 
+
+Depreciation and amortization
+328
+ 
+509
+ 
+888
+Amortization of capitalized software development costs and intellectual property licenses (1)
+225
+ 
+489
+ 
+311
+Loss on extinguishment of debt
+
+ 
+40
+ 
+12
+Share-based compensation expense (2)
+166
+ 
+209
+ 
+176
+Unrealized gain on equity investment (Note 10)
+(38) 
+
+ 
+
+Other
+51
+ 
+7
+ 
+40
+Changes in operating assets and liabilities, net of effect from business acquisitions:
+ 
+ 
+ 
+ 
+ 
+Accounts receivable, net
+182
+ 
+(114) 
+(165)
+Inventories
+7
+ 
+(5) 
+(26)
+Software development and intellectual property licenses
+(275) 
+(372) 
+(301)
+Other assets
+164
+ 
+(51) 
+(97)
+Deferred revenues
+(154) 
+(122) 
+220
+Accounts payable
+31
+ 
+(65) 
+85
+Accrued expenses and other liabilities
+(77) 
+(554) 
+945
+Net cash provided by operating activities
+1,831
+ 
+1,790
+ 
+2,213
+Cash flows from investing activities:
+ 
+ 
+ 
+ 
+ 
+Proceeds from maturities of available-for-sale investments
+153
+ 
+116
+ 
+80
+Purchases of available-for-sale investments
+(65) 
+(209) 
+(135)
+Capital expenditures
+(116) 
+(131) 
+(155)
+Other investing activities
+6
+ 
+(6) 
+3
+Net cash used in investing activities
+(22) 
+(230) 
+(207)
+Cash flows from financing activities:
+ 
+ 
+ 
+ 
+ 
+Proceeds from issuance of common stock to employees
+105
+ 
+99
+ 
+178
+Tax payment related to net share settlements on restricted stock units
+(59) 
+(94) 
+(56)
+Dividends paid
+(283) 
+(259) 
+(226)
+Proceeds from debt issuances, net of discounts
+
+ 
+
+ 
+3,741
+Repayment of long-term debt
+
+ 
+(1,740) 
+(4,251)
+Premium payment for early redemption of note
+
+ 
+(25) 
+
+Other financing activities
+
+ 
+(1) 
+(10)
+Net cash used in financing activities
+(237) 
+(2,020) 
+(624)
+Effect of foreign exchange rate changes on cash and cash equivalents
+(3) 
+(31) 
+76
+Net increase (decrease) in cash and cash equivalents and restricted cash
+1,569
+ 
+(491) 
+1,458
+Cash and cash equivalents and restricted cash at beginning of period
+4,229
+ 
+4,720
+ 
+3,262
+Cash and cash equivalents and restricted cash at end of period
+$
+5,798
+ $
+4,229
+ $
+4,720
+(1)
+Excludes deferral and amortization of share-based compensation expense.
+(2)
+Includes the net effects of capitalization, deferral, and amortization of share-based compensation expense.
+The accompanying notes are an integral part of these Consolidated Financial Statements.
+F-8"
+qd2abe6b2,What is the FY2017 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places. Please utilize information provided primarily within the balance sheet and the cash flow statement.,dd2abe752,1,ADOBE_2017_10K,"Table of Contents
+57
+ ADOBE SYSTEMS INCORPORATED
+ CONSOLIDATED BALANCE SHEETS
+(In thousands, except par value)
+ 
+December 1,
+2017
+December 2,
+2016
+ASSETS
+Current assets:
+ 
+ 
+Cash and cash equivalents
+$
+2,306,072
+$
+1,011,315
+Short-term investments
+3,513,702
+3,749,985
+Trade receivables, net of allowances for doubtful accounts of $9,151 and $6,214, respectively
+1,217,968
+833,033
+Prepaid expenses and other current assets
+210,071
+245,441
+Total current assets
+7,247,813
+5,839,774
+Property and equipment, net
+936,976
+816,264
+Goodwill
+5,821,561
+5,406,474
+Purchased and other intangibles, net
+385,658
+414,405
+Investment in lease receivable
+
+80,439
+Other assets
+143,548
+139,890
+Total assets
+$
+14,535,556
+$
+12,697,246
+LIABILITIES AND STOCKHOLDERS EQUITY
+Current liabilities:
+ 
+ 
+Trade payables
+$
+113,538
+$
+88,024
+Accrued expenses
+993,773
+739,630
+Income taxes payable
+14,196
+38,362
+Deferred revenue
+2,405,950
+1,945,619
+Total current liabilities
+3,527,457
+2,811,635
+Long-term liabilities:
+Debt and capital lease obligations
+1,881,421
+1,892,200
+Deferred revenue
+88,592
+69,131
+Income taxes payable
+173,088
+184,381
+Deferred income taxes
+279,941
+217,660
+Other liabilities
+125,188
+97,404
+Total liabilities
+6,075,687
+5,272,411
+Commitments and contingencies
+Stockholders equity:
+ 
+ 
+Preferred stock, $0.0001 par value; 2,000 shares authorized; none issued
+
+
+Common stock, $0.0001 par value; 900,000 shares authorized; 600,834 shares issued; 
+ 491,262 and 494,254 shares outstanding, respectively
+61
+61
+Additional paid-in-capital
+5,082,195
+4,616,331
+Retained earnings
+9,573,870
+8,114,517
+Accumulated other comprehensive income (loss)
+(111,821)
+(173,602)
+Treasury stock, at cost (109,572 and 106,580 shares, respectively), net of reissuances
+(6,084,436)
+(5,132,472)
+Total stockholders equity
+8,459,869
+7,424,835
+Total liabilities and stockholders equity
+$
+14,535,556
+$
+12,697,246
+See accompanying Notes to Consolidated Financial Statements."
+qd2abe6b2,What is the FY2017 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places. Please utilize information provided primarily within the balance sheet and the cash flow statement.,dd2abe7ca,1,ADOBE_2017_10K,"Table of Contents
+61
+ADOBE SYSTEMS INCORPORATED
+ CONSOLIDATED STATEMENTS OF CASH FLOWS
+(In thousands)
+ 
+Years Ended
+ 
+December 1,
+2017
+December 2,
+2016
+November 27,
+2015
+Cash flows from operating activities:
+ 
+ 
+Net income
+$
+1,693,954
+$
+1,168,782
+$
+629,551
+Adjustments to reconcile net income to net cash provided by operating activities:
+Depreciation, amortization and accretion
+325,997
+331,535
+339,473
+Stock-based compensation
+451,451
+349,912
+335,859
+Deferred income taxes
+51,605
+24,222
+(69,657)
+Gain on the sale of property
+
+
+(21,415)
+Unrealized (gains) losses on investments
+(5,494)
+3,145
+(9,210)
+Excess tax benefits from stock-based compensation
+
+(75,105)
+(68,153)
+Other non-cash items
+4,625
+2,022
+1,216
+Changes in operating assets and liabilities, net of acquired assets and
+ assumed liabilities:
+Trade receivables, net
+(187,173)
+(160,416)
+(79,502)
+Prepaid expenses and other current assets
+28,040
+(71,021)
+(7,701)
+Trade payables
+(45,186)
+(6,281)
+22,870
+Accrued expenses
+154,125
+64,978
+(22,564)
+Income taxes payable
+(34,493)
+43,115
+97,934
+Deferred revenue
+475,402
+524,840
+320,801
+Net cash provided by operating activities
+2,912,853
+2,199,728
+1,469,502
+Cash flows from investing activities:
+ 
+ 
+Purchases of short-term investments
+(1,931,011)
+(2,285,222)
+(2,064,833)
+Maturities of short-term investments
+759,737
+769,228
+371,790
+Proceeds from sales of short-term investments
+1,393,929
+860,849
+1,176,476
+Acquisitions, net of cash acquired
+(459,626)
+(48,427)
+(826,004)
+Purchases of property and equipment
+(178,122)
+(203,805)
+(184,936)
+Proceeds from sale of property
+
+
+57,779
+Purchases of long-term investments, intangibles and other assets
+(29,918)
+(58,433)
+(22,779)
+Proceeds from sale of long-term investments
+2,134
+5,777
+4,149
+Net cash used for investing activities
+(442,877)
+(960,033)
+(1,488,358)
+Cash flows from financing activities:
+ 
+ 
+Purchases of treasury stock
+(1,100,000)
+(1,075,000)
+(625,000)
+Proceeds from issuance of treasury stock
+158,351
+145,697
+164,270
+Taxes paid related to net share settlement of equity awards
+(240,126)
+(236,400)
+(186,373)
+Excess tax benefits from stock-based compensation
+
+75,105
+68,153
+Proceeds from debt issuance
+
+
+989,280
+Repayment of debt and capital lease obligations
+(1,960)
+(108)
+(602,189)
+Debt issuance costs
+
+
+(8,828)
+Net cash used for financing activities
+(1,183,735)
+(1,090,706)
+(200,687)
+Effect of foreign currency exchange rates on cash and cash equivalents
+8,516
+(14,234)
+(21,297)
+Net increase (decrease) in cash and cash equivalents
+1,294,757
+134,755
+(240,840)
+Cash and cash equivalents at beginning of year
+1,011,315
+876,560
+1,117,400
+Cash and cash equivalents at end of year
+$
+2,306,072
+$
+1,011,315
+$
+876,560
+Supplemental disclosures:
+ 
+Cash paid for income taxes, net of refunds
+$
+396,668
+$
+249,884
+$
+203,010
+Cash paid for interest
+$
+69,430
+$
+66,193
+$
+56,014
+Non-cash investing activities:
+Investment in lease receivable applied to building purchase
+$
+80,439
+$
+
+$
+
+Issuance of common stock and stock awards assumed in business acquisitions
+$
+10,348
+$
+
+$
+677
+See accompanying Notes to Consolidated Financial Statements."
+qd2ac019c,What is Amazon's year-over-year change in revenue from FY2016 to FY2017 (in units of percents and round to one decimal place)? Calculate what was asked by utilizing the line items clearly shown in the statement of income.,dd2abff58,1,AMAZON_2017_10K,"Table of Contents
+AMAZON.COM, INC.
+CONSOLIDATED STATEMENTS OF OPERATIONS
+(in millions, except per share data)
+ 
+ 
+Year Ended December 31,
+ 
+2015
+ 
+2016
+ 
+2017
+Net product sales
+$
+79,268 $
+94,665 $
+118,573
+Net service sales
+27,738 
+41,322 
+59,293
+Total net sales
+107,006 
+135,987 
+177,866
+Operating expenses:
+ 
+ 
+ 
+Cost of sales
+71,651 
+88,265 
+111,934
+Fulfillment
+13,410 
+17,619 
+25,249
+Marketing
+5,254 
+7,233 
+10,069
+Technology and content
+12,540 
+16,085 
+22,620
+General and administrative
+1,747 
+2,432 
+3,674
+Other operating expense, net
+171 
+167 
+214
+Total operating expenses
+104,773 
+131,801 
+173,760
+Operating income
+2,233 
+4,186 
+4,106
+Interest income
+50 
+100 
+202
+Interest expense
+(459) 
+(484) 
+(848)
+Other income (expense), net
+(256) 
+90 
+346
+Total non-operating income (expense)
+(665) 
+(294) 
+(300)
+Income before income taxes
+1,568 
+3,892 
+3,806
+Provision for income taxes
+(950) 
+(1,425) 
+(769)
+Equity-method investment activity, net of tax
+(22) 
+(96) 
+(4)
+Net income
+$
+596 $
+2,371 $
+3,033
+Basic earnings per share
+$
+1.28 $
+5.01 $
+6.32
+Diluted earnings per share
+$
+1.25 $
+4.90 $
+6.15
+Weighted-average shares used in computation of earnings per share:
+ 
+ 
+ 
+Basic
+467 
+474 
+480
+Diluted
+477 
+484 
+493
+See accompanying notes to consolidated financial statements.
+38"
+qd2ac297e,"What drove operating margin change as of the FY22 for AMD? If operating margin is not a useful metric for a company like this, then please state that and explain why.",dd2ac2a28,1,AMD_2022_10K,"Operating income for 2022 was $1.3 billion compared to operating income of $3.6 billion for 2021. The decrease in operating income was primarily driven by
+amortization of intangible assets associated with the Xilinx acquisition."
+qd2ac2cee,"Among operations, investing, and financing activities, which brought in the most (or lost the least) cash flow for AMD in FY22?",dd2ac2dac,1,AMD_2022_10K,"Advanced Micro Devices, Inc.
+Consolidated Statements of Cash Flows
+Year Ended
+December 31,
+2022
+December 25,
+2021
+December 26,
+2020
+(In millions)
+Cash flows from operating activities:
+Net income
+$
+1,320 
+$
+3,162 
+$
+2,490 
+Adjustments to reconcile net income to net cash provided by operating activities:
+Depreciation and amortization
+4,174 
+407 
+312 
+Stock-based compensation
+1,081 
+379 
+274 
+Amortization of debt discount and issuance costs
+ 
+5 
+14 
+Amortization of operating lease right-of-use assets
+88 
+56 
+42 
+Amortization of inventory fair value adjustment
+189 
+ 
+ 
+Loss on debt redemption, repurchase and conversion
+ 
+7 
+54 
+Loss on sale or disposal of property and equipment
+16 
+34 
+33 
+Deferred income taxes
+(1,505)
+308 
+(1,223)
+(Gains) losses on equity investments, net
+62 
+(56)
+(2)
+Other
+(14)
+(7)
+8 
+Changes in operating assets and liabilities:
+Accounts receivable, net
+(1,091)
+(640)
+(219)
+Inventories
+(1,401)
+(556)
+(417)
+Receivables from related parties
+(13)
+8 
+10 
+Prepaid expenses and other assets
+(1,197)
+(920)
+(231)
+Payables to related parties
+379 
+7 
+(135)
+Accounts payable
+931 
+801 
+(513)
+Accrued liabilities and other
+546 
+526 
+574 
+Net cash provided by operating activities
+3,565 
+3,521 
+1,071 
+Cash flows from investing activities:
+Purchases of property and equipment
+(450)
+(301)
+(294)
+Purchases of short-term investments
+(2,667)
+(2,056)
+(850)
+Proceeds from maturity of short-term investments
+4,310 
+1,678 
+192 
+Cash received from acquisition of Xilinx
+2,366 
+ 
+ 
+Acquisition of Pensando, net of cash acquired
+(1,544)
+ 
+ 
+Other
+(16)
+(7)
+ 
+Net cash provided by (used in) investing activities
+1,999 
+(686)
+(952)
+Cash flows from financing activities:
+Proceeds from debt, net of issuance costs
+991 
+ 
+200 
+Repayment of debt
+(312)
+ 
+(200)
+Proceeds from sales of common stock through employee equity plans
+167 
+104 
+85 
+Repurchases of common stock
+(3,702)
+(1,762)
+ 
+Common stock repurchases for tax withholding on employee equity plans
+(406)
+(237)
+(78)
+Other
+(2)
+ 
+(1)
+Net cash (used in) provided by financing activities
+(3,264)
+(1,895)
+6 
+Net increase in cash and cash equivalents
+2,300 
+940 
+125 
+Cash and cash equivalents at beginning of year
+2,535 
+1,595 
+1,470 
+Cash and cash equivalents at end of year
+$
+4,835 
+$
+2,535 
+$
+1,595"
+qd2ac3036,"From FY21 to FY22, excluding Embedded, in which AMD reporting segment did sales proportionally increase the most?",dd2ac30ea,1,AMD_2022_10K,"Year Ended
+December 31,
+2022
+December 25,
+2021
+(In millions)
+Net revenue:
+Data Center
+$
+6,043 
+$
+3,694 
+Client
+6,201 
+6,887 
+Gaming
+6,805 
+5,607 
+Embedded
+4,552 
+246 
+Total net revenue
+$
+23,601 
+$
+16,434 
+Operating income (loss):
+Data Center
+$
+1,848 
+$
+991 
+Client
+1,190 
+2,088 
+Gaming
+953 
+934 
+Embedded
+2,252 
+44 
+All Other
+(4,979)
+(409)
+Total operating income (loss)
+$
+1,264 
+$
+3,648"
+qd2ac3202,Did AMD report customer concentration in FY22?,dd2ac32b6,1,AMD_2022_10K,"One customer accounted for 16% of our consolidated net revenue for the year ended December 31, 2022. Sales to this customer consisted of sales of products
+from our Gaming segment. A loss of this customer would have a material adverse effect on our business."
+qd2ac4328,What was the largest liability in American Express's Balance Sheet in 2022?,dd2ac43f0,1,AMERICANEXPRESS_2022_10K,"CONSOLIDATED BALANCE SHEETS
+December 31 (Millions, except share data)
+2022
+2021
+Assets
+Cash and cash equivalents
+Cash and due from banks (includes restricted cash of consolidated variable interest entities: 2022, $5; 2021, $11)
+$
+5,510 
+$
+1,292 
+Interest-bearing deposits in other banks (includes securities purchased under resale agreements: 2022, $318; 2021, $463)
+28,097 
+20,548 
+Short-term investment securities (includes restricted investments of consolidated variable interest entities: 2022, $54; 2021, $32)
+307 
+188 
+Total cash and cash equivalents
+33,914 
+22,028 
+Card Member receivables (includes gross receivables available to settle obligations of a consolidated variable interest entity: 2022, $5,193; 2021,
+$5,175), less reserves for credit losses: 2022, $229; 2021, $64
+57,384 
+53,581 
+Card Member loans (includes gross loans available to settle obligations of a consolidated variable interest entity: 2022, $28,461; 2021, $26,587),
+less reserves for credit losses: 2022, $3,747; 2021, $3,305
+104,217 
+85,257 
+Other loans, less reserves for credit losses: 2022, $59; 2021, $52
+5,357 
+2,859 
+Investment securities
+4,578 
+2,591 
+Premises and equipment, less accumulated depreciation and amortization: 2022, $9,850; 2021, $8,602
+5,215 
+4,988 
+Other assets, less reserves for credit losses: 2022, $22; 2021, $25
+17,689 
+17,244 
+Total assets
+$
+228,354 
+$
+188,548 
+Liabilities and Shareholders Equity
+Liabilities
+Customer deposits
+$
+110,239 
+$
+84,382 
+Accounts payable
+12,133 
+10,574 
+Short-term borrowings
+1,348 
+2,243 
+Long-term debt (includes debt issued by consolidated variable interest entities: 2022, $12,662; 2021, $13,803)
+42,573 
+38,675 
+Other liabilities
+37,350 
+30,497 
+Total liabilities
+$
+203,643 
+$
+166,371 
+Contingencies and Commitments (Note 12)
+Shareholders Equity
+Preferred shares, $1.66
+ par value, authorized 20 million shares; issued and outstanding 1,600 shares as of December 31, 2022 and 2021 (Note
+16)
+ 
+ 
+Common shares, $0.20 par value, authorized 3.6 billion shares; issued and outstanding 743 million shares as of December 31, 2022 and 761
+million shares as of December 31, 2021
+149 
+153 
+Additional paid-in capital
+11,493 
+11,495 
+Retained earnings
+16,279 
+13,474 
+Accumulated other comprehensive income (loss)
+(3,210)
+(2,945)
+Total shareholders equity
+24,711 
+22,177 
+Total liabilities and shareholders equity
+$
+228,354 
+$
+188,548"
+qd2ac516a,"Does American Water Works have positive working capital based on FY2022 data? If working capital is not a useful or relevant metric for this company, then please state that and explain why.",dd2ac5228,1,AMERICANWATERWORKS_2022_10K,"American Water Works Company, Inc. and Subsidiary Companies
+Consolidated Balance Sheets
+(In millions, except share and per share data)
+December 31, 2022
+December 31, 2021
+ASSETS
+Property, plant and equipment
+$
+29,736 
+$
+27,413 
+Accumulated depreciation
+(6,513)
+(6,329)
+Property, plant and equipment, net
+23,223 
+21,084 
+Current assets:
+ 
+ 
+Cash and cash equivalents
+85 
+116 
+Restricted funds
+32 
+20 
+Accounts receivable, net of allowance for uncollectible accounts of $60 and $75, respectively
+334 
+271 
+Income tax receivable
+114 
+4 
+Unbilled revenues
+275 
+248 
+Materials and supplies
+98 
+57 
+Assets held for sale
+ 
+683 
+Other
+312 
+155 
+Total current assets
+1,250 
+1,554"
+qd2ac516a,"Does American Water Works have positive working capital based on FY2022 data? If working capital is not a useful or relevant metric for this company, then please state that and explain why.",dd2ac5296,1,AMERICANWATERWORKS_2022_10K,"American Water Works Company, Inc. and Subsidiary Companies
+Consolidated Balance Sheets
+(In millions, except share and per share data)
+December 31, 2022
+December 31, 2021
+CAPITALIZATION AND LIABILITIES
+Capitalization:
+ 
+ 
+Common stock ($0.01 par value; 500,000,000 shares authorized; 187,200,539 and 186,880,413 shares
+issued, respectively)
+$
+2 
+$
+2 
+Paid-in-capital
+6,824 
+6,781 
+Retained earnings
+1,267 
+925 
+Accumulated other comprehensive loss
+(23)
+(45)
+Treasury stock, at cost (5,342,477 and 5,269,324 shares, respectively)
+(377)
+(365)
+Total common shareholders' equity
+7,693 
+7,298 
+Long-term debt
+10,926 
+10,341 
+Redeemable preferred stock at redemption value
+3 
+3 
+Total long-term debt
+10,929 
+10,344 
+Total capitalization
+18,622 
+17,642 
+Current liabilities:
+ 
+ 
+Short-term debt
+1,175 
+584 
+Current portion of long-term debt
+281 
+57 
+Accounts payable
+254 
+235 
+Accrued liabilities
+706 
+701 
+Accrued taxes
+49 
+176 
+Accrued interest
+91 
+88 
+Liabilities related to assets held for sale
+ 
+83 
+Other
+255 
+217 
+Total current liabilities
+2,811 
+2,141"
+qd2ac5818,What is the year end FY2019 total amount of inventories for Best Buy? Answer in USD millions. Base your judgments on the information provided primarily in the balance sheet.,dd2ac58e0,1,BESTBUY_2019_10K,"Table of Contents
+Consolidated Balance Sheets
+$ in millions, except per share and share amounts
+
+
+February 2, 2019
+
+February 3, 2018
+Assets
+ 
+ 
+Current assets
+ 
+ 
+Cashandcashequivalents
+ $
+1,980 $
+1,101
+Short-terminvestments
+
+ 
+2,032
+Receivables,net
+
+1,015 
+1,049
+Merchandiseinventories
+
+5,409 
+5,209
+Othercurrentassets
+
+466 
+438
+Totalcurrentassets
+
+8,870 
+9,829
+Property and equipment
+ 
+ 
+Landandbuildings
+
+637 
+623
+Leaseholdimprovements
+
+2,119 
+2,327
+Fixturesandequipment
+
+5,865 
+5,410
+Propertyundercapitalandfinancingleases
+
+579 
+340
+Grosspropertyandequipment
+
+9,200 
+8,700
+Lessaccumulateddepreciation
+
+6,690 
+6,279
+Netpropertyandequipment
+
+2,510 
+2,421
+Goodwill
+
+915 
+425
+Other assets
+
+606 
+374
+Total assets
+ $
+12,901 $
+13,049
+
+ 
+ 
+Liabilities and equity
+ 
+ 
+Current liabilities
+ 
+ 
+Accountspayable
+ $
+5,257 $
+4,873
+Unredeemedgiftcardliabilities
+
+290 
+385
+Deferredrevenue
+
+446 
+453
+Accruedcompensationandrelatedexpenses
+
+482 
+561
+Accruedliabilities
+
+982 
+1,001
+Currentportionoflong-termdebt
+
+56 
+544
+Totalcurrentliabilities
+
+7,513 
+7,817
+Long-term liabilities
+
+750 
+809
+Long-term debt
+
+1,332 
+811
+Contingencies and commitments (Note 13)
+
+
+Equity
+ 
+ 
+BestBuyCo.,Inc.Shareholders'Equity
+ 
+ 
+Preferredstock,$1.00parvalue:Authorized400,000shares;Issuedandoutstandingnone
+
+ 
+
+Commonstock,$0.10parvalue:Authorized1.0billionshares;Issuedandoutstanding265,703,000and
+282,988,000shares,respectively
+
+27 
+28
+Additionalpaid-incapital
+
+ 
+
+Retainedearnings
+
+2,985 
+3,270
+Accumulatedothercomprehensiveincome
+
+294 
+314
+Totalequity
+
+3,306 
+3,612
+Total liabilities and equity
+ $
+12,901 $
+13,049
+SeeNotestoConsolidatedFinancialStatements.
+50"
+qd2ac5b24,"Are Best Buy's gross margins historically consistent (not fluctuating more than roughly 2% each year)? If gross margins are not a relevant metric for a company like this, then please state that and explain why.",dd2ac5bec,1,BESTBUY_2023_10K,"Consolidated Statements of Earnings
+$ and shares in millions, except per share amounts
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fiscal Years Ended
+January 28, 2023
+ 
+January 29, 2022
+ 
+January 30, 2021
+Revenue
+$
+ 46,298 
+ 
+$
+ 51,761 
+ 
+$
+ 47,262 
+Cost of sales
+ 
+ 36,386 
+ 
+ 
+ 40,121 
+ 
+ 
+ 36,689 
+Gross profit
+ 
+ 9,912 
+ 
+ 
+ 11,640 
+ 
+ 
+ 10,573 
+Selling, general and administrative expenses
+ 
+ 7,970 
+ 
+ 
+ 8,635 
+ 
+ 
+ 7,928 
+Restructuring charges
+ 
+ 147 
+ 
+ 
+ (34) 
+ 
+ 
+ 254 
+Operating income
+ 
+ 1,795 
+ 
+ 
+ 3,039 
+ 
+ 
+ 2,391 
+Other income (expense):
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Investment income and other
+ 
+ 28 
+ 
+ 
+ 10 
+ 
+ 
+ 38 
+Interest expense
+ 
+ (35) 
+ 
+ 
+ (25) 
+ 
+ 
+ (52) 
+Earnings before income tax expense and equity in income of affiliates
+ 
+ 1,788 
+ 
+ 
+ 3,024 
+ 
+ 
+ 2,377 
+Income tax expense
+ 
+ 370 
+ 
+ 
+ 574 
+ 
+ 
+ 579 
+Equity in income of affiliates
+ 
+ 1 
+ 
+ 
+ 4 
+ 
+ 
+ - 
+Net earnings
+$
+ 1,419 
+ 
+$
+ 2,454 
+ 
+$
+ 1,798"
+qd2ac6a74,Was there any change in the number of Best Buy stores between Q2 of FY2024 and FY2023?,dd2ac8626,1,BESTBUY_2024Q2_10Q,"iscal 2024 was primarily driven by comparable sales declines in appliances, home theater, 
+computing and mobile phones, partially offset by comparable sales growth in gaming. Online revenue of $2.8 billion and $5.5 billion in the second quarter and 
+first six months of fiscal 2024 decreased 7.1% and 9.7% on a comparable basis, respectively. These decreases in revenue were primarily due to the reasons 
+described above and within the Consolidated Results section, above.
+ 
+Domestic segment stores open at the beginning and end of the second quarters of fiscal 2024 and fiscal 2023 were as follows:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fiscal 2024
+ 
+Fiscal 2023
+ 
+Total Stores at 
+Beginning of 
+Second Quarter 
+Stores 
+Opened
+ 
+Stores 
+Closed
+ 
+Total Stores at 
+End of Second 
+Quarter
+ 
+Total Stores at 
+Beginning of 
+Second Quarter 
+Stores 
+Opened
+ 
+Stores 
+Closed
+ 
+Total Stores at 
+End of Second 
+Quarter
+Best Buy
+ 
+ 908 
+ - 
+ (1) 
+ 907 
+ 931 
+ 1 
+ (2) 
+ 930 
+Outlet Centers
+ 
+ 20 
+ 1 
+ (1) 
+ 20 
+ 16 
+ 2 
+ - 
+ 18 
+Pacific Sales
+ 
+ 20 
+ - 
+ - 
+ 20 
+ 21 
+ - 
+ - 
+ 21 
+Yardbird
+ 
+ 18 
+ 4 
+ - 
+ 22 
+ 9 
+ 4 
+ - 
+ 13 
+Total
+ 
+ 966 
+ 5 
+ (2) 
+ 969 
+ 977 
+ 7 
+ (2) 
+ 982"
+qd2ac89be,Which Best Buy product category performed the best (by top line) in the domestic (USA) Market during Q2 of FY2024?,dd2ac8aea,1,BESTBUY_2024Q2_10Q,"Computing and Mobile Phones: The 6.4% comparable sales decline was driven primarily by computing, mobile phones and tablets.
+
+Consumer Electronics: The 5.7% comparable sales decline was driven primarily by home theater, partially offset by comparable sales growth in 
+headphones and portable speakers. 
+
+Appliances: The 16.1% comparable sales decline was driven primarily by large appliances.
+
+Entertainment: The 9.0% comparable sales growth was driven primarily by gaming, partially offset by comparable sales declines in virtual reality and 
+drones.
+
+Services: The 7.6% comparable sales growth was driven primarily by the cumulative growth in our paid membership base"
+qd2ace92c,Has Boeing reported any materially important ongoing legal battles from FY2022?,dd2aced14,1,BOEING_2022_10K,"Multiple legal actions have been filed against us as a result of the October 29, 2018 accident of Lion Air Flight 610 and the March 10, 2019
+accident of Ethiopian Airlines Flight 302."
+qd2acfe6c,How does Boeing's effective tax rate in FY2022 compare to FY2021?,dd2acffb6,1,BOEING_2022_10K,"The Boeing Company and Subsidiaries
+Consolidated Statements of Operations
+(Dollars in millions, except per share data)
+ 
+ 
+ 
+Years ended December 31,
+2022
+2021
+2020
+Sales of products
+$55,893 
+$51,386 
+$47,142 
+Sales of services
+10,715 
+10,900 
+11,016 
+Total revenues
+66,608 
+62,286 
+58,158 
+Cost of products
+(53,969)
+(49,954)
+(54,568)
+Cost of services
+(9,109)
+(9,283)
+(9,232)
+Boeing Capital interest expense
+(28)
+(32)
+(43)
+Total costs and expenses
+(63,106)
+(59,269)
+(63,843)
+3,502 
+3,017 
+(5,685)
+(Loss)/income from operating investments, net
+(16)
+210 
+9 
+General and administrative expense
+(4,187)
+(4,157)
+(4,817)
+Research and development expense, net
+(2,852)
+(2,249)
+(2,476)
+Gain on dispositions, net
+6 
+277 
+202 
+Loss from operations
+(3,547)
+(2,902)
+(12,767)
+Other income, net
+1,058 
+551 
+447 
+Interest and debt expense
+(2,533)
+(2,682)
+(2,156)
+Loss before income taxes
+(5,022)
+(5,033)
+(14,476)
+Income tax (expense)/benefit
+(31)
+743 
+2,535"
+qd2ad04a2,What is the FY2017 return on assets (ROA) for Coca Cola? ROA is defined as: FY2017 net income / (average total assets between FY2016 and FY2017). Round your answer to two decimal places. Give a response to the question by relying on the details shown in the balance sheet and the P&L statement.,dd2ad05a6,1,COCACOLA_2017_10K,"THE COCA-COLA COMPANY AND SUBSIDIARIES
+CONSOLIDATED STATEMENTS OF INCOME
+Year Ended December 31,
+2017
+ 
+2016
+ 
+2015
+(In millions except per share data)
+ 
+ 
+NET OPERATING REVENUES
+$
+35,410
+ $
+41,863
+ $
+44,294
+Cost of goods sold
+13,256
+ 
+16,465
+ 
+17,482
+GROSS PROFIT
+22,154
+ 
+25,398
+ 
+26,812
+Selling, general and administrative expenses
+12,496
+ 
+15,262
+ 
+16,427
+Other operating charges
+2,157
+ 
+1,510
+ 
+1,657
+OPERATING INCOME
+7,501
+ 
+8,626
+ 
+8,728
+Interest income
+677
+ 
+642
+ 
+613
+Interest expense
+841
+ 
+733
+ 
+856
+Equity income (loss) net
+1,071
+ 
+835
+ 
+489
+Other income (loss) net
+(1,666) 
+(1,234) 
+631
+INCOME FROM CONTINUING OPERATIONS BEFORE INCOME TAXES
+6,742
+ 
+8,136
+ 
+9,605
+Income taxes from continuing operations
+5,560
+ 
+1,586
+ 
+2,239
+NET INCOME FROM CONTINUING OPERATIONS
+1,182
+ 
+6,550
+ 
+7,366
+Income from discontinued operations (net of income taxes of $47, $0 and $0, respectively)
+101
+ 
+
+ 
+
+CONSOLIDATED NET INCOME
+1,283
+ 
+6,550
+ 
+7,366
+Less: Net income attributable to noncontrolling interests
+35
+ 
+23
+ 
+15
+NET INCOME ATTRIBUTABLE TO SHAREOWNERS OF
+ THE COCA-COLA COMPANY
+$
+1,248
+ $
+6,527
+ $
+7,351
+ 
+ 
+ 
+ 
+Basic net income per share from continuing operations1
+$
+0.28
+ $
+1.51
+ $
+1.69
+Basic net income per share from discontinued operations2
+0.02
+ 
+
+ 
+
+BASIC NET INCOME PER SHARE
+$
+0.29
+3 $
+1.51
+ $
+1.69
+Diluted net income per share from continuing operations1
+$
+0.27
+ $
+1.49
+ $
+1.67
+Diluted net income per share from discontinued operations2
+0.02
+ 
+
+ 
+
+DILUTED NET INCOME PER SHARE
+$
+0.29
+ $
+1.49
+ $
+1.67
+AVERAGE SHARES OUTSTANDING BASIC
+4,272
+ 
+4,317
+ 
+4,352
+Effect of dilutive securities
+52
+ 
+50
+ 
+53
+AVERAGE SHARES OUTSTANDING DILUTED
+4,324
+ 
+4,367
+ 
+4,405
+1 Calculated based on net income from continuing operations less net income from continuing operations attributable to noncontrolling
+interests.
+2 Calculated based on net income from discontinued operations less net income from discontinued operations attributable to noncontrolling
+interests.
+3 Per share amounts do not add due to
+rounding.
+Refer to Notes to Consolidated Financial Statements.
+72"
+qd2ad04a2,What is the FY2017 return on assets (ROA) for Coca Cola? ROA is defined as: FY2017 net income / (average total assets between FY2016 and FY2017). Round your answer to two decimal places. Give a response to the question by relying on the details shown in the balance sheet and the P&L statement.,dd2ad061e,1,COCACOLA_2017_10K,"THE COCA-COLA COMPANY AND SUBSIDIARIES
+CONSOLIDATED BALANCE SHEETS
+December 31,
+2017
+ 
+2016
+(In millions except par value)
+ 
+ 
+ASSETS
+ 
+ 
+CURRENT ASSETS
+ 
+ 
+Cash and cash equivalents
+$
+6,006
+ $
+8,555
+Short-term investments
+9,352
+ 
+9,595
+TOTAL CASH, CASH EQUIVALENTS AND SHORT-TERM INVESTMENTS
+15,358
+ 
+18,150
+Marketable securities
+5,317
+ 
+4,051
+Trade accounts receivable, less allowances of $477 and $466, respectively
+3,667
+ 
+3,856
+Inventories
+2,655
+ 
+2,675
+Prepaid expenses and other assets
+2,000
+ 
+2,481
+Assets held for sale
+219
+ 
+2,797
+Assets held for sale discontinued operations
+7,329
+ 
+
+TOTAL CURRENT ASSETS
+36,545
+ 
+34,010
+EQUITY METHOD INVESTMENTS
+20,856
+ 
+16,260
+OTHER INVESTMENTS
+1,096
+ 
+989
+OTHER ASSETS
+4,560
+ 
+4,248
+PROPERTY, PLANT AND EQUIPMENT net
+8,203
+ 
+10,635
+TRADEMARKS WITH INDEFINITE LIVES
+6,729
+ 
+6,097
+BOTTLERS' FRANCHISE RIGHTS WITH INDEFINITE LIVES
+138
+ 
+3,676
+GOODWILL
+9,401
+ 
+10,629
+OTHER INTANGIBLE ASSETS
+368
+ 
+726
+TOTAL ASSETS
+$
+87,896
+ $
+87,270
+LIABILITIES AND EQUITY
+ 
+ 
+CURRENT LIABILITIES
+ 
+ 
+Accounts payable and accrued expenses
+$
+8,748
+ $
+9,490
+Loans and notes payable
+13,205
+ 
+12,498
+Current maturities of long-term debt
+3,298
+ 
+3,527
+Accrued income taxes
+410
+ 
+307
+Liabilities held for sale
+37
+ 
+710
+ Liabilities held for sale discontinued operations
+1,496
+ 
+
+TOTAL CURRENT LIABILITIES
+27,194
+ 
+26,532
+LONG-TERM DEBT
+31,182
+ 
+29,684
+OTHER LIABILITIES
+8,021
+ 
+4,081
+DEFERRED INCOME TAXES
+2,522
+ 
+3,753
+THE COCA-COLA COMPANY SHAREOWNERS' EQUITY
+ 
+ 
+ Common stock, $0.25 par value; Authorized 11,200 shares;
+ Issued 7,040 and 7,040 shares, respectively
+1,760
+ 
+1,760
+Capital surplus
+15,864
+ 
+14,993
+Reinvested earnings
+60,430
+ 
+65,502
+Accumulated other comprehensive income (loss)
+(10,305) 
+(11,205)
+Treasury stock, at cost 2,781 and 2,752 shares, respectively
+(50,677) 
+(47,988)
+EQUITY ATTRIBUTABLE TO SHAREOWNERS OF THE COCA-COLA COMPANY
+17,072
+ 
+23,062
+EQUITY ATTRIBUTABLE TO NONCONTROLLING INTERESTS
+1,905
+ 
+158
+TOTAL EQUITY
+18,977
+ 
+23,220
+TOTAL LIABILITIES AND EQUITY
+$
+87,896
+ $
+87,270
+Refer to Notes to Consolidated Financial Statements.
+74"
+qd2ad097a,What is Coca Cola's FY2021 COGS % margin? Calculate what was asked by utilizing the line items clearly shown in the income statement.,dd2ad0b46,1,COCACOLA_2021_10K,"THE COCA-COLA COMPANY AND SUBSIDIARIES
+CONSOLIDATED STATEMENTS OF INCOME
+(In millions except per share data)
+Year Ended December 31,
+2021
+2020
+2019
+Net Operating Revenues
+$
+38,655 $
+33,014 $
+37,266 
+Cost of goods sold
+15,357 
+13,433 
+14,619 
+Gross Profit
+23,298 
+19,581 
+22,647 
+Selling, general and administrative expenses
+12,144 
+9,731 
+12,103 
+Other operating charges
+846 
+853 
+458 
+Operating Income
+10,308 
+8,997 
+10,086 
+Interest income
+276 
+370 
+563 
+Interest expense
+1,597 
+1,437 
+946 
+Equity income (loss) net
+1,438 
+978 
+1,049 
+Other income (loss) net
+2,000 
+841 
+34 
+Income Before Income Taxes
+12,425 
+9,749 
+10,786 
+Income taxes
+2,621 
+1,981 
+1,801 
+Consolidated Net Income
+9,804 
+7,768 
+8,985 
+Less: Net income (loss) attributable to noncontrolling interests
+33 
+21 
+65 
+Net Income Attributable to Shareowners of The Coca-Cola Company
+$
+9,771 $
+7,747 $
+8,920 
+Basic Net Income Per Share
+$
+2.26 $
+1.80 $
+2.09 
+Diluted Net Income Per Share
+$
+2.25 $
+1.79 $
+2.07 
+Average Shares Outstanding Basic
+4,315 
+4,295 
+4,276 
+Effect of dilutive securities
+25 
+28 
+38 
+Average Shares Outstanding Diluted
+4,340 
+4,323 
+4,314 
+Calculated based on net income attributable to shareowners of The Coca-Cola Company.
+Refer to Notes to Consolidated Financial Statements.
+1
+1
+1 
+60"
+qd2ad18ca,"Based on the information provided primarily in the balance sheet and the statement of income, what is FY2020 days payable outstanding (DPO) for Corning? DPO is defined as: 365 * (average accounts payable between FY2019 and FY2020) / (FY2020 COGS + change in inventory between FY2019 and FY2020). Round your answer to two decimal places.",dd2ad19c4,1,CORNING_2020_10K,"Index
+
+
+
+
+
+
+Consolidated Statements of Income
+Corning Incorporated and Subsidiary Companies
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+YearendedDecember31,
+(Inmillions,exceptpershareamounts)
+2020
+
+2019
+
+2018
+Netsales
+$
+ 11,303 
+$
+11,503 $
+11,290
+Costofsales
+
+ 7,772 
+
+7,468 
+6,829
+
+
+
+
+
+
+ 
+Grossmargin
+
+ 3,531 
+
+4,035 
+4,461
+
+
+
+
+
+
+ 
+Operatingexpenses:
+
+
+
+
+
+ 
+Selling,generalandadministrativeexpenses
+
+ 1,747 
+
+1,585 
+1,799
+Research,developmentandengineeringexpenses
+
+ 1,154 
+
+1,031 
+993
+Amortizationofpurchasedintangibles
+
+ 121 
+
+113 
+94
+
+
+
+
+
+
+ 
+Operatingincome
+
+ 509 
+
+1,306 
+1,575
+
+
+
+
+
+
+ 
+Equityin(losses)earningsofaffiliatedcompanies(Note3)
+
+ (25)
+
+17 
+390
+Interestincome
+
+ 15 
+
+21 
+38
+Interestexpense
+
+ (276)
+
+(221) 
+(191)
+Translatedearningscontract(loss)gain,net(Note15)
+
+ (38)
+
+248 
+(93)
+Transaction-relatedgain,net(Note4)
+
+ 498 
+
+
+ 
+Otherexpense,net
+
+ (60)
+
+(155) 
+(216)
+
+
+
+
+
+
+ 
+Incomebeforeincometaxes
+
+ 623 
+
+1,216 
+1,503
+Provisionforincometaxes(Note8)
+
+ (111)
+
+(256) 
+(437)
+
+
+
+
+
+
+ 
+NetincomeattributabletoCorningIncorporated
+$
+ 512 
+$
+960 $
+1,066
+
+
+
+
+
+
+ 
+Earningspercommonshareattributableto
+CorningIncorporated:
+
+
+
+
+
+ 
+Basic(Note18)
+$
+ 0.54 
+$
+1.11 $
+1.19
+Diluted(Note18)
+$
+ 0.54 
+$
+1.07 $
+1.13
+
+Theaccompanyingnotesareanintegralpartoftheseconsolidatedfinancialstatements.
+
+70"
+qd2ad18ca,"Based on the information provided primarily in the balance sheet and the statement of income, what is FY2020 days payable outstanding (DPO) for Corning? DPO is defined as: 365 * (average accounts payable between FY2019 and FY2020) / (FY2020 COGS + change in inventory between FY2019 and FY2020). Round your answer to two decimal places.",dd2ad1a32,1,CORNING_2020_10K,"Index
+
+
+
+
+Consolidated Balance Sheets
+Corning Incorporated and Subsidiary Companies
+
+
+
+
+
+
+
+
+
+
+
+
+
+December31,
+(Inmillions,exceptshareandpershareamounts)
+2020
+
+2019
+
+
+
+
+
+
+Assets
+
+
+ 
+
+
+
+ 
+Currentassets:
+
+
+ 
+Cashandcashequivalents
+$
+ 2,672 $
+2,434
+Tradeaccountsreceivable,netofdoubtfulaccounts-$46and$41
+
+ 2,133 
+1,836
+Inventories,net(Note6)
+
+ 2,438 
+2,320
+Othercurrentassets(Note11and15)
+
+ 761 
+873
+Totalcurrentassets
+
+ 8,004 
+7,463
+
+
+
+ 
+Property,plantandequipment,netofaccumulateddepreciation-
+$13,663and$12,995(Note9)
+
+ 15,742 
+15,337
+Goodwill,net(Note10)
+
+ 2,460 
+1,935
+Otherintangibleassets,net(Note10)
+
+ 1,308 
+1,185
+Deferredincometaxes(Note8)
+
+ 1,121 
+1,157
+Otherassets(Note11and15)
+
+ 2,140 
+1,821
+
+
+
+ 
+Total Assets 
+$
+ 30,775 $
+28,898
+
+
+
+ 
+Liabilities and Equity
+
+
+ 
+
+
+
+ 
+Currentliabilities:
+
+
+ 
+Currentportionoflong-termdebtandshort-termborrowings(Note12)
+$
+ 156 $
+11
+Accountspayable
+
+ 1,174 
+1,587
+Otheraccruedliabilities(Note11and14)
+
+ 2,437 
+1,923
+Totalcurrentliabilities
+
+ 3,767 
+3,521
+
+
+
+ 
+Long-termdebt(Note12)
+
+ 7,816 
+7,729
+Postretirementbenefitsotherthanpensions(Note13)
+
+ 727 
+671
+Otherliabilities(Note11and14)
+
+ 5,017 
+3,980
+Totalliabilities
+
+ 17,327 
+15,901
+
+
+
+ 
+Commitments,contingenciesandguarantees(Note14)
+ 
+ 
+Shareholdersequity(Note17):
+
+
+ 
+Convertiblepreferredstock,SeriesAParvalue$100pershare;
+Sharesauthorized3,100;Sharesissued:2,300
+
+ 2,300 
+2,300
+CommonstockParvalue$0.50pershare;Sharesauthorized:3.8billion;
+Sharesissued:1,726millionand1,718million
+
+ 863 
+859
+Additionalpaid-incapitalcommonstock
+
+ 14,642 
+14,323
+Retainedearnings
+
+ 16,120 
+16,408
+Treasurystock,atcost;sharesheld:961millionand956million
+
+ (19,928) 
+(19,812)
+Accumulatedothercomprehensiveloss
+
+ (740) 
+(1,171)
+TotalCorningIncorporatedshareholdersequity
+
+ 13,257 
+12,907
+Noncontrollinginterests
+
+ 191 
+90
+Totalequity
+
+ 13,448 
+12,997
+
+
+
+ 
+Total Liabilities and Equity
+$
+ 30,775 $
+28,898
+
+Theaccompanyingnotesareanintegralpartoftheseconsolidatedfinancialstatements.
+72"
+qd2ad504c,Has CVS Health paid dividends to common shareholders in Q2 of FY2022?,dd2ad662c,1,CVSHEALTH_2022_10K,"Dividends
+During 2022, 2021 and 2020, the quarterly cash dividend was $0.55, $0.50 and $0.50 per share, respectively."
+qd2ad7b9e,"According to the information provided in the statement of cash flows, what is the FY2020 free cash flow (FCF) for General Mills? FCF here is defined as: (cash from operations - capex). Answer in USD millions.",dd2ad7e46,1,GENERALMILLS_2020_10K,"52 
+ 
+Consolidated Statements of Cash Flows 
+GENERAL MILLS, INC. AND SUBSIDIARIES 
+(In Millions) 
+ 
+Fiscal Year 
+ 
+2020 
+2019 
+2018 
+Cash Flows - Operating Activities 
+ 
+ 
+ 
+ 
+Net earnings, including earnings attributable to redeemable and noncontrolling interests $ 
+2,210.8 $ 
+1,786.2 $ 
+2,163.0 
+Adjustments to reconcile net earnings to net cash provided by operating activities: 
+ 
+ 
+ 
+ 
+ 
+ 
+Depreciation and amortization 
+ 
+594.7 
+620.1 
+618.8 
+After-tax earnings from joint ventures 
+ 
+(91.1) 
+(72.0) 
+(84.7)
+Distributions of earnings from joint ventures 
+ 
+76.5 
+86.7 
+113.2 
+Stock-based compensation 
+ 
+94.9 
+84.9 
+77.0 
+Deferred income taxes 
+ 
+(29.6) 
+93.5 
+(504.3)
+Pension and other postretirement benefit plan contributions 
+ 
+(31.1) 
+(28.8) 
+(31.8)
+Pension and other postretirement benefit plan costs 
+ 
+(32.3) 
+6.1 
+4.6 
+Divestitures loss 
+ 
+- 
+30.0 
+- 
+Restructuring, impairment, and other exit costs 
+ 
+43.6 
+235.7 
+126.0 
+Changes in current assets and liabilities, excluding the effects of acquisitions 
+ and divestitures 
+ 
+793.9 
+(7.5) 
+542.1 
+Other, net 
+ 
+45.9 
+(27.9) 
+(182.9)
+Net cash provided by operating activities 
+ 
+3,676.2 
+2,807.0 
+2,841.0 
+Cash Flows - Investing Activities 
+ 
+ 
+ 
+ 
+ 
+ 
+Purchases of land, buildings, and equipment 
+ 
+(460.8) 
+(537.6) 
+(622.7)
+Acquisition, net of cash acquired 
+ 
+- 
+- 
+(8,035.8)
+Investments in affiliates, net 
+ 
+(48.0) 
+0.1 
+(17.3)
+Proceeds from disposal of land, buildings, and equipment 
+ 
+1.7 
+14.3 
+1.4 
+Proceeds from divestitures 
+ 
+- 
+26.4 
+- 
+Other, net 
+ 
+20.9 
+(59.7) 
+(11.0)
+Net cash used by investing activities 
+ 
+(486.2) 
+(556.5) 
+(8,685.4)
+Cash Flows - Financing Activities 
+ 
+ 
+ 
+ 
+ 
+ 
+Change in notes payable 
+ 
+(1,158.6) 
+(66.3) 
+327.5 
+Issuance of long-term debt 
+ 
+1,638.1 
+339.1 
+6,550.0 
+Payment of long-term debt 
+ 
+(1,396.7) 
+(1,493.8) 
+(600.1)
+Proceeds from common stock issued on exercised options 
+ 
+263.4 
+241.4 
+99.3 
+Proceeds from common stock issued 
+ 
+- 
+- 
+969.9 
+Purchases of common stock for treasury 
+ 
+(3.4) 
+(1.1) 
+(601.6)
+Dividends paid 
+ 
+(1,195.8) 
+(1,181.7) 
+(1,139.7)
+Investments in redeemable interest 
+ 
+- 
+55.7 
+- 
+Distributions to noncontrolling and redeemable interest holders 
+ 
+(72.5) 
+(38.5) 
+(51.8)
+Other, net 
+ 
+(16.0) 
+(31.2) 
+(108.0)
+Net cash (used) provided by financing activities 
+ 
+(1,941.5) 
+(2,176.4) 
+5,445.5 
+Effect of exchange rate changes on cash and cash equivalents 
+ 
+(20.7) 
+(23.1) 
+31.8 
+Increase (decrease) in cash and cash equivalents 
+ 
+1,227.8 
+ 
+51.0 
+ 
+(367.1)
+Cash and cash equivalents - beginning of year 
+ 
+450.0 
+399.0 
+766.1 
+Cash and cash equivalents - end of year 
+$ 
+1,677.8 $ 
+450.0 $ 
+399.0 
+Cash flow from changes in current assets and liabilities, excluding the effects of 
+ acquisitions and divestitures: 
+ 
+ 
+ 
+ 
+ 
+ 
+Receivables 
+$ 
+37.9 $ 
+(42.7) $ 
+(122.7)
+Inventories 
+ 
+103.1 
+53.7 
+15.6 
+Prepaid expenses and other current assets 
+ 
+94.2 
+(114.3) 
+(10.7)
+Accounts payable 
+ 
+392.5 
+162.4 
+575.3 
+Other current liabilities 
+ 
+166.2 
+(66.6) 
+84.6 
+Changes in current assets and liabilities 
+$ 
+793.9 $ 
+(7.5) $ 
+542.1 
+See accompanying notes to consolidated financial statements."
+qd2ad86c0,We want to calculate a financial metric. Please help us compute it by basing your answers off of the cash flow statement and the income statement. Here's the question: what is the FY2022 retention ratio (using total cash dividends paid and net income attributable to shareholders) for General Mills? Round answer to two decimal places.,dd2ad8850,1,GENERALMILLS_2022_10K,"45
+Consolidated Statements of Earnings
+GENERAL MILLS, INC. AND SUBSIDIARIES
+(In Millions, Except per Share Data)
+Fiscal Year
+2022
+2021
+2020
+Net sales
+$
+18,992.8
+$
+18,127.0
+$
+17,626.6
+Cost of sales
+12,590.6
+11,678.7
+11,496.7
+Selling, general, and administrative expenses
+3,147.0
+3,079.6
+3,151.6
+Divestitures (gain) loss
+(194.1)
+53.5
+-
+Restructuring, impairment, and other exit (recoveries) costs
+(26.5)
+170.4
+24.4
+Operating profit
+3,475.8
+3,144.8
+2,953.9
+Benefit plan non-service income
+(113.4)
+(132.9)
+(112.8)
+Interest, net
+379.6
+420.3
+466.5
+Earnings before income taxes and after-tax earnings from joint ventures
+3,209.6
+2,857.4
+2,600.2
+Income taxes
+586.3
+629.1
+480.5
+After-tax earnings from joint ventures
+111.7
+117.7
+91.1
+Net earnings, including earnings attributable to redeemable and 
+ noncontrolling interests
+2,735.0
+2,346.0
+2,210.8
+Net earnings attributable to redeemable and noncontrolling interests
+27.7
+6.2
+29.6
+Net earnings attributable to General Mills
+$
+2,707.3
+$
+2,339.8
+$
+2,181.2
+Earnings per share basic
+$
+4.46
+$
+3.81
+$
+3.59
+Earnings per share diluted
+$
+4.42
+$
+3.78
+$
+3.56
+Dividends per share
+$
+2.04
+$
+2.02
+$
+1.96
+See accompanying notes to consolidated financial statements."
+qd2ad86c0,We want to calculate a financial metric. Please help us compute it by basing your answers off of the cash flow statement and the income statement. Here's the question: what is the FY2022 retention ratio (using total cash dividends paid and net income attributable to shareholders) for General Mills? Round answer to two decimal places.,dd2ad88d2,1,GENERALMILLS_2022_10K,"49
+Consolidated Statements of Cash Flows
+GENERAL MILLS, INC. AND SUBSIDIARIES
+(In Millions)
+Fiscal Year
+2022
+2021 
+2020 
+Cash Flows - Operating Activities
+Net earnings, including earnings attributable to redeemable and noncontrolling interests
+$
+2,735.0
+$
+2,346.0
+$
+2,210.8
+Adjustments to reconcile net earnings to net cash provided by operating activities:
+Depreciation and amortization
+570.3
+601.3
+594.7
+After-tax earnings from joint ventures
+(111.7)
+(117.7)
+(91.1)
+Distributions of earnings from joint ventures
+107.5
+95.2
+76.5
+Stock-based compensation
+98.7
+89.9
+94.9
+Deferred income taxes
+62.2
+118.8
+(29.6)
+Pension and other postretirement benefit plan contributions
+(31.3)
+(33.4)
+(31.1)
+Pension and other postretirement benefit plan costs
+(30.1)
+(33.6)
+(32.3)
+Divestitures (gain) loss
+(194.1)
+53.5
+-
+Restructuring, impairment, and other exit (recoveries) costs
+(117.1)
+150.9
+43.6
+Changes in current assets and liabilities, excluding the effects of acquisition and divestitures
+277.4
+(155.9)
+793.9
+Other, net
+(50.7)
+(131.8)
+45.9
+Net cash provided by operating activities
+3,316.1
+2,983.2
+3,676.2
+Cash Flows - Investing Activities
+Purchases of land, buildings, and equipment
+(568.7)
+(530.8)
+(460.8)
+Acquisition
+(1,201.3)
+-
+-
+Investments in affiliates, net
+15.4
+15.5
+(48.0)
+Proceeds from disposal of land, buildings, and equipment
+3.3
+2.7
+1.7
+Proceeds from divestitures, net of cash divested
+74.1
+2.9
+-
+Other, net
+(13.5)
+(3.1)
+20.9
+Net cash used by investing activities
+(1,690.7)
+(512.8)
+(486.2)
+Cash Flows - Financing Activities
+Change in notes payable
+551.4
+71.7
+(1,158.6)
+Issuance of long-term debt
+2,203.7
+1,576.5
+1,638.1
+Payment of long-term debt
+(3,140.9)
+(2,609.0)
+(1,396.7)
+Debt exchange participation incentive cash payment
+-
+(201.4)
+-
+Proceeds from common stock issued on exercised options
+161.7
+74.3
+263.4
+Purchases of common stock for treasury
+(876.8)
+(301.4)
+(3.4)
+Dividends paid
+(1,244.5)
+(1,246.4)
+(1,195.8)
+Distributions to noncontrolling and redeemable interest holders
+(129.8)
+(48.9)
+(72.5)
+Other, net
+(28.0)
+(30.9)
+(16.0)
+Net cash used by financing activities
+(2,503.2)
+(2,715.5)
+(1,941.5)
+Effect of exchange rate changes on cash and cash equivalents
+(58.0)
+72.5
+(20.7)
+(Decrease) increase in cash and cash equivalents
+(935.8)
+(172.6)
+1,227.8
+Cash and cash equivalents - beginning of year
+1,505.2
+1,677.8
+450.0
+Cash and cash equivalents - end of year
+$
+569.4
+$
+1,505.2
+$
+1,677.8
+Cash flow from changes in current assets and liabilities, excluding the effects of acquisition and
+ divestitures:
+Receivables
+$
+(166.3)
+$
+27.9
+$
+37.9
+Inventories
+(85.8)
+(354.7)
+103.1
+Prepaid expenses and other current assets
+(35.3)
+(42.7)
+94.2
+Accounts payable
+456.7
+343.1
+392.5
+Other current liabilities
+108.1
+(129.5)
+166.2
+Changes in current assets and liabilities
+$
+277.4
+$
+(155.9)
+$
+793.9
+See accompanying notes to consolidated financial statements."
+qd2ad8a6c,Are JnJ's FY2022 financials that of a high growth company?,dd2ad8c38,1,JOHNSON_JOHNSON_2022_10K,"Results of Operations
+Analysis of Consolidated Sales
+For discussion on results of operations and financial condition pertaining to the fiscal years 2021 and 2020 see the Companys Annual Report on Form 10-
+K for the fiscal year ended January 2, 2022, Item 7. Management's Discussion and Analysis of Results of Operations and Financial Condition.
+In 2022, worldwide sales increased 1.3% to $94.9 billion as compared to an increase of 13.6% in 2021. These sales changes consisted of the following:
+Sales increase/(decrease) due to:
+2022
+2021
+Volume
+6.9 %
+12.9 %
+Price
+(0.8)
+(0.7)
+Currency
+(4.8)
+1.4 
+Total
+1.3 %
+13.6 %"
+qd2ad9e8a,Roughly how many times has JnJ sold its inventory in FY2022? Calculate inventory turnover ratio for FY2022; if conventional inventory management is not meaningful for the company then state that and explain why.,dd2ada3da,1,JOHNSON_JOHNSON_2022_10K,"JOHNSON & JOHNSON AND SUBSIDIARIES
+CONSOLIDATED BALANCE SHEETS
+At January 1, 2023 and January 2, 2022
+(Dollars in Millions Except Share and Per Share Amounts) (Note 1)
+2022
+2021
+Assets
+Current assets
+ 
+ 
+Cash and cash equivalents (Notes 1 and 2)
+$
+14,127 
+14,487 
+Marketable securities (Notes 1 and 2)
+9,392 
+17,121 
+Accounts receivable trade, less allowances for doubtful accounts $203 (2021, $230)
+16,160 
+15,283 
+Inventories (Notes 1 and 3)
+12,483 
+10,387"
+qd2ad9e8a,Roughly how many times has JnJ sold its inventory in FY2022? Calculate inventory turnover ratio for FY2022; if conventional inventory management is not meaningful for the company then state that and explain why.,dd2ada466,1,JOHNSON_JOHNSON_2022_10K,"JOHNSON & JOHNSON AND SUBSIDIARIES
+CONSOLIDATED STATEMENTS OF EARNINGS
+(Dollars and Shares in Millions Except Per Share Amounts) (Note 1)
+2022
+2021
+2020
+Sales to customers
+$
+94,943 
+93,775 
+82,584 
+Cost of products sold
+31,089 
+29,855 
+28,427"
+qd2ada61e,Is growth in JnJ's adjusted EPS expected to accelerate in FY2023?,dd2adae02,1,JOHNSON_JOHNSON_2022Q4_EARNINGS,"2022 Fourth-Quarter reported sales decline of 4.4% to $23.7 Billion primarily driven by unfavorable 
+foreign exchange and reduced COVID-19 Vaccine sales vs. prior year. Operational growth excluding 
+COVID-19 Vaccine of 4.6%* 
+ 2022 Fourth-Quarter earnings per share (EPS) of $1.33 decreasing 24.9% and adjusted EPS of $2.35 
+increasing by 10.3%* 
+__________________________________________________________________________________________ 
+ 2022 Full-Year reported sales growth of 1.3% to $94.9 Billion primarily driven by strong commercial 
+execution partially offset by unfavorable foreign exchange. Operational growth of 6.1%* 
+ 2022 Full-Year earnings per share (EPS) of $6.73 decreasing 13.8% and adjusted EPS of $10.15 
+increasing by 3.6%* 
+__________________________________________________________________________________________ 
+ Company guides 2023 adjusted operational sales growth excluding COVID-19 Vaccine of 4.0%* and 
+adjusted operational EPS of $10.50, reflecting growth of 3.5%*"
+qd2adb780,"What is the amount of the gain accruing to JnJ as a result of the separation of its Consumer Health business segment, as of August 30, 2023?",dd2adb8d4,1,JOHNSON_JOHNSON_2023_8K_dated-2023-08-30,"Exhibit 99.1
+Johnson & Johnson Announces Updated Financials and 2023 Guidance Following Completion of the Kenvue
+Separation
+
+Company expects increased 2023 Reported Sales Growth of 7.0% - 8.0%, Operational Sales Growth of 7.5% - 8.5%, and
+Adjusted Operational Sales Growth of 6.2% - 7.2%; Figures exclude the COVID-19 Vaccine
+
+Company expects 2023 Adjusted Reported Earnings Per Share (EPS) of $10.00 - $10.10, reflecting increased growth of
+12.5% at the mid-point and Adjusted Operational EPS of $9.90 - $10.00, reflecting increased growth of 11.5% at the mid-
+point
+
+Company reduced outstanding share count by approximately 191 million; 2023 guidance reflects only a partial-year benefit
+of approximately 73.5 million shares or $0.28 benefit to EPS
+
+Company secured $13.2 billion in cash proceeds from the Kenvue debt offering and initial public offering and maintains 9.5%
+of equity stake in Kenvue
+
+Company maintains its quarterly dividend of $1.19 per share
+New Brunswick, N.J. (August 30, 2023) Johnson & Johnson (NYSE: JNJ) (the Company) today announced updates to its financials and
+2023 guidance which reflect its operations as a company focused on transformational innovation in Pharmaceutical and MedTech. The
+Company has published a recorded webinar for investors to provide additional context behind the updated financials and 2023 guidance
+found in this release, which may be accessed by visiting the Investors section of the Company's website at webcasts & presentations.
+The completion of this transaction uniquely positions Johnson & Johnson as a Pharmaceutical and MedTech company focused on delivering
+transformative healthcare solutions to patients, said Joaquin Duato, Chairman of the Board and Chief Executive Officer. We are incredibly
+proud of the focus and dedication of our employees worldwide to achieve this milestone, which we are confident will unlock near- and long-
+term value for all of our stakeholders.
+As previously announced, the Company recently completed an exchange offer to finalize the separation of Kenvue Inc., formerly Johnson &
+Johnsons Consumer Health business. As a result of the completion of the exchange offer, Johnson & Johnson will now present its
+Consumer Health business financial results as discontinued operations, including a gain of approximately $20 billion in the third quarter of
+2023."
+qd2adc6da,"If JPM went bankrupted by the end by 2021 Q1 and liquidated all of its assets to pay its shareholders, how much could each shareholder get?",dd2adc82e,1,JPMORGAN_2021Q1_10Q,"The Firm grew TBVPS, ending the first quarter of 2021 at 
+$66.56, up 10% versus the prior year."
+qd2ade0e8,"We need to calculate a reasonable approximation (or exact number if possible) of a financial metric. Basing your judgment by information plainly provided in the balance sheet and the P&L statement, what is Lockheed Martin's FY2020 asset turnover ratio? Asset turnover ratio is defined as: FY2020 revenue / (average total assets between FY2019 and FY2020). Round your answer to two decimal places.",dd2ade386,1,LOCKHEEDMARTIN_2020_10K,"Table of Contents
+Lockheed Martin Corporation
+Consolidated Statements of Earnings
+(in millions, except per share data)
+ 
+ 
+Years Ended December 31,
+2020
+2019
+2018
+Net sales
+Products
+$
+54,928 
+$
+50,053 
+$
+45,005 
+Services
+10,470 
+9,759 
+8,757 
+Total net sales
+65,398 
+59,812 
+53,762 
+Cost of sales
+Products
+(48,996)
+(44,589)
+(40,293)
+Services
+(9,371)
+(8,731)
+(7,738)
+Severance charges
+(27)
+ 
+(96)
+Other unallocated, net
+1,650 
+1,875 
+1,639 
+Total cost of sales
+(56,744)
+(51,445)
+(46,488)
+Gross profit
+8,654 
+8,367 
+7,274 
+Other (expense) income, net
+(10)
+178 
+60 
+Operating profit
+8,644 
+8,545 
+7,334 
+Interest expense
+(591)
+(653)
+(668)
+Other non-operating income (expense), net
+182 
+(651)
+(828)
+Earnings from continuing operations before income taxes
+8,235 
+7,241 
+5,838 
+Income tax expense
+(1,347)
+(1,011)
+(792)
+Net earnings from continuing operations
+6,888 
+6,230 
+5,046 
+Net loss from discontinued operations
+(55)
+ 
+ 
+Net earnings
+$
+6,833 
+$
+6,230 
+$
+5,046 
+ 
+Earnings (loss) per common share
+Basic
+Continuing operations
+$
+24.60 
+$
+22.09 
+$
+17.74 
+Discontinued operations
+(0.20)
+ 
+ 
+Basic earnings per common share
+$
+24.40 
+$
+22.09 
+$
+17.74 
+Diluted
+Continuing operations
+$
+24.50 
+$
+21.95 
+$
+17.59 
+Discontinued operations
+(0.20)
+ 
+ 
+Diluted earnings per common share
+$
+24.30 
+$
+21.95 
+$
+17.59 
+The accompanying notes are an integral part of these consolidated financial statements.
+67"
+qd2ade0e8,"We need to calculate a reasonable approximation (or exact number if possible) of a financial metric. Basing your judgment by information plainly provided in the balance sheet and the P&L statement, what is Lockheed Martin's FY2020 asset turnover ratio? Asset turnover ratio is defined as: FY2020 revenue / (average total assets between FY2019 and FY2020). Round your answer to two decimal places.",dd2ade412,1,LOCKHEEDMARTIN_2020_10K,"Table of Contents
+Lockheed Martin Corporation
+Consolidated Balance Sheets
+(in millions, except par value)
+ 
+ 
+December 31,
+2020
+2019
+Assets
+Current assets
+Cash and cash equivalents
+$
+3,160 
+$
+1,514 
+Receivables, net
+1,978 
+2,337 
+Contract assets
+9,545 
+9,094 
+Inventories
+3,545 
+3,619 
+Other current assets
+1,150 
+531 
+Total current assets
+19,378 
+17,095 
+Property, plant and equipment, net
+7,213 
+6,591 
+Goodwill
+10,806 
+10,604 
+Intangible assets, net
+3,012 
+3,213 
+Deferred income taxes
+3,475 
+3,319 
+Other noncurrent assets
+6,826 
+6,706 
+Total assets
+$
+50,710 
+$
+47,528 
+Liabilities and equity
+Current liabilities
+Accounts payable
+$
+880 
+$
+1,281 
+Contract liabilities
+7,545 
+7,054 
+Salaries, benefits and payroll taxes
+3,163 
+2,466 
+Current maturities of long-term debt
+500 
+1,250 
+Other current liabilities
+1,845 
+1,921 
+Total current liabilities
+13,933 
+13,972 
+Long-term debt, net
+11,669 
+11,404 
+Accrued pension liabilities
+12,874 
+13,234 
+Other noncurrent liabilities
+6,196 
+5,747 
+Total liabilities
+44,672 
+44,357 
+Stockholders equity
+Common stock, $1 par value per share
+279 
+280 
+Additional paid-in capital
+221 
+ 
+Retained earnings
+21,636 
+18,401 
+Accumulated other comprehensive loss
+(16,121)
+(15,554)
+Total stockholders equity
+6,015 
+3,127 
+Noncontrolling interests in subsidiary
+23 
+44 
+Total equity
+6,038 
+3,171 
+Total liabilities and equity
+$
+50,710 
+$
+47,528 
+The accompanying notes are an integral part of these consolidated financial statements.
+69"
+qd2adeba6,What is Lockheed Martin's 2 year total revenue CAGR from FY2020 to FY2022 (in units of percents and round to one decimal place)? Provide a response to the question by primarily using the statement of income.,dd2aded90,1,LOCKHEEDMARTIN_2022_10K,"Lockheed Martin Corporation
+Consolidated Statements of Earnings
+(in millions, except per share data)
+ 
+ 
+Years Ended December 31,
+2022
+2021
+2020
+Net sales
+Products
+$ 
+55,466 $ 
+56,435 $ 
+54,928 
+Services
+ 
+10,518 
+10,609 
+10,470 
+Total net sales
+ 
+65,984 
+67,044 
+65,398 
+Cost of sales
+Products
+ 
+(49,577) 
+(50,273) 
+(48,996) 
+Services
+ 
+(9,280) 
+(9,463) 
+(9,371) 
+Severance and other charges
+ 
+(100) 
+(36) 
+(27) 
+Other unallocated, net
+ 
+1,260 
+1,789 
+1,650 
+Total cost of sales
+ 
+(57,697) 
+(57,983) 
+(56,744) 
+Gross profit
+ 
+8,287 
+9,061 
+8,654 
+Other income (expense), net
+ 
+61 
+62 
+(10) 
+Operating profit
+ 
+8,348 
+9,123 
+8,644 
+Interest expense
+ 
+(623) 
+(569) 
+(591) 
+Non-service FAS pension (expense) income
+ 
+(971) 
+(1,292) 
+219 
+Other non-operating (expense) income, net
+ 
+(74) 
+288 
+(37) 
+Earnings from continuing operations before income taxes
+ 
+6,680 
+7,550 
+8,235 
+Income tax expense
+ 
+(948) 
+(1,235) 
+(1,347) 
+Net earnings from continuing operations
+ 
+5,732 
+6,315 
+6,888 
+Net loss from discontinued operations
+ 
+ 
+ 
+(55) 
+Net earnings
+$ 
+5,732 $ 
+6,315 $ 
+6,833 
+ 
+Earnings (loss) per common share
+Basic
+Continuing operations
+$ 
+21.74 $ 
+22.85 $ 
+24.60 
+Discontinued operations
+ 
+ 
+ 
+(0.20) 
+Basic earnings per common share
+$ 
+21.74 $ 
+22.85 $ 
+24.40 
+Diluted
+Continuing operations
+$ 
+21.66 $ 
+22.76 $ 
+24.50 
+Discontinued operations
+ 
+ 
+ 
+(0.20) 
+Diluted earnings per common share
+$ 
+21.66 $ 
+22.76 $ 
+24.30 
+The accompanying notes are an integral part of these consolidated financial statements.
+Table of Contents 
+63"
+qd2adf038,"Basing your judgments off of the balance sheet, what is the year end FY2018 amount of accounts payable for MGM Resorts? Answer in USD millions.",dd2ae0e2e,1,MGMRESORTS_2018_10K,"MGMRESORTSINTERNATIONALANDSUBSIDIARIES
+CONSOLIDATEDBALANCESHEETS
+(Inthousands,exceptsharedata)
+ 
+ 
+
+December31,
+
+
+
+2018
+
+
+2017
+
+ASSETS
+
+Currentassets
+ 
+ 
+ 
+ 
+Cash and cash equivalents
+ $
+1,526,762 
+ $
+1,499,995 
+Accounts receivable, net
+ 
+657,206 
+ 
+542,273 
+Inventories
+ 
+110,831 
+ 
+102,292 
+Income tax receivable
+ 
+28,431 
+ 
+42,551 
+Prepaid expenses and other
+ 
+203,548 
+ 
+189,244 
+Total current assets
+ 
+2,526,778 
+ 
+2,376,355 
+ 
+ 
+ 
+ 
+ 
+Propertyandequipment,net
+ 
+20,729,888 
+ 
+19,635,459 
+ 
+ 
+ 
+ 
+ 
+Otherassets
+ 
+ 
+ 
+ 
+Investments in and advances to unconsolidated affiliates
+ 
+732,867 
+ 
+1,033,297 
+Goodwill
+ 
+1,821,392 
+ 
+1,806,531 
+Other intangible assets, net
+ 
+3,944,463 
+ 
+3,877,960 
+Other long-term assets, net
+ 
+455,318 
+ 
+430,440 
+Total other assets
+ 
+6,954,040 
+ 
+7,148,228 
+ 
+ $
+30,210,706 
+ $
+29,160,042 
+LIABILITIESANDSTOCKHOLDERS'EQUITY
+
+Currentliabilities
+ 
+ 
+ 
+ 
+Accounts payable
+ $
+302,578 
+ $
+255,028 
+Construction payable
+ 
+311,793 
+ 
+474,807 
+Current portion of long-term debt
+ 
+43,411 
+ 
+158,042 
+Accrued interest on long-term debt
+ 
+140,046 
+ 
+135,785 
+Other accrued liabilities
+ 
+2,151,054 
+ 
+2,114,635 
+Total current liabilities
+ 
+2,948,882 
+ 
+3,138,297 
+ 
+ 
+ 
+ 
+ 
+Deferredincometaxes,net
+ 
+1,342,538 
+ 
+1,295,375 
+Long-termdebt,net
+ 
+15,088,005 
+ 
+12,751,052 
+Otherlong-termobligations
+ 
+259,240 
+ 
+284,416 
+Commitmentsandcontingencies(Note11)
+ 
+ 
+ 
+ 
+Redeemablenoncontrollinginterests
+ 
+102,250 
+ 
+79,778 
+Stockholders'equity
+ 
+ 
+ 
+ 
+Common stock, $.01 par value: authorized 1,000,000,000 shares, issued and
+ outstanding 527,479,528 and 566,275,789 shares
+ 
+5,275 
+ 
+5,663 
+Capital in excess of par value
+ 
+4,092,085 
+ 
+5,357,709 
+Retained earnings
+ 
+2,423,479 
+ 
+2,217,299 
+Accumulated other comprehensive loss
+ 
+(8,556)
+ 
+(3,610)
+Total MGM Resorts International stockholders' equity
+ 
+6,512,283 
+ 
+7,577,061 
+Noncontrolling interests
+ 
+3,957,508 
+ 
+4,034,063 
+Total stockholders' equity
+ 
+10,469,791 
+ 
+11,611,124 
+ 
+ $
+30,210,706 
+ $
+29,160,042
+ 
+ 
+Theaccompanyingnotesareanintegralpartoftheseconsolidatedfinancialstatements.
+ 
+ 
+55"
+qd2aeaf50,What is Netflix's year end FY2017 total current liabilities (in USD millions)? Base your judgments on the information provided primarily in the balance sheet.,dd2aeb658,1,NETFLIX_2017_10K,"Table of Contents
+NETFLIX, INC.
+CONSOLIDATED BALANCE SHEETS
+(in thousands, except share and per share data)
+ 
+ 
+ 
+As of December 31,
+ 
+ 
+2017
+ 
+2016
+Assets
+ 
+ 
+Current assets:
+ 
+ 
+Cash and cash equivalents
+ $
+2,822,795 $
+1,467,576
+Short-term investments
+ 
+ 
+266,206
+Current content assets, net
+ 
+4,310,934 
+3,726,307
+Other current assets
+ 
+536,245 
+260,202
+Total current assets
+ 
+7,669,974 
+5,720,291
+Non-current content assets, net
+ 
+10,371,055 
+7,274,501
+Property and equipment, net
+ 
+319,404 
+250,395
+Other non-current assets
+ 
+652,309 
+341,423
+Total assets
+ $
+19,012,742 $
+13,586,610
+Liabilities and Stockholders Equity
+ 
+ 
+Current liabilities:
+ 
+ 
+Current content liabilities
+ $
+4,173,041 $
+3,632,711
+Accounts payable
+ 
+359,555 
+312,842
+Accrued expenses
+ 
+315,094 
+197,632
+Deferred revenue
+ 
+618,622 
+443,472
+Total current liabilities
+ 
+5,466,312 
+4,586,657
+Non-current content liabilities
+ 
+3,329,796 
+2,894,654
+Long-term debt
+ 
+6,499,432 
+3,364,311
+Other non-current liabilities
+ 
+135,246 
+61,188
+Total liabilities
+ 
+15,430,786 
+10,906,810
+Commitments and contingencies (Note 5)
+ 
+ 
+Stockholders equity:
+ 
+ 
+Preferred stock, $0.001 par value; 10,000,000 shares authorized at December 31, 2017 and 2016; no shares
+issued and outstanding at December 31, 2017 and 2016
+ 
+ 
+
+Common stock, $0.001 par value; 4,990,000,000 shares authorized at December 31, 2017 and December 31,
+2016, respectively; 433,392,686 and 430,054,212 issued and outstanding at December 31, 2017 and
+December 31, 2016, respectively
+ 
+1,871,396 
+1,599,762
+Accumulated other comprehensive loss
+ 
+(20,557) 
+(48,565)
+Retained earnings
+ 
+1,731,117 
+1,128,603
+Total stockholders equity
+ 
+3,581,956 
+2,679,800
+Total liabilities and stockholders equity
+ $
+19,012,742 $
+13,586,610
+See accompanying notes to consolidated financial statements.
+43"
+qd2aede94,"When primarily referencing the income statement and the statement of financial position, what is the FY2021 inventory turnover ratio for Nike? Inventory turnover ratio is defined as: (FY2021 COGS) / (average inventory between FY2020 and FY2021). Round your answer to two decimal places.",dd2aeeb50,1,NIKE_2021_10K,"Table of Contents
+NIKE, INC.
+CONSOLIDATED STATEMENTS OF INCOME
+YEAR ENDED MAY 31,
+(In millions, except per share data)
+2021
+2020
+2019
+Revenues
+$
+44,538 $
+37,403 $
+39,117 
+Cost of sales
+24,576 
+21,162 
+21,643 
+Gross profit
+19,962 
+16,241 
+17,474 
+Demand creation expense
+3,114 
+3,592 
+3,753 
+Operating overhead expense
+9,911 
+9,534 
+8,949 
+Total selling and administrative expense
+13,025 
+13,126 
+12,702 
+Interest expense (income), net
+262 
+89 
+49 
+Other (income) expense, net
+14 
+139 
+(78)
+Income before income taxes
+6,661 
+2,887 
+4,801 
+Income tax expense
+934 
+348 
+772 
+NET INCOME
+$
+5,727 $
+2,539 $
+4,029 
+Earnings per common share:
+Basic
+$
+3.64 $
+1.63 $
+2.55 
+Diluted
+$
+3.56 $
+1.60 $
+2.49 
+Weighted average common shares outstanding:
+Basic
+1,573.0 
+1,558.8 
+1,579.7 
+Diluted
+1,609.4 
+1,591.6 
+1,618.4 
+The accompanying Notes to the Consolidated Financial Statements are an integral part of this statement.
+2021 FORM 10-K 57"
+qd2aede94,"When primarily referencing the income statement and the statement of financial position, what is the FY2021 inventory turnover ratio for Nike? Inventory turnover ratio is defined as: (FY2021 COGS) / (average inventory between FY2020 and FY2021). Round your answer to two decimal places.",dd2aeecea,1,NIKE_2021_10K,"Table of Contents
+NIKE, INC.
+CONSOLIDATED BALANCE SHEETS
+MAY 31,
+(In millions)
+2021
+2020
+ASSETS
+Current assets:
+Cash and equivalents
+$
+9,889 $
+8,348 
+Short-term investments
+3,587 
+439 
+Accounts receivable, net
+4,463 
+2,749 
+Inventories
+6,854 
+7,367 
+Prepaid expenses and other current assets
+1,498 
+1,653 
+Total current assets
+26,291 
+20,556 
+Property, plant and equipment, net
+4,904 
+4,866 
+Operating lease right-of-use assets, net
+3,113 
+3,097 
+Identifiable intangible assets, net
+269 
+274 
+Goodwill
+242 
+223 
+Deferred income taxes and other assets
+2,921 
+2,326 
+TOTAL ASSETS
+$
+37,740 $
+31,342 
+LIABILITIES AND SHAREHOLDERS' EQUITY
+Current liabilities:
+Current portion of long-term debt
+$
+ $
+3 
+Notes payable
+2 
+248 
+Accounts payable
+2,836 
+2,248 
+Current portion of operating lease liabilities
+467 
+445 
+Accrued liabilities
+6,063 
+5,184 
+Income taxes payable
+306 
+156 
+Total current liabilities
+9,674 
+8,284 
+Long-term debt
+9,413 
+9,406 
+Operating lease liabilities
+2,931 
+2,913 
+Deferred income taxes and other liabilities
+2,955 
+2,684 
+Commitments and contingencies (Note 18)
+Redeemable preferred stock
+ 
+ 
+Shareholders' equity:
+Common stock at stated value:
+Class A convertible 305 and 315 shares outstanding
+ 
+ 
+Class B 1,273 and 1,243 shares outstanding
+3 
+3 
+Capital in excess of stated value
+9,965 
+8,299 
+Accumulated other comprehensive income (loss)
+(380)
+(56)
+Retained earnings (deficit)
+3,179 
+(191)
+Total shareholders' equity
+12,767 
+8,055 
+TOTAL LIABILITIES AND SHAREHOLDERS' EQUITY
+$
+37,740 $
+31,342 
+The accompanying Notes to the Consolidated Financial Statements are an integral part of this statement.
+2021 FORM 10-K 59"
+qd2af1134,What are the geographies that Pepsico primarily operates in as of FY2022?,dd2af18f0,1,PEPSICO_2022_10K,"Forward-Looking Statements
+This Annual Report on Form 10-K contains statements reflecting our views about our future performance that constitute
+forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995 (Reform Act).
+Statements that constitute forward-looking statements within the meaning of the Reform Act are generally identified through the
+inclusion of words such as aim, anticipate, believe, drive, estimate, expect, expressed confidence, forecast,
+future, goal, guidance, intend, may, objective, outlook, plan, position, potential, project, seek,
+should, strategy, target, will or similar statements or variations of such words and other similar expressions. All
+statements addressing our future operating performance, and statements addressing events and developments that we expect or
+anticipate will occur in the future, are forward-looking statements within the meaning of the Reform Act. These forward-looking
+statements are based on currently available information, operating plans and projections about future events and trends. They
+inherently involve risks and uncertainties that could cause actual results to differ materially from those predicted in any such
+forward-looking statement. These risks and uncertainties include, but are not limited to, those described in Item 1A. Risk
+Factors and Item 7. Managements Discussion and Analysis of Financial Condition and Results of Operations Our Business
+ Our Business Risks. Investors are cautioned not to place undue reliance on any such forward-looking statements, which speak
+only as of the date they are made. We undertake no obligation to update any forward-looking statement, whether as a result of
+new information, future events or otherwise. The discussion of risks in this report is by no means all-inclusive but is designed to
+highlight what we believe are important factors to consider when evaluating our future performance.
+PART I
+Item 1. Business.
+When used in this report, the terms we, us, our, PepsiCo and the Company mean PepsiCo, Inc. and its consolidated
+subsidiaries, collectively. Certain terms used in this Annual Report on Form 10-K are defined in the Glossary included in Item 7.
+of this report.
+Company Overview
+We were incorporated in Delaware in 1919 and reincorporated in North Carolina in 1986. We are a leading global beverage and
+convenient food company with a complementary portfolio of brands, including Lays, Doritos, Cheetos, Gatorade, Pepsi-Cola,
+Mountain Dew, Quaker and SodaStream. Through our operations, authorized bottlers, contract manufacturers and other third
+parties, we make, market, distribute and sell a wide variety of beverages and convenient foods, serving customers and consumers
+in more than 200 countries and territories.
+Our Operations
+We are organized into seven reportable segments (also referred to as divisions), as follows:
+1) Frito-Lay North America (FLNA), which includes our branded convenient food businesses in the United States and
+Canada;
+2) Quaker Foods North America (QFNA), which includes our branded convenient food businesses, such as cereal, rice, pasta
+and other branded food, in the United States and Canada;
+3) PepsiCo Beverages North America (PBNA), which includes our beverage businesses in the United States and Canada;
+4) Latin America (LatAm), which includes all of our beverage and convenient food businesses in Latin America;
+5) Europe, which includes all of our beverage and convenient food businesses in Europe;"
+qd2af1134,What are the geographies that Pepsico primarily operates in as of FY2022?,dd2af2336,1,PEPSICO_2022_10K,"6) Africa, Middle East and South Asia (AMESA), which includes all of our beverage and convenient food businesses in
+Africa, the Middle East and South Asia; and
+7) Asia Pacific, Australia and New Zealand and China Region (APAC), which includes all of our beverage and convenient
+food businesses in Asia Pacific, Australia and New Zealand, and China region."
+qd2af7502,"As of FY2023Q1, by how many percentage points did Pepsico raise full year guidance in respect of core constant currency EPS growth?",dd2af6f08,1,PEPSICO_2023Q1_EARNINGS,"We are very pleased with our performance and business momentum as our categories and 
+geographies remained resilient during the first quarter. Given our strong start to the year, we 
+now expect our full-year 2023 organic revenue to increase 8 percent (previously 6 percent) and 
+core constant currency EPS to increase 9 percent (previously 8 percent), said Chairman and 
+CEO Ramon Laguarta."
+qd2af962c,Did Pfizer grow its PPNE between FY20 and FY21?,dd2af9b04,1,PFIZER_2021_10K,"As of December 31,
+(MILLIONS, EXCEPT PER COMMON SHARE DATA)
+2021
+2020
+Assets
+Cash and cash equivalents
+$
+1,944 
+$
+1,786 
+Short-term investments
+29,125 
+10,437 
+Trade accounts receivable, less allowance for doubtful accounts: 2021$492; 2020$508
+11,479 
+7,913 
+Inventories
+9,059 
+8,020 
+Current tax assets
+4,266 
+3,264 
+Other current assets
+3,820 
+3,646 
+Total current assets
+59,693 
+35,067 
+Equity-method investments
+16,472 
+16,856 
+Long-term investments
+5,054 
+3,406 
+Property, plant and equipment
+14,882 
+13,745"
+qd2afcbec,How much does Pfizer expect to pay to spin off Upjohn in the future in USD million?,dd2afdaa6,1,Pfizer_2023Q2_10Q,"We expect to incur costs of approximately $700 million in connection with separating Upjohn, of which approximately 90% has been incurred since inception
+and through the second quarter of 2023. These charges include costs and expenses related to separation of legal entities and transaction costs."
+qd2aff090,"As of Q2'2023, is Pfizer spinning off any large business segments?",dd2afdaa6,1,Pfizer_2023Q2_10Q,"We expect to incur costs of approximately $700 million in connection with separating Upjohn, of which approximately 90% has been incurred since inception
+and through the second quarter of 2023. These charges include costs and expenses related to separation of legal entities and transaction costs."
+qd2b02664,What are major acquisitions that Ulta Beauty has done in FY2023 and FY2022?,dd2b02da8,1,ULTABEAUTY_2023_10K,"Ulta Beauty, Inc.
+Consolidated Statements of Cash Flows
+Fiscal year ended
+January 28,
+January 29,
+January 30,
+(In thousands)
+2023
+ 
+2022
+ 
+2021
+Operating activities
+Net income
+$
+1,242,408
+$
+985,837
+$
+175,835
+Adjustments to reconcile net income to net cash provided by operating activities:
+Depreciation and amortization
+241,372
+268,460
+297,772
+Non-cash lease expense
+301,912
+276,229
+268,071
+Long-lived asset impairment charge
+
+
+72,533
+Deferred income taxes
+15,653
+(25,666)
+(24,008)
+Stock-based compensation expense
+43,044
+47,259
+27,583
+Loss on disposal of property and equipment
+6,688
+5,358
+6,827
+Change in operating assets and liabilities:
+Receivables
+34,260
+(40,573)
+(53,772)
+Merchandise inventories
+(104,233)
+(331,003)
+125,486
+Prepaid expenses and other current assets
+(19,432)
+(3,412)
+(4,363)
+Income taxes
+(45,182)
+(35,652)
+58,916
+Accounts payable
+8,309
+66,156
+62,324
+Accrued liabilities
+48,249
+58,598
+58,599
+Deferred revenue
+41,098
+79,196
+36,848
+Operating lease liabilities
+(324,500)
+(303,914)
+(297,513)
+Other assets and liabilities
+(7,731)
+12,392
+(783)
+Net cash provided by operating activities
+1,481,915
+1,059,265
+810,355
+Investing activities
+Proceeds from short-term investments
+
+
+110,000
+Capital expenditures
+(312,126)
+(172,187)
+(151,866)
+Acquisitions, net of cash acquired
+
+
+(1,220)"
+qd2b0310e,What drove the reduction in SG&A expense as a percent of net sales in FY2023?,dd2b03604,1,ULTABEAUTY_2023Q4_EARNINGS,"For the Full Year of Fiscal 2022
+Net sales increased 18.3% to $10.2 billion compared to $8.6 billion in fiscal 2021,
+primarily due to the favorable impact from the continued resilience of the beauty
+category, retail price increases, the impact of new brands and product innovation,
+increased social occasions, and fewer COVID-19 limitations compared to fiscal 2021.
+Comparable sales increased 15.6% compared to an increase of 37.9% in fiscal 2021,
+driven by a 10.8% increase in transactions and a 4.3% increase in average ticket.
+Gross profit increased 20.1% to $4.0 billion compared to $3.4 billion in fiscal 2021. As
+a percentage of net sales, gross profit increased to 39.6% compared to 39.0% in fiscal
+2021, primarily due to leverage of fixed costs, strong growth in other revenue, and
+favorable channel mix shifts, partially offset by higher inventory shrink and lower
+merchandise margin.
+SG&A expenses increased 16.2% to $2.4 billion compared to $2.1 billion in fiscal
+2021. As a percentage of net sales, SG&A expenses decreased to 23.5% compared to
+23.9% in fiscal 2021, primarily due to lower marketing expenses and leverage of
+incentive compensation due to higher sales, partially offset by deleverage of corporate
+overhead due to strategic investments and deleverage of store payroll and benefits
+due to wage investments."
+qd2b0876c,"As of FY 2021, how much did Verizon expect to pay for its retirees in 2024?",dd2b08bc2,1,VERIZON_2021_10K,"Pension and postretirement health care and life insurance benefits earned during the year, as well as interest on projected benefit obligations, 
+are accrued."
+qd2b0876c,"As of FY 2021, how much did Verizon expect to pay for its retirees in 2024?",dd2b08d20,1,VERIZON_2021_10K,"Estimated Future Benefit Payments 
+The benefit payments to retirees are expected to be paid as follows: 
+(dollars in millions) 
+Year
+Pension Benefits 
+Health Care and Life 
+2022
+$ 
+2,049 
+$ 
+906 
+2023
+1,648 
+883 
+2024
+1,097 
+862 
+2025
+1,066 
+850 
+2026
+1,034 
+840 
+2027 to 2031
+5,097 
+4,139"
+qd2b09220,"Does Verizon have a reasonably healthy liquidity profile based on its quick ratio for FY 2022? If the quick ratio is not relevant to measure liquidity, please state that and explain why.",dd2b0b110,1,VERIZON_2022_10K,"Consolidated Balance Sheets 
+Verizon Communications Inc. and Subsidiaries 
+(dollars in millions, except per share amounts) 
+At December 31,
+2022
+2021 
+Assets 
+Current assets 
+Cash and cash equivalents
+$ 
+2,605 
+$ 
+2,921 
+Accounts receivable
+ 
+25,332 
+ 
+24,742 
+Less Allowance for credit losses
+ 
+826 
+ 
+896 
+Accounts receivable, net 
+ 
+24,506 
+ 
+23,846 
+Inventories
+ 
+2,388 
+ 
+3,055 
+Prepaid expenses and other
+ 
+8,358 
+ 
+6,906 
+Total current assets
+ 
+37,857 
+ 
+36,728 
+Property, plant and equipment
+ 
+307,689 
+ 
+289,897 
+Less Accumulated depreciation
+ 
+200,255 
+ 
+190,201 
+Property, plant and equipment, net
+ 
+107,434 
+ 
+99,696 
+Investments in unconsolidated businesses
+ 
+1,071 
+ 
+1,061 
+Wireless licenses
+ 
+149,796 
+ 
+147,619 
+Goodwill
+ 
+28,671 
+ 
+28,603 
+Other intangible assets, net
+ 
+11,461 
+ 
+11,677 
+Operating lease right-of-use assets
+ 
+26,130 
+ 
+27,883 
+Other assets
+ 
+17,260 
+ 
+13,329 
+Total assets
+$ 
+379,680 
+$ 
+366,596 
+Liabilities and Equity 
+Current liabilities 
+Debt maturing within one year
+$ 
+9,963 
+$ 
+7,443 
+Accounts payable and accrued liabilities
+ 
+23,977 
+ 
+24,833 
+Current operating lease liabilities
+ 
+4,134 
+ 
+3,859 
+Other current liabilities
+ 
+12,097 
+ 
+11,025 
+Total current liabilities
+ 
+ 
+ 
+ 
+ 
+ 
+50,171 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+47,160"
+qd2b14ff8,What is FY2018 days payable outstanding (DPO) for Walmart? DPO is defined as: 365 * (average accounts payable between FY2017 and FY2018) / (FY2018 COGS + change in inventory between FY2017 and FY2018). Round your answer to two decimal places. Please base your judgments on the information provided primarily in the statement of financial position and the P&L statement.,dd2b15b1a,1,WALMART_2018_10K,"Walmart Inc.
+Consolidated Statements of Income
+ 
+ 
+Fiscal Years Ended January 31,
+(Amounts in millions, except per share data)
+ 
+2018
+ 
+2017
+ 
+2016
+Revenues:
+ 
+ 
+ 
+Net sales
+ $
+495,761
+ $
+481,317 $
+478,614
+Membership and other income
+ 
+4,582
+ 
+4,556 
+3,516
+Total revenues
+ 
+500,343
+ 
+485,873 
+482,130
+Costs and expenses:
+ 
+ 
+ 
+Cost of sales
+ 
+373,396
+ 
+361,256 
+360,984
+Operating, selling, general and administrative expenses
+ 
+106,510
+ 
+101,853 
+97,041
+Operating income
+ 
+20,437
+ 
+22,764 
+24,105
+Interest:
+ 
+ 
+ 
+Debt
+ 
+1,978
+ 
+2,044 
+2,027
+Capital lease and financing obligations
+ 
+352
+ 
+323 
+521
+Interest income
+ 
+(152) 
+(100) 
+(81)
+Interest, net
+ 
+2,178
+ 
+2,267 
+2,467
+Loss on extinguishment of debt
+ 
+3,136
+ 
+ 
+
+Income before income taxes
+ 
+15,123
+ 
+20,497 
+21,638
+Provision for income taxes
+ 
+4,600
+ 
+6,204 
+6,558
+Consolidated net income
+ 
+10,523
+ 
+14,293 
+15,080
+Consolidated net income attributable to noncontrolling interest
+ 
+(661) 
+(650) 
+(386)
+Consolidated net income attributable to Walmart
+ $
+9,862
+ $
+13,643 $
+14,694
+ 
+ 
+ 
+ 
+Net income per common share:
+ 
+ 
+ 
+Basic net income per common share attributable to Walmart
+ $
+3.29
+ $
+4.40 $
+4.58
+Diluted net income per common share attributable to Walmart
+ 
+3.28
+ 
+4.38 
+4.57
+ 
+ 
+ 
+ 
+Weighted-average common shares outstanding:
+ 
+ 
+ 
+Basic
+ 
+2,995
+ 
+3,101 
+3,207
+Diluted
+ 
+3,010
+ 
+3,112 
+3,217
+ 
+ 
+ 
+ 
+Dividends declared per common share
+ $
+2.04
+ $
+2.00 $
+1.96
+See accompanying notes.
+55"
+qd2b14ff8,What is FY2018 days payable outstanding (DPO) for Walmart? DPO is defined as: 365 * (average accounts payable between FY2017 and FY2018) / (FY2018 COGS + change in inventory between FY2017 and FY2018). Round your answer to two decimal places. Please base your judgments on the information provided primarily in the statement of financial position and the P&L statement.,dd2b16146,1,WALMART_2018_10K,"Walmart Inc.
+Consolidated Balance Sheets
+ 
+ 
+As of January 31,
+(Amounts in millions)
+ 
+2018
+ 
+2017
+ASSETS
+ 
+ 
+Current assets:
+ 
+ 
+Cash and cash equivalents
+ $
+6,756
+ $
+6,867
+Receivables, net
+ 
+5,614
+ 
+5,835
+Inventories
+ 
+43,783
+ 
+43,046
+Prepaid expenses and other
+ 
+3,511
+ 
+1,941
+Total current assets
+ 
+59,664
+ 
+57,689
+Property and equipment:
+ 
+ 
+Property and equipment
+ 
+185,154
+ 
+179,492
+Less accumulated depreciation
+ 
+(77,479) 
+(71,782)
+Property and equipment, net
+ 
+107,675
+ 
+107,710
+Property under capital lease and financing obligations:
+ 
+ 
+Property under capital lease and financing obligations
+ 
+12,703
+ 
+11,637
+Less accumulated amortization
+ 
+(5,560) 
+(5,169)
+Property under capital lease and financing obligations, net
+ 
+7,143
+ 
+6,468
+ 
+ 
+ 
+Goodwill
+ 
+18,242
+ 
+17,037
+Other assets and deferred charges
+ 
+11,798
+ 
+9,921
+Total assets
+ $
+204,522
+ $
+198,825
+ 
+ 
+ 
+LIABILITIES AND EQUITY
+ 
+ 
+Current liabilities:
+ 
+ 
+Short-term borrowings
+ $
+5,257
+ $
+1,099
+Accounts payable
+ 
+46,092
+ 
+41,433
+Accrued liabilities
+ 
+22,122
+ 
+20,654
+Accrued income taxes
+ 
+645
+ 
+921
+Long-term debt due within one year
+ 
+3,738
+ 
+2,256
+Capital lease and financing obligations due within one year
+ 
+667
+ 
+565
+Total current liabilities
+ 
+78,521
+ 
+66,928
+ 
+ 
+ 
+Long-term debt
+ 
+30,045
+ 
+36,015
+Long-term capital lease and financing obligations
+ 
+6,780
+ 
+6,003
+Deferred income taxes and other
+ 
+8,354
+ 
+9,344
+ 
+ 
+ 
+Commitments and contingencies
+ 
+ 
+ 
+ 
+ 
+Equity:
+ 
+ 
+Common stock
+ 
+295
+ 
+305
+Capital in excess of par value
+ 
+2,648
+ 
+2,371
+Retained earnings
+ 
+85,107
+ 
+89,354
+Accumulated other comprehensive loss
+ 
+(10,181) 
+(14,232)
+Total Walmart shareholders' equity
+ 
+77,869
+ 
+77,798
+Noncontrolling interest
+ 
+2,953
+ 
+2,737
+Total equity
+ 
+80,822
+ 
+80,535
+Total liabilities and equity
+ $
+204,522
+ $
+198,825
+See accompanying notes.
+57"
+qd2b1698e,"Based on the information provided primarily in the statement of income, what is the FY2018 - FY2019 change in unadjusted operating income % margin for Walmart? Answer in units of percents and round to one decimal place.",dd2b16ef2,1,WALMART_2019_10K,"WalmartInc.
+ConsolidatedStatementsofIncome
+ 
+ 
+FiscalYearsEndedJanuary31,
+(Amounts in millions, except per share data)
+ 
+2019
+ 
+2018
+ 
+2017
+Revenues:
+ 
+ 
+ 
+Net sales
+ $
+510,329
+ $
+495,761
+ $
+481,317
+Membership and other income
+ 
+4,076
+ 
+4,582
+ 
+4,556
+Total revenues
+ 
+514,405
+ 
+500,343
+ 
+485,873
+Costsandexpenses:
+ 
+ 
+ 
+Cost of sales
+ 
+385,301
+ 
+373,396
+ 
+361,256
+Operating, selling, general and administrative expenses
+ 
+107,147
+ 
+106,510
+ 
+101,853
+Operatingincome
+ 
+21,957
+ 
+20,437
+ 
+22,764
+Interest:
+ 
+ 
+ 
+Debt
+ 
+1,975
+ 
+1,978
+ 
+2,044
+Capital lease and financing obligations
+ 
+371
+ 
+352
+ 
+323
+Interest income
+ 
+(217) 
+(152) 
+(100)
+Interest, net
+ 
+2,129
+ 
+2,178
+ 
+2,267
+Loss on extinguishment of debt
+ 
+
+ 
+3,136
+ 
+
+Other (gains) and losses
+ 
+8,368
+ 
+
+ 
+
+Incomebeforeincometaxes
+ 
+11,460
+ 
+15,123
+ 
+20,497
+Provision for income taxes
+ 
+4,281
+ 
+4,600
+ 
+6,204
+Consolidatednetincome
+ 
+7,179
+ 
+10,523
+ 
+14,293
+Consolidatednetincomeattributabletononcontrollinginterest
+ 
+(509) 
+(661) 
+(650)
+ConsolidatednetincomeattributabletoWalmart
+ $
+6,670
+ $
+9,862
+ $
+13,643
+ 
+ 
+ 
+ 
+Netincomepercommonshare:
+ 
+ 
+ 
+BasicnetincomepercommonshareattributabletoWalmart
+ $
+2.28
+ $
+3.29
+ $
+4.40
+DilutednetincomepercommonshareattributabletoWalmart
+ 
+2.26
+ 
+3.28
+ 
+4.38
+ 
+ 
+ 
+ 
+Weighted-averagecommonsharesoutstanding:
+ 
+ 
+ 
+Basic
+ 
+2,929
+ 
+2,995
+ 
+3,101
+Diluted
+ 
+2,945
+ 
+3,010
+ 
+3,112
+ 
+ 
+ 
+ 
+Dividendsdeclaredpercommonshare
+ $
+2.08
+ $
+2.04
+ $
+2.00
+See accompanying notes.
+48"
+qd2b1771c,What is the FY2018 - FY2020 3 year average unadjusted EBITDA % margin for Walmart? Define unadjusted EBITDA as unadjusted operating income + depreciation and amortization from the cash flow statement. Answer in units of percents and round to one decimal place. Calculate what was asked by utilizing the line items clearly shown in the P&L statement and the cash flow statement.,dd2b17af0,1,WALMART_2020_10K,"Walmart Inc.
+Consolidated Statements of Income
+ 
+ 
+Fiscal Years Ended January 31,
+(Amounts in millions, except per share data)
+ 
+2020
+ 
+2019
+ 
+2018
+Revenues:
+ 
+ 
+ 
+Net sales
+ $
+519,926
+ $
+510,329 $
+495,761
+Membership and other income
+ 
+4,038
+ 
+4,076 
+4,582
+Total revenues
+ 
+523,964
+ 
+514,405 
+500,343
+Costs and expenses:
+ 
+ 
+ 
+Cost of sales
+ 
+394,605
+ 
+385,301 
+373,396
+Operating, selling, general and administrative expenses
+ 
+108,791
+ 
+107,147 
+106,510
+Operating income
+ 
+20,568
+ 
+21,957 
+20,437
+Interest:
+ 
+ 
+ 
+Debt
+ 
+2,262
+ 
+1,975 
+1,978
+Finance, capital lease and financing obligations
+ 
+337
+ 
+371 
+352
+Interest income
+ 
+(189) 
+(217) 
+(152)
+Interest, net
+ 
+2,410
+ 
+2,129 
+2,178
+Loss on extinguishment of debt
+ 
+
+ 
+ 
+3,136
+Other (gains) and losses
+ 
+(1,958) 
+8,368 
+
+Income before income taxes
+ 
+20,116
+ 
+11,460 
+15,123
+Provision for income taxes
+ 
+4,915
+ 
+4,281 
+4,600
+Consolidated net income
+ 
+15,201
+ 
+7,179 
+10,523
+Consolidated net income attributable to noncontrolling interest
+ 
+(320) 
+(509) 
+(661)
+Consolidated net income attributable to Walmart
+ $
+14,881
+ $
+6,670 $
+9,862
+ 
+ 
+ 
+ 
+Net income per common share:
+ 
+ 
+ 
+Basic net income per common share attributable to Walmart
+ $
+5.22
+ $
+2.28 $
+3.29
+Diluted net income per common share attributable to Walmart
+ 
+5.19
+ 
+2.26 
+3.28
+ 
+ 
+ 
+ 
+Weighted-average common shares outstanding:
+ 
+ 
+ 
+Basic
+ 
+2,850
+ 
+2,929 
+2,995
+Diluted
+ 
+2,868
+ 
+2,945 
+3,010
+ 
+ 
+ 
+ 
+Dividends declared per common share
+ $
+2.12
+ $
+2.08 $
+2.04
+See accompanying notes.
+50"
+qd2b1771c,What is the FY2018 - FY2020 3 year average unadjusted EBITDA % margin for Walmart? Define unadjusted EBITDA as unadjusted operating income + depreciation and amortization from the cash flow statement. Answer in units of percents and round to one decimal place. Calculate what was asked by utilizing the line items clearly shown in the P&L statement and the cash flow statement.,dd2b17c3a,1,WALMART_2020_10K,"Walmart Inc.
+Consolidated Statements of Cash Flows
+ 
+ 
+Fiscal Years Ended January 31,
+(Amounts in millions)
+ 
+2020
+ 
+2019
+ 
+2018
+Cash flows from operating activities:
+ 
+ 
+ 
+Consolidated net income
+ $
+15,201
+ $
+7,179 $
+10,523
+Adjustments to reconcile consolidated net income to net cash provided by operating activities:
+ 
+ 
+ 
+Depreciation and amortization
+ 
+10,987
+ 
+10,678 
+10,529
+Unrealized (gains) and losses
+ 
+(1,886) 
+3,516 
+
+(Gains) and losses for disposal of business operations
+ 
+15
+ 
+4,850 
+
+Asda pension contribution
+ 
+(1,036) 
+ 
+
+Deferred income taxes
+ 
+320
+ 
+(499) 
+(304)
+Loss on extinguishment of debt
+ 
+
+ 
+ 
+3,136
+Other operating activities
+ 
+1,981
+ 
+1,734 
+1,210
+Changes in certain assets and liabilities, net of effects of acquisitions:
+ 
+ 
+ 
+Receivables, net
+ 
+154
+ 
+(368) 
+(1,074)
+Inventories
+ 
+(300) 
+(1,311) 
+(140)
+Accounts payable
+ 
+(274) 
+1,831 
+4,086
+Accrued liabilities
+ 
+186
+ 
+183 
+928
+Accrued income taxes
+ 
+(93) 
+(40) 
+(557)
+Net cash provided by operating activities
+ 
+25,255
+ 
+27,753 
+28,337
+ 
+ 
+ 
+ 
+Cash flows from investing activities:
+ 
+ 
+ 
+Payments for property and equipment
+ 
+(10,705) 
+(10,344) 
+(10,051)
+Proceeds from the disposal of property and equipment
+ 
+321
+ 
+519 
+378
+Proceeds from the disposal of certain operations
+ 
+833
+ 
+876 
+1,046
+Payments for business acquisitions, net of cash acquired
+ 
+(56) 
+(14,656) 
+(375)
+Other investing activities
+ 
+479
+ 
+(431) 
+(77)
+Net cash used in investing activities
+ 
+(9,128) 
+(24,036) 
+(9,079)
+ 
+ 
+ 
+ 
+Cash flows from financing activities:
+ 
+ 
+ 
+Net change in short-term borrowings
+ 
+(4,656) 
+(53) 
+4,148
+Proceeds from issuance of long-term debt
+ 
+5,492
+ 
+15,872 
+7,476
+Repayments of long-term debt
+ 
+(1,907) 
+(3,784) 
+(13,061)
+Premiums paid to extinguish debt
+ 
+
+ 
+ 
+(3,059)
+Dividends paid
+ 
+(6,048) 
+(6,102) 
+(6,124)
+Purchase of Company stock
+ 
+(5,717) 
+(7,410) 
+(8,296)
+Dividends paid to noncontrolling interest
+ 
+(555) 
+(431) 
+(690)
+Purchase of noncontrolling interest
+ 
+
+ 
+ 
+(8)
+Other financing activities
+ 
+(908) 
+(629) 
+(261)
+Net cash used in financing activities
+ 
+(14,299) 
+(2,537) 
+(19,875)
+ 
+ 
+ 
+ 
+Effect of exchange rates on cash, cash equivalents and restricted cash
+ 
+(69) 
+(438) 
+487
+ 
+ 
+ 
+ 
+Net increase (decrease) in cash, cash equivalents and restricted cash
+ 
+1,759
+ 
+742 
+(130)
+Cash, cash equivalents and restricted cash at beginning of year
+ 
+7,756
+ 
+7,014 
+7,144
+Cash, cash equivalents and restricted cash at end of year
+ $
+9,515
+ $
+7,756 $
+7,014
+ 
+ 
+ 
+ 
+Supplemental disclosure of cash flow information:
+ 
+ 
+ 
+Income taxes paid
+ $
+3,616
+ $
+3,982 $
+6,179
+Interest paid
+ 
+2,464
+ 
+2,348 
+2,450
+See accompanying notes."
