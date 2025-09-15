@@ -654,10 +654,7 @@ class Z3RunIn(BaseModel):
     temperature: float | None = 0.2
 
 def _exec_with_timeout(py_code: str, timeout_sec: int = 5):
-    """
-    Execute z3py code in a restricted env with a timeout.
-    Returns (ran: bool, stdout: str, stderr: str, status: str)
-    """
+
     if z3 is None:
         return False, "", "z3-solver not installed", "z3-missing"
 

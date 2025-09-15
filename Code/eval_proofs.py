@@ -5,12 +5,7 @@ PROOF_API = os.getenv("PROOF_BACKEND_URL", "http://127.0.0.1:8001/proofapi")
 import requests
 
 def load_tasks(path):
-    """
-    Input file format (jsonl or json):
-      {"id":"t1","tool":"z3py_run","goal":"x>0 -> ...","context":"","assumptions":["x>0","y>x"]}
-    - tool: "coq" | "isabelle" | "z3py" | "z3py_run"
-    - context, assumptions are optional
-    """
+
     p = pathlib.Path(path)
     items = []
     if p.suffix.lower() == ".jsonl":
@@ -24,7 +19,6 @@ def load_tasks(path):
     return items
 
 def _local_check_coq(code: str, timeout: int = 15) -> tuple[bool,str]:
-    """Optional: try to compile Coq if coqc is available."""
     try:
         subprocess.run(["coqc", "-v"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except Exception:
@@ -45,7 +39,6 @@ def _local_check_coq(code: str, timeout: int = 15) -> tuple[bool,str]:
         except Exception: pass
 
 def _local_check_isabelle(code: str, timeout: int = 20) -> tuple[bool,str]:
-    """Optional: try to run Isabelle in batch mode (very environment-dependent)."""
     try:
         subprocess.run(["isabelle", "version"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except Exception:

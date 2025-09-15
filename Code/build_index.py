@@ -1,4 +1,3 @@
-# ---- build_index.py ----
 import os
 import faiss
 import pickle
@@ -6,14 +5,13 @@ from sentence_transformers import SentenceTransformer
 from PyPDF2 import PdfReader
 from pathlib import Path
 
-# Paths
+
 BASE_DIR = Path(__file__).resolve().parent
-# point to web/knowledge instead of Code/knowledge
 KNOW_DIR = (BASE_DIR.parent / "web" / "knowledge").resolve()
 INDEX_FILE = BASE_DIR / "faiss_index.bin"
 META_FILE = BASE_DIR / "faiss_meta.pkl"
 
-# Model
+
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
 def load_texts():

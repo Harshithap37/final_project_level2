@@ -1,9 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
-# Model ID
 model_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
 
-# Load tokenizer and model
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(
     model_id,
@@ -11,7 +9,6 @@ model = AutoModelForCausalLM.from_pretrained(
     torch_dtype="auto"
 )
 
-# Build chat-style prompt
 prompt = (
     "<|system|>\nYou are a helpful assistant.\n"
     "<|user|>\n"
@@ -24,11 +21,8 @@ prompt = (
     "<|assistant|>"
 )
 
-# Set up pipeline
 pipe = pipeline("text-generation", model=model, tokenizer=tokenizer)
 
-# Generate
 result = pipe(prompt, max_new_tokens=300, do_sample=True, temperature=0.7)
 
-# Print output
 print(result[0]["generated_text"])

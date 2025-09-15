@@ -98,7 +98,6 @@ def _build_codegen_prompt(tool: str, goal: str, context: str, assumptions: list[
     return sys_prompt, "\n".join(user)
 
 def _limit_resources(mem_mb=320, cpu_sec=5):
-    """Apply soft resource limits for the current process (Linux/Unix)."""
     resource.setrlimit(resource.RLIMIT_AS, (mem_mb * 1024 * 1024, mem_mb * 1024 * 1024))
     resource.setrlimit(resource.RLIMIT_CPU, (cpu_sec, cpu_sec))
 

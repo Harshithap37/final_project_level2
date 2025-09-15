@@ -3,12 +3,10 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import torch
 import os
 
-# Load Hugging Face token from environment
 HF_TOKEN = os.getenv("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")
 if not HF_TOKEN:
     raise ValueError("HF_TOKEN environment variable not set.")
 
-# Model ID for LLaMA 3
 MODEL_ID = "meta-llama/Meta-Llama-3-8B-Instruct"
 
 print("Loading model... This may take a while on first run.")
@@ -48,5 +46,4 @@ def chat():
     return jsonify({"reply": reply})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5005)  # Accessible from tunnel
-
+    app.run(host="0.0.0.0", port=5005)  
