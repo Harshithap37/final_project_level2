@@ -1,4 +1,3 @@
-# ---- llama3_api.py — LLaMA-3 + RAG (FAISS + BM25 Hybrid) + OCR + logging + metrics + upload + Proof Gen/Run ----
 from fastapi import FastAPI, UploadFile, File
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,7 +9,6 @@ from datetime import datetime
 import torch
 import numpy as np
 
-# ---------- Optional readers for extra formats ----------
 try:
     import pandas as pd
 except Exception:
@@ -26,7 +24,6 @@ try:
 except Exception:
     PdfReader = None
 
-# PDFium (better PDF text & rendering) + Tesseract OCR (for scanned PDFs)
 try:
     import pypdfium2 as pdfium
 except Exception:
@@ -34,24 +31,23 @@ except Exception:
 
 try:
     import pytesseract
-    from PIL import Image  # Pillow
+    from PIL import Image 
 except Exception:
     pytesseract = None
     Image = None
 
-# Optional Z3 (only needed for /proof/z3/run)
+
 try:
-    import z3  # type: ignore
+    import z3  
 except Exception:
     z3 = None
 
-# Optional: allow overriding tesseract binary path via env
+
 if pytesseract is not None:
     _TES = os.getenv("TESSERACT_CMD")
     if _TES:
         pytesseract.pytesseract.tesseract_cmd = _TES
 
-# ---------- LLM load ----------
 MODEL_ID = os.getenv("MODEL_ID", "meta-llama/Meta-Llama-3-8B-Instruct")
 HF_TOKEN = os.getenv("HUGGINGFACE_HUB_TOKEN") or os.getenv("HF_TOKEN")
 DEVICE = ("cuda" if torch.cuda.is_available()
@@ -68,7 +64,7 @@ model = AutoModelForCausalLM.from_pretrained(
 device = next(model.parameters()).device
 print(f"Model ready on device: {device}")
 
-# ---------- RAG (FAISS + SBERT + BM25) ----------
+
 import faiss
 from sentence_transformers import SentenceTransformer
 from rank_bm25 import BM25Okapi
@@ -81,10 +77,10 @@ INDEX_FILE = os.path.join(BASE_DIR, "faiss_index.bin")
 META_FILE  = os.path.join(BASE_DIR, "faiss_meta.pkl")
 
 EMBED_MODEL       = "all-MiniLM-L6-v2"
-TOP_K             = 8           # ↑ slightly higher to reduce misses on short queries
+TOP_K             = 8           
 MAX_CONTEXT_CHARS = 2500
 
-# Globals for retrieval
+
 embedder: SentenceTransformer | None = None
 faiss_index: faiss.Index | None = None
 meta: list[dict] = []
@@ -92,11 +88,11 @@ meta: list[dict] = []
 bm25_corpus: list[list[str]] = []
 bm25: BM25Okapi | None = None
 
-# Supported extensions
+
 SUPPORTED_EXTS = {".txt", ".md", ".docx", ".csv", ".pdf"}
 
 
-# ------------- lightweight tokenizer used for BM25 (lowercase + alnum only) -------------
+
 def _tok(text: str) -> list[str]:
     return re.findall(r"[a-z0-9]+", (text or "").lower())
 
@@ -106,7 +102,7 @@ def _load_rag():
     try:
         embedder = SentenceTransformer(EMBED_MODEL)
     except Exception as e:
-        print("⚠️ Could not load embedder:", e)
+        print(" Could not load embedder:", e)
         embedder = None
 
     try:
@@ -118,7 +114,7 @@ def _load_rag():
             meta = []
         print(f"RAG ready: FAISS={'yes' if faiss_index is not None else 'no'}, docs={len(meta)}")
     except Exception as e:
-        print("⚠️ Failed to load FAISS index/meta:", e)
+        print(" Failed to load FAISS index/meta:", e)
         faiss_index = None
         meta = []
 
@@ -176,7 +172,7 @@ def _extract_text(path: str, for_snippet: bool = False) -> str:
                 txt = f.read()
 
         elif ext == ".docx":
-            # Robust DOCX extraction (paragraphs, tables, headers/footers)
+            
             if Document is None:
                 return f"[DOCX: {os.path.basename(path)}]"
             try:
@@ -265,10 +261,7 @@ def _load_snippet(m):
 
 
 def retrieve(query: str, k: int = TOP_K, mode: str = "dense"):
-    """
-    Return list of (score, meta, snippet).
-    mode = "dense" | "bm25" | "hybrid" 
-    """
+    
     results: list[tuple[float, dict, str]] = []
 
     if mode == "dense" and faiss_index is not None and embedder is not None and len(meta) > 0:
@@ -280,11 +273,11 @@ def retrieve(query: str, k: int = TOP_K, mode: str = "dense"):
                 if 0 <= idx < len(meta):
                     m = meta[idx]
                     snippet = _load_snippet(m)
-                    results.append((float(-dist), m, snippet))  # higher is better (neg distance)
+                    results.append((float(-dist), m, snippet))  
         return results
 
     if mode == "bm25" and bm25 is not None and len(meta) > 0:
-        toks = _tok(query)                      # ← normalized query tokens
+        toks = _tok(query)                      
         scores = bm25.get_scores(toks)
         topk = np.argsort(scores)[::-1][:k]
         for idx in topk:
@@ -295,14 +288,14 @@ def retrieve(query: str, k: int = TOP_K, mode: str = "dense"):
         return results
 
     if mode == "hybrid":
-        # Tunable weights
-        W_DENSE = 1.0   # semantic weight
-        W_BM25  = 2.0   # keyword weight (boost exact terms in tiny personal files)
+       
+        W_DENSE = 1.0   
+        W_BM25  = 2.0   
 
         dense_hits = retrieve(query, k, mode="dense") if (faiss_index is not None and embedder is not None) else []
         bm_hits    = retrieve(query, k, mode="bm25")  if (bm25 is not None) else []
 
-        # Merge by file id, sum weighted scores
+        
         all_hits: dict[str, tuple[float, dict, str]] = {}
 
         for s, m, snip in dense_hits:
@@ -316,12 +309,12 @@ def retrieve(query: str, k: int = TOP_K, mode: str = "dense"):
         results = sorted(all_hits.values(), key=lambda x: -x[0])[:k]
         return results
 
-    # Fallback: nothing available
+    
     return results
 
 
 def _rebuild_index():
-    """Scan KNOW_DIR and rebuild FAISS + BM25 index safely (multi-format)."""
+    
     docs, meta_list = [], []
     files_indexed, files_skipped = [], []
 
@@ -345,7 +338,7 @@ def _rebuild_index():
             else:
                 files_skipped.append({"file": fn, "reason": "empty_extraction"})
 
-    # If no docs → clear all indices
+    
     if not docs:
         if os.path.exists(INDEX_FILE): os.remove(INDEX_FILE)
         if os.path.exists(META_FILE):  os.remove(META_FILE)
@@ -355,29 +348,29 @@ def _rebuild_index():
         globals()["bm25_corpus"] = []
         return False, 0, files_indexed, files_skipped
 
-    # Always write meta (needed for BM25 even if embedder missing)
+   
     with open(META_FILE, "wb") as f:
         pickle.dump(meta_list, f)
 
-    # If embedder unavailable, skip FAISS but keep BM25
+   
     emb = _embed(docs)
     if emb is None:
         _load_rag()
         _build_bm25()
         return True, len(docs), files_indexed, files_skipped
 
-    # Build FAISS
+   
     emb = emb.astype("float32")
     index = faiss.IndexFlatL2(emb.shape[1])
     index.add(emb)
     faiss.write_index(index, INDEX_FILE)
 
-    # Hot reload + BM25
+    
     _load_rag()
     _build_bm25()
     return True, len(docs), files_indexed, files_skipped
 
-# ---------- Prompt building ----------
+
 def build_prompt(user_query: str, hits, mode: str = "simple"):
     system = (
         "You are AxiomAI, a domain-specialist assistant for FORMAL VERIFICATION "
@@ -385,7 +378,7 @@ def build_prompt(user_query: str, hits, mode: str = "simple"):
         "• Always answer the latest user message from your own knowledge.\n"
         "• If the context below is useful, weave it in and cite like [1], [2].\n"
     )
-    #mode selection
+    
     if mode == "simple":
         system += "Keep answers short, clear, and beginner-friendly.\n"
     elif mode == "academic":
@@ -412,7 +405,7 @@ def build_prompt(user_query: str, hits, mode: str = "simple"):
     )
     return system, user
 
-# ---------------- Proof generation helpers ----------------
+
 def _llm_generate(prompt: str, max_new_tokens: int = 300, temperature: float = 0.2) -> str:
     msgs = [
         {"role": "system", "content": "You generate **valid code** for formal verification tools. Return only code blocks with minimal comments."},
@@ -435,7 +428,6 @@ def _llm_generate(prompt: str, max_new_tokens: int = 300, temperature: float = 0
     return tokenizer.decode(gen_ids, skip_special_tokens=True).strip()
 
 def _strip_fences(text: str) -> str:
-    # remove ```lang ... ``` fences if present
     fence = re.compile(r"^```[\w+-]*\s*|\s*```$", re.MULTILINE)
     return fence.sub("", text).strip()
 
@@ -455,7 +447,6 @@ def _prompt_for_tool(tool: str, goal: str, hints: str | None) -> str:
             f"Goal: {goal}{hints_part}\n"
             "Return only a code block."
         )
-    # default: z3py
     return (
         "Generate a Python (z3py) script that models the constraints and prints solver result. "
         "Use from z3 import *; create a Solver(); assert constraints; then print(s.check()) "
@@ -464,11 +455,10 @@ def _prompt_for_tool(tool: str, goal: str, hints: str | None) -> str:
         "Return only a code block."
     )
 
-# ---------- FastAPI app ----------
 app = FastAPI(title="LLaMA-3 API (Stanage) + RAG + OCR + Logging + Upload + Proof API")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],    # tighten if desired
+    allow_origins=["*"],   
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -479,10 +469,9 @@ class ChatIn(BaseModel):
     temperature: float | None = 0.2
     max_new_tokens: int | None = None
     use_rag: bool | None = True
-    retrieval_mode: str | None = "hybrid"   # "dense" | "bm25" | "hybrid"
-    mode: str | None = "simple"             # "simple" | "academic" | "compare" | "references" | "steps"
+    retrieval_mode: str | None = "hybrid"   
+    mode: str | None = "simple"             
 
-# ---------- Metrics & logging ----------
 METRICS = {
     "start_time": time.time(),
     "requests": 0,
@@ -541,14 +530,14 @@ def chat(inp: ChatIn):
     if not query:
         return {"reply": "Please type a question."}
 
-    #retieval
+
     use_rag = True if inp.use_rag is None else bool(inp.use_rag)
     retrieval_mode = (inp.retrieval_mode or "hybrid").lower()
     if retrieval_mode not in ("dense", "bm25", "hybrid"):
         retrieval_mode = "hybrid"
     hits = retrieve(query, TOP_K, mode=retrieval_mode) if use_rag else []
 
-    #max tokens
+ 
     mode = (inp.mode or "simple").lower()
     MODE_DEFAULT_MAX = {
         "simple":     160,
@@ -558,9 +547,9 @@ def chat(inp: ChatIn):
         "steps":      450,
     }
     effective_max = int(inp.max_new_tokens) if inp.max_new_tokens else MODE_DEFAULT_MAX.get(mode, 400)
-    effective_max = max(1, min(effective_max, 4000))  # cap
+    effective_max = max(1, min(effective_max, 4000)) 
 
-    #prompt
+  
     system_msg, user_msg = build_prompt(query, hits, mode=mode)
     msgs = [{"role": "system", "content": system_msg},
             {"role": "user",   "content": user_msg}]
@@ -582,13 +571,13 @@ def chat(inp: ChatIn):
     gen_ids = out[0][input_ids.shape[-1]:]
     reply = tokenizer.decode(gen_ids, skip_special_tokens=True).strip()
 
-    #metrics
+   
     latency = time.time() - t0
     METRICS["requests"] += 1
     METRICS["total_latency_sec"] += latency
     METRICS["tokens_out"] += int(gen_ids.shape[0])
 
-    # Logging
+ 
     log_event({
         "query": query,
         "reply": reply,
@@ -608,7 +597,6 @@ def chat(inp: ChatIn):
         "mode": mode,
     }
 
-# ---------- Upload + Reindex ----------
 @app.post("/upload")
 def upload(file: UploadFile = File(...)):
     fname = file.filename
@@ -639,12 +627,10 @@ def reindex():
         "files_skipped": files_skipped
     }
 
-# ============================
-#        PROOF ENDPOINTS
-# ============================
+
 class ProofIn(BaseModel):
     goal: str
-    tool: str | None = "coq"     # "coq" | "isabelle" | "z3py"
+    tool: str | None = "coq"     
     hints: str | None = None
     max_new_tokens: int | None = 300
     temperature: float | None = 0.2
@@ -675,7 +661,7 @@ def _exec_with_timeout(py_code: str, timeout_sec: int = 5):
     if z3 is None:
         return False, "", "z3-solver not installed", "z3-missing"
 
-    # Restricted globals: allow only z3 and builtins we need for print/len/range
+    
     safe_builtins = {
         "print": print, "len": len, "range": range, "min": min, "max": max, "abs": abs, "str": str, "int": int, "float": float, "bool": bool
     }

@@ -1,14 +1,9 @@
-# ---- eval_client.py ----
 import os, json, time, argparse, pathlib
 import requests
 
 BACKEND = os.getenv("BACKEND_URL", "http://127.0.0.1:8001")
 
 def load_questions(path):
-    """
-    Returns a list of dicts: {"id": <custom id or None>, "question": <text>}.
-    Supports .jsonl with {"id":..., "question":...} or .txt (one question per line).
-    """
     qs = []
     with open(path, "r", encoding="utf-8") as f:
         if path.endswith(".jsonl"):
@@ -33,14 +28,14 @@ def ask(question_text, use_rag: bool, retrieval_mode="hybrid", temperature=0.2, 
         "temperature": temperature,
         "max_new_tokens": max_new_tokens,
         "use_rag": use_rag,
-        "retrieval_mode": retrieval_mode,  # correct key for backend
+        "retrieval_mode": retrieval_mode, 
     }, timeout=300)
     dt = time.time() - t0
     r.raise_for_status()
     js = r.json()
     reply = (js.get("reply") or "").strip()
-    hits  = js.get("hits", [])            # used by eval_report for retrieval quality
-    tokens_out = max(1, len(reply) // 4)  # crude proxy
+    hits  = js.get("hits", [])            
+    tokens_out = max(1, len(reply) // 4)  
     return reply, dt, tokens_out, hits
 
 def main():
@@ -70,8 +65,8 @@ def main():
                 )
                 rec = {
                     "run_id": ts,
-                    "qid": qid,                 # internal sequential id
-                    "qid_custom": qcustom,      # your original id from JSONL (may be None)
+                    "qid": qid,                 
+                    "qid_custom": qcustom,     
                     "question": qtext,
                     "use_rag": use_rag,
                     "mode": args.mode,

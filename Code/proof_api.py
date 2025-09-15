@@ -25,17 +25,15 @@ def _log_proof(rec: dict):
     with open(LOG_PATH, "a", encoding="utf-8") as f:
         f.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
-# --------------------------- Schemas ---------------------------
 class ProveIn(BaseModel):
-    tool: str                 # "coq" | "isabelle" | "z3py" | "z3py_run"
-    goal: str                 # natural language objective / property
-    context: str | None = ""  # optional domain context or spec text
+    tool: str                
+    goal: str                 
+    context: str | None = ""  
     assumptions: list[str] | None = None
     max_new_tokens: int | None = 300
     temperature: float | None = 0.2
-    timeout_sec: int | None = 8  # for z3py_run
+    timeout_sec: int | None = 8  
 
-# --------------------------- Helpers ---------------------------
 def _strip_code_fence(s: str) -> str:
     fence = re.search(r"```(?:[a-zA-Z0-9_+-]*)\s*(.*?)```", s, flags=re.S)
     if fence:
@@ -67,7 +65,6 @@ def _tool_block_header(tool: str) -> str:
         return "```coq"
     if tool == "isabelle":
         return "```isabelle"
-    # default z3py (python)
     return "```python"
 
 def _build_codegen_prompt(tool: str, goal: str, context: str, assumptions: list[str] | None) -> tuple[str, str]:
@@ -100,7 +97,6 @@ def _build_codegen_prompt(tool: str, goal: str, context: str, assumptions: list[
 
     return sys_prompt, "\n".join(user)
 
-# --------------------------- Optional Z3 sandbox ---------------------------
 def _limit_resources(mem_mb=320, cpu_sec=5):
     """Apply soft resource limits for the current process (Linux/Unix)."""
     resource.setrlimit(resource.RLIMIT_AS, (mem_mb * 1024 * 1024, mem_mb * 1024 * 1024))
@@ -162,7 +158,6 @@ def _run_z3py(code: str, timeout_sec: int = 8) -> dict:
         except Exception:
             pass
 
-# --------------------------- Routes ---------------------------
 @app.post("/prove")
 def prove(inp: ProveIn):
     t0 = time.time()
@@ -186,12 +181,10 @@ def prove(inp: ProveIn):
     )
     code = _strip_code_fence(code_raw)
 
-    # Defaults for logging
     exec_res = None
     proof_success = None
     error_type = "not_executed" if tool in ("coq", "isabelle", "z3py") else None
 
-    # Optionally run Z3
     if tool == "z3py_run":
         exec_res = _run_z3py(code, timeout_sec=int(inp.timeout_sec or 8))
         proof_success = bool(exec_res.get("ok"))
@@ -205,7 +198,7 @@ def prove(inp: ProveIn):
 
     latency = round(time.time() - t0, 3)
 
-    # LOG the request/response
+
     _log_proof({
         "tool": tool,                       
         "goal": inp.goal,
@@ -221,7 +214,6 @@ def prove(inp: ProveIn):
         "error_type": error_type            
     })
 
-    #Response back to caller
     if tool == "z3py_run":
         return {
             "ok": True,

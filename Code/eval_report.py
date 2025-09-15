@@ -1,4 +1,3 @@
-# ---- eval_report.py (extended: supports chat runs AND proof runs) ----
 import argparse, json, math, sys
 from pathlib import Path
 
@@ -6,7 +5,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# -------- optional readers (unchanged) --------
 try:
     from docx import Document as _DocxDocument
 except Exception:
@@ -16,14 +14,14 @@ try:
 except Exception:
     _PdfReader = None
 
-# Optional semantic model (unchanged)
+
 try:
     from sentence_transformers import SentenceTransformer, util as st_util
     _SEM_MODEL = SentenceTransformer("all-MiniLM-L6-v2")
 except Exception:
     _SEM_MODEL = None
 
-# ---------------- chat loaders (unchanged core) ----------------
+
 def load_runs(run_dir: Path) -> pd.DataFrame:
     runs_path = run_dir / "runs.jsonl"
     if not runs_path.exists():
@@ -65,7 +63,7 @@ def ensure_human_columns(df: pd.DataFrame) -> pd.DataFrame:
             df[col] = "" if col == "notes" else pd.NA
     return df
 
-# ---------------- chat auto-metrics (unchanged) ----------------
+
 def compute_keyword_hit(row, topk=3):
     q = str(row.get("question","")).lower()
     r = str(row.get("reply","")).lower()
@@ -90,7 +88,7 @@ def add_basic_auto_metrics(df: pd.DataFrame) -> pd.DataFrame:
     df["sem_sim"]  = df.apply(compute_semantic_sim_answer, axis=1)
     return df
 
-# ---------------- retrieval content loader (unchanged) ----------------
+
 SUPPORTED_EXTS = {".txt", ".md", ".docx", ".csv", ".pdf"}
 
 def _read_text(path: Path, max_chars: int = 1500) -> str:
@@ -137,7 +135,7 @@ def _read_text(path: Path, max_chars: int = 1500) -> str:
         txt = txt[:max_chars] + " …"
     return txt
 
-# ---------------- semantic retrieval metrics (unchanged) ----------------
+
 def compute_semantic_retrieval_scores(row, knowledge_dir: Path) -> tuple[float, float, str]:
     if _SEM_MODEL is None:
         return np.nan, np.nan, "[]"
@@ -180,7 +178,7 @@ def add_semantic_retrieval_metrics(df: pd.DataFrame, knowledge_dir: Path) -> pd.
     df["sem_retrieval_topk"] = per_doc_json
     return df
 
-# ---------------- outputs ----------------
+
 def write_tables(df: pd.DataFrame, out_path: Path) -> Path:
     df.to_csv(out_path, index=False)
     return out_path
@@ -197,7 +195,6 @@ def bar_plot(values: dict, title: str, ylabel: str, out_path: Path):
     plt.savefig(out_path)
     plt.close()
 
-# ---------------- proof-run loader ----------------
 def load_proofs(proof_run_dir: Path) -> pd.DataFrame:
     p = proof_run_dir / "proofs.jsonl"
     if not p.exists():
@@ -209,7 +206,6 @@ def load_proofs(proof_run_dir: Path) -> pd.DataFrame:
             if s:
                 rows.append(json.loads(s))
     df = pd.DataFrame(rows)
-    # Normalize
     for col in ["tool","goal","code","error_type"]:
         if col not in df.columns: df[col] = ""
     if "proof_success" not in df.columns: df["proof_success"] = pd.NA
@@ -217,7 +213,6 @@ def load_proofs(proof_run_dir: Path) -> pd.DataFrame:
         df["latency_sec"] = pd.to_numeric(df["latency_sec"], errors="coerce")
     return df
 
-# ---------------- main ----------------
 def main():
     ap = argparse.ArgumentParser(
         description="Summarize chat runs and/or proof runs; compute metrics; save CSV + charts."
@@ -230,7 +225,6 @@ def main():
                     help="Path to backend knowledge/ for retrieval quality (chat only).")
     args = ap.parse_args()
 
-    # ---------- CHAT SUMMARY (optional) ----------
     if args.run_dir:
         run_dir = Path(args.run_dir).expanduser().resolve()
         df = load_runs(run_dir)
@@ -238,7 +232,6 @@ def main():
         df = add_basic_auto_metrics(df)
         df = add_semantic_retrieval_metrics(df, Path(args.knowledge_dir).expanduser().resolve())
 
-        # Averages by RAG
         avg = df.groupby("rag", dropna=False).agg(
             avg_latency_sec=("latency_sec", "mean"),
             avg_tokens=("tokens_out", "mean"),
@@ -252,7 +245,6 @@ def main():
         out_csv = run_dir / "report_chat.csv"
         write_tables(df, out_csv)
 
-        # Charts
         avg_off = float(avg.loc["OFF", "avg_latency_sec"]) if "OFF" in avg.index else float("nan")
         avg_on  = float(avg.loc["ON",  "avg_latency_sec"])  if "ON"  in avg.index else float("nan")
         tok_off = float(avg.loc["OFF", "avg_tokens"])       if "OFF" in avg.index else float("nan")
@@ -269,12 +261,10 @@ def main():
         print(avg[shown_cols])
         print(f"Saved CSV: {out_csv}")
 
-    # ---------- PROOF SUMMARY (optional) ----------
     if args.proof_run_dir:
         pr_dir = Path(args.proof_run_dir).expanduser().resolve()
         pdf = load_proofs(pr_dir)
 
-        # Success rate per tool
         grp = pdf.groupby("tool", dropna=False)
         summary = grp.agg(
             n=("tool","count"),
@@ -284,8 +274,7 @@ def main():
         out_csv_proofs = pr_dir / "report_proofs.csv"
         write_tables(pdf, out_csv_proofs)
 
-        # Chart: proof success by tool
-        # Convert success_rate NaNs to 0 for plotting clarity
+     
         plot_vals = {idx: (0.0 if (pd.isna(row["success_rate"])) else float(row["success_rate"])) for idx, row in summary.iterrows()}
         bar_plot(plot_vals, "Proof Success Rate by Tool", "success rate (0–1)", pr_dir / "proof_success_by_tool.png")
 

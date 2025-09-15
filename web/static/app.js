@@ -1,4 +1,3 @@
-// ===================== DOM refs =====================
 const chatLog     = document.getElementById("chat-log");
 const chatForm    = document.getElementById("chat-form");
 const chatInput   = document.getElementById("chat-input");
@@ -8,7 +7,7 @@ const copyBtn     = document.getElementById("copy-last-btn");
 const chips       = document.getElementById("chips");
 const statusDot   = document.getElementById("status-dot");
 
-// NEW: Mode select from main UI
+
 const modeSel     = document.getElementById("mode");
 
 const settingsBtn   = document.getElementById("settings-btn");
@@ -17,10 +16,8 @@ const settingsClose = document.getElementById("settings-close");
 const tempRange     = document.getElementById("temp-range");
 const tempVal       = document.getElementById("temp-val");
 
-// RAG toggle (checkbox with id="use-rag" in main UI)
 const useRagCb = document.getElementById("use-rag");
 
-// Optional info panel
 const infoPanel = document.getElementById("info-panel");
 const infoTitle = document.getElementById("info-title");
 const infoBody  = document.getElementById("info-body");
@@ -29,12 +26,9 @@ document.getElementById("info-close")?.addEventListener("click", ()=> { if (info
 let lastBotText = "";
 let temperature = window.DEFAULT_TEMPERATURE ?? 0.2;
 
-// Always read the latest selection pushed by base.html settings modal
 const getRetrievalMode = () => (window.RETRIEVAL_MODE || "hybrid");
-// NEW: helper to read mode
 const getMode = () => (modeSel?.value || "simple");
 
-// ===================== Helpers =====================
 const esc = s => s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
 function mdLite(text){
   let out = esc(text);
@@ -64,11 +58,9 @@ function addRow(text, who, sources){
   bubble.className = `msg ${who}`;
   bubble.innerHTML = mdLite(text);
 
-  // NEW: append sources as a muted line (not inline HTML)
   if (Array.isArray(sources) && sources.length) {
     const cite = document.createElement("div");
     cite.className = "muted";
-    // show only top-1, change slice(0,3) if you want top-3
     cite.textContent = "Retrieved: " + sources.slice(0, 1).join(", ");
     bubble.appendChild(cite);
   }
@@ -109,7 +101,6 @@ function addTyping(){
   return row;
 }
 
-// ===================== Health / metrics =====================
 async function healthPing(){
   try{
     const t0 = performance.now();
@@ -117,7 +108,6 @@ async function healthPing(){
     const js = await r.json();
     const t1 = performance.now();
 
-    // Combined health payload shape: { chat: {...}, proof: {...} }
     const okChat  = !!(js?.chat && (js.chat.status === "ok" || js.chat.ok === true));
     const okProof = !!(js?.proof && (js.proof.status === "ok" || js.proof.ok === true));
     const allGood = okChat && okProof;
@@ -126,7 +116,6 @@ async function healthPing(){
     if (lat) lat.textContent = `${Math.round(t1 - t0)} ms`;
 
     statusDot?.classList.toggle("danger", !allGood);
-    // Optional tooltip to see which side is failing
     if (statusDot){
       statusDot.title = `chat: ${okChat ? "ok" : "down"} • proof: ${okProof ? "ok" : "down"}`;
     }
@@ -140,7 +129,6 @@ async function healthPing(){
 healthPing();
 setInterval(healthPing, 15000);
 
-// ===================== Chips =====================
 if (chips){
   chips.addEventListener("click", e=>{
     const b = e.target.closest(".chip");
@@ -150,7 +138,6 @@ if (chips){
   });
 }
 
-// ===================== Settings =====================
 settingsBtn?.addEventListener("click", () => {
   if (!settingsModal) return;
   if (typeof settingsModal.showModal === "function") {
@@ -173,7 +160,6 @@ tempRange?.addEventListener("input", ()=>{
   temperature = Number(tempRange.value);
 });
 
-// ===================== Chat flow =====================
 chatForm?.addEventListener("submit", async (e)=>{
   e.preventDefault();
   const text = chatInput.value.trim();
@@ -201,7 +187,6 @@ chatForm?.addEventListener("submit", async (e)=>{
     if (r.ok && js.reply){
       lastBotText = js.reply;
 
-      // Optional: show which files were used by RAG (if any)
       addRow(js.reply, "bot", js.hits);
     } else {
       lastBotText = "";
@@ -231,7 +216,6 @@ copyBtn?.addEventListener("click", async ()=>{
   }catch{}
 });
 
-// ===================== Polyhedron + tooltips + click-to-panel =====================
 (function initPolyhedron(){
   const canvas = document.getElementById("scene");
   if (!canvas || !window.THREE) return;

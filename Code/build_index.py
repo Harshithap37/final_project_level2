@@ -49,7 +49,7 @@ def main():
     print(f"Loaded {len(docs)} documents from {KNOW_DIR}")
 
     if not docs:
-        print("⚠️ No documents found — check that your PDFs/TXT are in:", KNOW_DIR)
+        print("No documents found — check that your PDFs/TXT are in:", KNOW_DIR)
         return
 
     embeddings = model.encode(docs, show_progress_bar=True, convert_to_numpy=True)
@@ -62,7 +62,7 @@ def main():
     with open(META_FILE, "wb") as f:
         pickle.dump(meta, f)
 
-    print(f"✅ Index built with {len(docs)} documents and saved to {INDEX_FILE}")
+    print(f"Index built with {len(docs)} documents and saved to {INDEX_FILE}")
 
 if __name__ == "__main__":
     main()

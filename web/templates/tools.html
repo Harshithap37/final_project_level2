@@ -35,9 +35,7 @@
   </div></article>
 </div>
 
-<!-- ========================= -->
-<!--   Proof Assistant Panel   -->
-<!-- ========================= -->
+
 <article class="card" style="margin-top:16px;"><div class="card-inner">
   <h3>Proof Assistant (Level 2)</h3>
   <p class="muted">Generate Coq / Isabelle snippets or Z3 scripts, and optionally run Z3.</p>
@@ -97,11 +95,9 @@
 {% endblock %}
 
 {% block extra_head %}
-  <!-- Optional: small styles for the panel -->
   <link rel="stylesheet" href="{{ url_for('static', filename='proof.css') }}">
 {% endblock %}
 
 {% block scripts %}
-  <!-- Page-specific JS to call /prove -->
   <script src="{{ url_for('static', filename='proof.js') }}"></script>
 {% endblock %}

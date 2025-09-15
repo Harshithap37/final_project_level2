@@ -1,4 +1,3 @@
-# ---- eval_proofs.py ----
 import os, json, time, argparse, pathlib, tempfile, subprocess, sys
 
 PROOF_API = os.getenv("PROOF_BACKEND_URL", "http://127.0.0.1:8001/proofapi")
@@ -29,7 +28,7 @@ def _local_check_coq(code: str, timeout: int = 15) -> tuple[bool,str]:
     try:
         subprocess.run(["coqc", "-v"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except Exception:
-        return (None, "unchecked")  # Coq not installed
+        return (None, "unchecked")  
     with tempfile.NamedTemporaryFile("w", suffix=".v", delete=False) as f:
         f.write(code)
         path = f.name
@@ -50,11 +49,11 @@ def _local_check_isabelle(code: str, timeout: int = 20) -> tuple[bool,str]:
     try:
         subprocess.run(["isabelle", "version"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except Exception:
-        return (None, "unchecked")  # Isabelle not installed
+        return (None, "unchecked")  
     with tempfile.NamedTemporaryFile("w", suffix=".thy", delete=False) as f:
         f.write(code)
         path = f.name
-    # Minimal batch process; exact args depend on install. We use a generic 'process'.
+   
     try:
         proc = subprocess.run(["isabelle", "process", "-e", f"use_thy \"{path}\""],
                               stdout=subprocess.PIPE, stderr=subprocess.PIPE,
@@ -87,10 +86,10 @@ def prove_one(task, temperature=0.2, max_new_tokens=300, timeout_sec=8,
     code = js.get("code") or ""
     tool = js.get("tool") or payload["tool"]
 
-    # Default outcome
+    
     proof_success, error_type = None, "unchecked"
 
-    # If Z3py_run executed server-side, we have exec info
+    
     if tool == "z3py" and "exec" in js:
         ex = js["exec"] or {}
         ok = bool(ex.get("ok"))
@@ -106,7 +105,7 @@ def prove_one(task, temperature=0.2, max_new_tokens=300, timeout_sec=8,
             else:
                 error_type = "runtime"
 
-    # Optional local checks for Coq/Isabelle (only if requested)
+   
     if local_check and proof_success is None:
         if tool == "coq":
             proof_success, error_type = _local_check_coq(code)
@@ -124,9 +123,9 @@ def prove_one(task, temperature=0.2, max_new_tokens=300, timeout_sec=8,
         "timeout_sec": payload["timeout_sec"],
         "latency_sec": round(dt, 3),
         "code": code,
-        "exec": js.get("exec"),         # present for z3py_run → z3py
-        "proof_success": proof_success,  # True/False/None
-        "error_type": error_type,        # "ok" / "timeout" / "syntax" / "runtime" / "unchecked"
+        "exec": js.get("exec"),        
+        "proof_success": proof_success,  
+        "error_type": error_type,        
     }
 
 def main():

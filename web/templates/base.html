@@ -19,17 +19,17 @@
     window.DEFAULT_TEMPERATURE  = 0.20;
   </script>
 
-  {# <-- NEW: allow subpages (e.g., Tools) to add extra CSS #}
+  {# NEW: allow subpages (e.g., Tools) to add extra CSS #}
   {% block extra_head %}{% endblock %}
 </head>
 <body>
-  <!-- Topbar -->
+
   <header class="topbar">
     <div class="brand">
       <span class="glow-dot"></span>
       <div class="brand-text">
         <div class="title">AxiomAI — Formal Verification & Proof Assistants</div>
-        <div class="subtitle">Backed by LLaMA-3 on Stanage (SSH tunnel)</div>
+        <div class="subtitle">Backed by LLaMA-3 on Stanage</div>
       </div>
     </div>
     <nav class="nav">
@@ -43,12 +43,11 @@
     </nav>
   </header>
 
-  <!-- Page content -->
+
   <main class="container">
     {% block content %}{% endblock %}
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div>© 2025 AxiomAI • Formal Methods & Proof Assistants</div>
     <div class="backend">
@@ -58,7 +57,7 @@
     </div>
   </footer>
 
-  <!-- Settings Modal -->
+ 
   <dialog id="settings-modal" class="settings">
     <div class="settings-head">
       <h3>Settings</h3>
@@ -66,21 +65,21 @@
     </div>
 
     <div class="settings-body">
-      <!-- Temperature -->
+ 
       <label class="field">
         <span>Creativity (temperature): <strong id="temp-val">0.20</strong></span>
         <input id="temp-range" type="range" min="0.0" max="1.0" step="0.05" value="0.20" />
         <small class="hint">Lower = more factual, Higher = more creative</small>
       </label>
 
-      <!-- RAG toggle -->
+
       <label class="field switch">
         <input type="checkbox" id="use-rag-settings" checked />
         <span>Use knowledge (RAG)</span>
         <small class="hint">Augment answers with your Knowledge files when relevant.</small>
       </label>
 
-      <!-- Retrieval mode -->
+     
       <label class="field">
         <span>Retrieval mode</span>
         <select id="retrieval-mode">
@@ -97,14 +96,14 @@
     </div>
   </dialog>
 
-  <!-- Three.js + extras -->
+
   <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
           onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 
-  <!-- Modal syncing -->
+
   <script>
     (function wireSettingsModal(){
       const btn  = document.getElementById("settings-btn");
@@ -138,10 +137,10 @@
     })();
   </script>
 
-  <!-- Main app JS -->
+
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 
-  {# <-- NEW: allow subpages (e.g., Tools) to add extra JS #}
+  {# NEW: allow subpages (e.g., Tools) to add extra JS #}
   {% block scripts %}{% endblock %}
 </body>
 </html>

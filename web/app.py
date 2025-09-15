@@ -1,13 +1,11 @@
-# ---- web/app.py ----
 from flask import Flask, render_template, request, jsonify
 import requests, os
 
 app = Flask(__name__)
 
-# Backends (override via env if you deploy differently)
 CHAT_BACKEND  = os.getenv("CHAT_BACKEND_URL",  "http://127.0.0.1:8001/chatapi")
 PROOF_BACKEND = os.getenv("PROOF_BACKEND_URL", "http://127.0.0.1:8001/proofapi")
-# ---------- Page routes ----------
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -33,7 +31,7 @@ def upload_page():
     return render_template("upload.html")
 
 
-# llama3_api.py
+
 @app.route("/ask", methods=["POST"])
 def ask():
     data = request.get_json(force=True) or {}
@@ -112,7 +110,7 @@ def reindex():
         return jsonify({"error": f"Reindex backend error: {e}"}), 500
 
 
-# proof_api.py
+
 @app.route("/prove", methods=["POST"])
 def prove():
     data = request.get_json(force=True) or {}
@@ -140,7 +138,6 @@ def prove():
         return jsonify({"error": f"Proof backend error: {e}"}), 500
 
 
-# ---------- Run locally ----------
 if __name__ == "__main__":
     # Example overrides:
     # CHAT_BACKEND_URL=http://127.0.0.1:8000 PROOF_BACKEND_URL=http://127.0.0.1:8001 python web/app.py
